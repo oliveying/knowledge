@@ -180,3 +180,46 @@
 2. 从储藏中创建分支
 
         $ git stash branch dev   // 相当于把master分支提交到了新创建的dev分支
+
+## 找回丢失的commit 参考[找回Git中丢失的Commit](https://www.jianshu.com/p/8b4c95677ee0)
+
+* 由于误操作或者其他原因，commit丢失了，不要谎，我们在Git上做的任何操作都只是在原来之前的操作上做修改，并且会被记录下来保存，也就是说无论你做了什么，对于Git来说都可以进行回滚操作。
+
+        git reflog
+        git reset --hard 88888 // 版本号
+        git log // 已恢复
+
+
+## git reset 的具体用法
+
+<font color="red">git reset [--hard|soft|mixed|merge|keep] [<commit>或HEAD]</font>
+
+* 作用：将当前分支reset到指定的<commit>或者HEAD(默认为最新的一次提交，即重设到最新一次提交之前的版本)
+
+index，执行git add的操作，会对文件创建索引，所有被跟踪的文件索引会放入index，表示文件被修改待提交
+working tree，当前工作区，被修改但未被add的文件，存储在工作区
+ORIG_HEAD,用于指向前一个操作状态,每次的commit或者pull或者reset，git 都会把老的HEAD拷贝到.git/ORIG_HEAD，通过对ORIG_HEAD的引用可以指向前一次的操作状态
+
+1. hard(慎用)
+* 重设index和working tree,所有改变都会被丢弃，包括文件的修改、新增、删除等操作，并把HEAD指向<commit>，
+因此通过git log查看版本提交记录，被reset的版本记录会被丢弃，但可以通过git reflog查看
+2. soft
+* 不重设index和working tree,仅仅将HEAD指向<commit>,表示已经commit的文件会取消commit,
+通过git status查看，文件会处于待commit状态“Changes to be committed”
+3. mixed(默认)
+* 重设index,但不重设working tree,表示已经被add的文件，被取消add，
+通过git status查看，文件会处于待添加索引状态 “Changes not staged for commit”
+4. merge
+* 重设index，重设working tree中发生变化的文件，但是保留index和working tree不一致的文件
+5. keep
+* 重设index，重设working tree中发生变化的文件
+
+### 记录的保存问题###
+我们前面说到在Git上做的所有操作都被保存到记录里，一般是从你本地Git库执行clone开始的所有操作都保存了下来，所以不用担心很久之前的一些Commit log找不到，你或许期望去为已删除的提交设置一个更长的保存周期。例如：
+
+        $ git config gc.pruneexpire "30 days"
+意思是一个被删除的提交会在删除30天后，且运行 git gc 以后，被永久丢弃。
+你或许还想关掉 git gc 的自动运行：
+
+        $ git config gc.auto 0
+在这种情况下提交将只在你手工运行 git gc 的情况下才永久删除。

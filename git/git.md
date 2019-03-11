@@ -176,3 +176,7 @@
         $ git stash list  // 自己储藏的列表
         $ git stash apply // 最新实施的储藏，为默认
         $ git stash apply stash@{2}  // 指明哪个
+
+2. 从储藏中创建分支
+
+        $ git stash branch dev   // 相当于把master分支提交到了新创建的dev分支

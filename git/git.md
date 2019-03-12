@@ -70,7 +70,7 @@
 * 在github和gitlab上添加公钥即可，这里不再多说。
 * 测试
 
-    ![测试](./step2.png)
+    ssh -T git@github.com
 
     分别测试githab和gitlub
 

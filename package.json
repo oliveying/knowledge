@@ -1,0 +1,22 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "> auth duruo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duruo-web/node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/duruo-web/node/issues"
+  },
+  "homepage": "https://github.com/duruo-web/node#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2"
+  }
+}

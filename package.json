@@ -4,7 +4,9 @@
   "description": "> auth duruo",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,10 @@
   },
   "homepage": "https://github.com/duruo-web/node#readme",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2"
+    "cheerio": "^1.0.0-rc.2",
+    "vuepress": "^0.14.10"
+  },
+  "resolutions": {
+    "webpack-dev-middleware": "3.6.0"
   }
 }

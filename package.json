@@ -1,0 +1,19 @@
+{
+  "name": "knowledge",
+  "version": "1.0.0",
+  "description": "> auth duruo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duruo-web/knowledge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/duruo-web/knowledge/issues"
+  },
+  "homepage": "https://github.com/duruo-web/knowledge#readme"
+}

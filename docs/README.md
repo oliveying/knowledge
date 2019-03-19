@@ -16,3 +16,8 @@
           "dependencies": {
               "vuepress": "^0.14.10"
             }
+
+
+**npm run docs:build**  // 打包
+
+**npm run docs:dev**  //启动

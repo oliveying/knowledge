@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "deploy": "gh-pages -d dist",
+    "deploy:build": "npm run docs:build && gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -24,5 +26,8 @@
   },
   "resolutions": {
     "webpack-dev-middleware": "3.6.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }

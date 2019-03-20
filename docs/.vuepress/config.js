@@ -3,8 +3,15 @@ module.exports = {
   title: '杜若的前端，每天进步一点点',  // 设置网站标题
   dest: './dist',   // 设置输出目录
   base: '/duruo/', // 设置站点根路径
+  repo: 'https://github.com/duruo-web/knowledge', // 添加 github 链接
+  locales: {
+    '/': {
+      lang: 'zh-CN',
+      title: 'duruo',
+      description: '每天进步一点点'
+    }
+  },
   themeConfig: {
-    repo: 'https://github.com/duruo-web/knowledge' // 添加 github 链接
     // 添加导航栏
     // nav: [
     //   { text: 'vue', link: '/' },

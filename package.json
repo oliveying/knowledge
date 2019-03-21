@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/duruo-web/node.git"
+    "url": "git+https://github.com/oliveying/node.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/duruo-web/node/issues"
+    "url": "https://github.com/oliveying/node/issues"
   },
-  "homepage": "https://github.com/duruo-web/node#readme",
+  "homepage": "https://github.com/oliveying/node#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "vuepress": "^0.14.10"

@@ -6,7 +6,7 @@ module.exports = {
   locales: {
     '/': {
       lang: 'zh-CN',
-      title: 'duruo',
+      title: 'oliveying',
       description: '每天进步一点点'
     }
   },

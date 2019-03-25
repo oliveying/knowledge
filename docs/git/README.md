@@ -192,7 +192,7 @@
 
 ## git reset 的具体用法
 
-<font color="red">git reset [--hard|soft|mixed|merge|keep] [\<commit\>或HEAD]</font>
+__git reset [--hard|soft|mixed|merge|keep] [\<commit\>或HEAD]__
 
 * 作用：将当前分支reset到指定的\<commit\>或者HEAD(默认为最新的一次提交，即重设到最新一次提交之前的版本)
 

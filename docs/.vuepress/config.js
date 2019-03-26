@@ -19,6 +19,7 @@ module.exports = {
     // 添加导航栏
     nav: [
       {text: 'Home', link: '/'},
+      {text: '启动', link: '/start/'},
       {
         text: '前端技术',
         // 这里是下拉列表展现形式。

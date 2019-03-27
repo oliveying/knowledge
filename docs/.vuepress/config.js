@@ -7,9 +7,15 @@ module.exports = {
     '/': {
       lang: 'zh-CN',
       title: 'oliveying',
-      description: '每天进步一点点'
+      description: '前端知识，JavaScript，html，css，tool，git，markdown',
     }
   },
+  plugins: [
+    ['@vuepress/google-analytics', {
+      ga: 'UA-137025177-1'
+    }],
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  ],
   themeConfig: {
     repo: 'https://github.com/oliveying/knowledge', // 添加 github 链接
     // head: ['link', {
@@ -46,6 +52,12 @@ module.exports = {
         'problem',
         'Math',
       ],
+      '/test_tool/': [
+        'mobile',
+      ],
+      '/git/': [
+        'git',
+      ]
     }
   },
 };

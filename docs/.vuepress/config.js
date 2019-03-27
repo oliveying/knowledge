@@ -19,35 +19,33 @@ module.exports = {
     // 添加导航栏
     nav: [
       {text: 'Home', link: '/'},
-      {text: '启动', link: '/start/'},
       {
         text: '前端技术',
         // 这里是下拉列表展现形式。
         items: [
           {text: 'html', link: '/html/'},
           {text: 'css兼容性', link: '/css_compatibility/'},
-          // { text: 'js', link: '/js/' },
+          { text: 'javascript', link: '/js/' },
           {text: 'h5最新用法', link: '/h5/'},
         ]
       },
       {
         text: '扩展', items: [
+          {text: '启动', link: '/start/'},
           {text: 'git用法', link: '/git/'},
           {text: 'markDown', link: '/markdown/'},
         ]
       },
       {text: '测试', link: '/test_tool/'},
-    ]
-  },
+    ],
     // 为以下路由添加侧边栏
-    // sidebar: {
-    //   '/vue/': [
-    //     'one',
-    //     'two'
-    //   ],
-    //   '/css/': [
-    //     'three',
-    //     'four'
-    //   ]
-    // }
+    sidebar: {
+      '/js/': [
+        'Array',
+        'Date',
+        'problem',
+        'Math',
+      ],
+    }
+  },
 };

@@ -1,4 +1,4 @@
-### [Date](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date)
+### Date
 
 + Date.UTC()  //方法接受的参数同日期构造函数接受最多参数时一样，返回从1970-1-1 00:00:00 UTC到指定日期的的毫秒数。
 + Date.now()  // 方法返回自1970年1月1日 00:00:00 UTC到当前时间的毫秒数。
@@ -68,37 +68,8 @@
             }
 
 
-### [Math](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math)，是一个内置对象
+参考：[https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
-
-1. 得到一个两数之间的随机数
-        function getRandomArbitrary(min, max) {
-            Math.random() * (max-min) + min
-        }
-2. 返回数字的整数部分
-
-        function toInteger(num) {
-            return num < 0 ? Math.ceil(num) : Math.floor(num);
-        }
-
-3. 得到一个两数之间的随机整数
-
-        function getRandomInt(min, max) {
-          min = Math.ceil(min);
-          max = Math.floor(max);
-          return Math.floor(Math.random() * (max - min)) + min; //不含最大值，含最小值
-        }
-4. 得到一个两数之间的随机整数，包括两个数在内
-
-        function getRandomIntInclusive(min, max) {
-          min = Math.ceil(min);
-          max = Math.floor(max);
-          return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值
-        }
-
-### Array
-
-![数组](./array.png)
 
 
 

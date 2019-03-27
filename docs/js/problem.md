@@ -1,4 +1,4 @@
-1. 检测下拉到底部
+## 检测下拉到底部
 
         $(document).ready(function() {
           var nScrollHight = 0; //滚动距离总长

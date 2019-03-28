@@ -28,7 +28,7 @@
     "webpack-dev-middleware": "3.6.0"
   },
   "devDependencies": {
-    "gh-pages": "^2.0.1",
-    "@vuepress/plugin-google-analytics": "^1.0.0-alpha.0"
+    "@vuepress/plugin-google-analytics": "^1.0.0-alpha.0",
+    "gh-pages": "^2.0.1"
   }
 }

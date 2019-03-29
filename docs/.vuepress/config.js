@@ -30,7 +30,7 @@ module.exports = {
         // 这里是下拉列表展现形式。
         items: [
           {text: 'html', link: '/html/'},
-          {text: 'css兼容性', link: '/css_compatibility/'},
+          {text: 'css', link: '/css/'},
           { text: 'javascript', link: '/js/' },
           {text: 'h5最新用法', link: '/h5/'},
         ]
@@ -54,6 +54,11 @@ module.exports = {
       ],
       '/test_tool/': [
         'mobile',
+      ],
+      '/css/': [
+        'css',
+        'css_compatibility',
+        'form',
       ],
       '/git/': [
         'git',

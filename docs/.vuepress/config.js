@@ -43,6 +43,7 @@ module.exports = {
         ]
       },
       {text: '测试', link: '/test_tool/'},
+      {text: 'mac命令行', link: '/mac/'},
     ],
     // 为以下路由添加侧边栏
     sidebar: {

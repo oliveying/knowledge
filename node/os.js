@@ -1,4 +1,4 @@
-const os = require('test/os');
+const os = require('node/os');
 const networkInterfaces = os.networkInterfaces();
 
 console.log(networkInterfaces)

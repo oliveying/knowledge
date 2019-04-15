@@ -50,3 +50,6 @@ tree -L 3 -I "node_modules"
 
 ## chmod +x  .sh 给执行权限
 
+## 在pages粘贴不带格式的内容
+`Option+Shift+Command+V`
+

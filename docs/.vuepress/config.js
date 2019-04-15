@@ -54,6 +54,7 @@ module.exports = {
         'Date',
         'problem',
         'Math',
+        'function',
       ],
       '/test_tool/': [
         'mobile',

@@ -40,7 +40,38 @@ var add = function (a, b) {
 
 JavaScript中一共有四种调用模式：方法调用模式、函数调用模式、构造器调用模式和 apply 调用模式。这些模式在如何初始化关键参数this上存在差异。
 
+#### 方法调用模式
 
+当一个函数被保存为对象的一个属性时，我们称它为一个方法。当一个方法被调用时，this被绑定到该对象。如果一个调用表达式包含一个属性存取表达式（即一个.点表达式或者[subscript]下标表达式），那么它被当作一个方法来调用。
+
+```
+// 创建一个 myObject 。它有一个value 属性和一个 increment 方法。
+// increment 方法接收一个可选的参数。如果参数不是数字，那么默认使用数字1。
+
+var myObject = {
+    value: 0,
+    increment: function (inc) {
+        this.value += typeof inc === 'number' ? inc : 1;
+    }
+}
+
+myObject.increment();
+document.writeIn(myObject.value);
+
+myObject.increment(2);
+document.writeIn(myObject.value);
+```
+
+方法可以使用 this 去访问对象，所以它能从对象中取值或修改该对象。this 到对象的绑定发生在调用的时候。这个"超级"迟绑定（very late bingding）使得函数对 this 高度复用。通过 this 可取得它们所属对象对上下文对方法称为公共方法
+
+#### 函数调用模式
+
+当一个函数并非一个对象的属性时，那么它被当作一个函数来调用；
+```
+var sum = add(3, 4);   // sum 的值为7
+```
+
+当函数以此模式调用时，this 被绑定到全局对象。这是语言设计上的一个错误。倘若语言设计正确，当内部函数被调用时， this应该仍然绑定到外部函数的 this 变量。这个错误的后果是方法不能利用内部函数来帮助它工资，因为内部函数的 this 被绑定来错误的值，所以不能共享该方法对对象的访问权
 
 
 

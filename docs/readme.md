@@ -1,1 +1,16 @@
-分支机构,变更信息,理事会,股东信息,对外投资,主要人员,监事会,,竞品信息,融资历史,核心团队,企业业务,投资事件,,项目信息,委托理财情况,大额捐赠信息,代理案件,代理客户,年检结果,,商标信息,专利信息,软件著作权聘,招投标,债券信息,资质证书,抽查检查,购地信息,进出口信用,证书信息,招聘,产品信息,税务评级,微信公众号信息,电信许可,历史行政处罚,,上市公告,分红情况,股本变动,参股控股,高管信息,,招聘,核心成员,竞品推荐,企业业务,融资历程,微信公众号,相关新闻
+---
+home: true
+heroImage: /hero.png
+actionText: 起步 →
+actionLink: /guide/
+features:
+- title: 简明优先
+  details: 对以 markdown 为中心的项目结构，做最简化的配置，帮助你专注于创作。
+- title: Vue 驱动
+  details: 享用 Vue + webpack 开发环境，在 markdown 中使用 Vue 组件，并通过 Vue 开发自定义主题。
+- title: 性能高效
+  details: VuePress 将每个页面生成为预渲染的静态 HTML，每个页面加载之后，然后作为单页面应用程序(SPA)运行。
+footer: MIT Licensed | Copyright © 2018-present Evan oliveying
+---
+
+<Home/>

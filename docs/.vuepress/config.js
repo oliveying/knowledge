@@ -38,7 +38,7 @@ module.exports = {
       {
         text: '扩展', items: [
           {text: '启动', link: '/start/'},
-          {text: 'git用法', link: '/git/'},
+          {text: '工具用法', link: '/tool/'},
           {text: 'markDown', link: '/markdown/'},
         ]
       },
@@ -64,8 +64,9 @@ module.exports = {
         'css_compatibility',
         'form',
       ],
-      '/git/': [
+      '/tool/': [
         'git',
+        'yarn',
       ],
       '/h5/': [
         'h5',

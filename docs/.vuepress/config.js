@@ -43,7 +43,6 @@ module.exports = {
         ]
       },
       {text: '测试', link: '/test_tool/'},
-      {text: 'mac命令行', link: '/mac/'},
       {text: 'problem', link: '/problem/'},
       {text: 'error', link: '/error/'},
     ],
@@ -67,6 +66,7 @@ module.exports = {
       '/tool/': [
         'git',
         'yarn',
+        'command'
       ],
       '/h5/': [
         'h5',

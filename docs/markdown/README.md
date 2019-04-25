@@ -209,4 +209,8 @@ Markdown的使用者：
 |MarkDown                              |[https://github.com/younghz/Markdown](https://github.com/younghz/Markdown "Markdown")|
 |MarkDownCopy                              |[https://github.com/younghz/Markdown](https://github.com/younghz/Markdown "Markdown")|
 
+### 扩展表格对齐方式
+|左|中|右|
+|:------------------------------------:|:-----|-----:|
+|哈咯|你好啊|小可爱|
 关于其它扩展语法可参见具体工具的使用说明。

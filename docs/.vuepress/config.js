@@ -33,6 +33,7 @@ module.exports = {
           {text: 'css', link: '/css/'},
           { text: 'javascript', link: '/js/' },
           {text: 'h5最新用法', link: '/h5/'},
+          {text: 'node', link: '/node/'},
         ]
       },
       {
@@ -51,9 +52,9 @@ module.exports = {
       '/js/': [
         'Array',
         'Date',
-        'problem',
         'Math',
         'function',
+        'problems',
       ],
       '/test_tool/': [
         'mobile',
@@ -62,6 +63,7 @@ module.exports = {
         'css',
         'css_compatibility',
         'form',
+        'layout',
       ],
       '/tool/': [
         'git',
@@ -70,6 +72,9 @@ module.exports = {
       ],
       '/h5/': [
         'h5',
+      ],
+      '/node/': [
+        'crypto',
       ]
     }
   },

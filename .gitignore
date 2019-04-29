@@ -7,3 +7,6 @@ package-lock.json
 docs/.vuepress/dist/*
 
 dist/*
+
+practice/
+practice/*

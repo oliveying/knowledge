@@ -74,12 +74,93 @@
 // 注意该函数内部定义的变量 sum 不会与函数外部定义的sum 产生冲突。
 // 该函数只会看到内部的那个变量。
 
-var sum = function () {
-  var i, sum = 0;
-  for (i = 0; i < arguments.length; i ++) {
-    sum += arguments[i];
+// var sum = function () {
+//   var i, sum = 0;
+//   for (i = 0; i < arguments.length; i ++) {
+//     sum += arguments[i];
+//   }
+//   return sum;
+// };
+//
+// console.log(sum(4, 3, 2, 2, 1, 2, 7)); // 21
+
+// var add = function (a, b) {
+//   if (typeof a !== 'number' || typeof b !== 'number') {
+//     throw {
+//       name: 'TypeError',
+//       message: 'add needs numbers'
+//     }
+//   }
+//   return a + b;
+// };
+//
+//
+// // 构造一个 try_it 函数，用不正确的方式调用之前的 add 函数
+//
+// var try_it = function () {
+//   try {
+//     add("seven");
+//   } catch (e){
+//     console.log(e.name + ': ' + e.message);
+//   }
+// }
+//
+// try_it();
+
+//
+// Function.prototype.method = function (name, func) {
+//   this.prototype[name] = func;
+//   return this;
+// }
+
+// Number.method('integer', function () {
+//   return Math[this < 0 ? 'ceiling': 'floor'](this);
+// })
+//
+// console.log((-10/3).integer());
+
+
+// String.method('trim', function () {
+//   return this.replace(/^\s+|\s+$/g, '');
+// })
+// console.log('"' + "  neat    ".trim() + '"');
+
+// 有条件的增加一个方法
+
+// Function.prototype.method = function(name, func) {
+//   if (!this.prototype[name]) {
+//     this.prototype[name] = func;
+//   }
+// };
+
+var hanoi = function (disc, src, aux, dst) {
+  if (disc > 0) {
+    hanoi(disc - 1, src, dst, aux);
+    console.log('move disc ' + disc + ' from ' + src + ' to ' + dst);
+    hanoi(disc - 1, aux, src, dst);
   }
-  return sum;
 };
 
-console.log(sum(4, 3, 2, 2, 1, 2, 7)); // 21
+hanoi(3, 'Src', 'Aux', 'Dst');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

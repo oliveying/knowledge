@@ -184,11 +184,162 @@ console.log(sum(4, 3, 2, 2, 1, 2, 7)); // 21
 
 当一个函数被调用时，它从第一个语句开始执行，并在遇到关闭函数体的 } 时结束。那使得函数把控制权交还给调用该函数的程序部分。
 
-return语句可用来使函数提取返回。当 return 被执行时，函数立即返回而不再执行余下的语句。
+return语句可用来使函数提前返回。当 return 被执行时，函数立即返回而不再执行余下的语句。
 
 一个函数总会返回一个值。如果没有指定返回值，则返回 undefined 。
 
 如果函数以在前面加上 new 前缀的方式来调用，且返回值不是一个对象，则返回this （该新对象）。
+
+### 异常
+
+JavaScript 提供了一套异常处理机制。异常是干扰程序的正常流程的非正常（但并非完全出乎意料）的事故。当查出这样的事故时，你的程序应该抛出一个异常；
+
+```
+var add = function (a, b) {
+  if (typeof a !== 'number' || typeof b !== 'number') {
+    throw {
+      name: 'TypeError',
+      message: 'add needs numbers'
+    }
+  }
+  return a + b;
+};
+```
+
+throw 语句中断函数的执行。它应该抛出一个exception对象，该对象包含可识别异常类型的name 属性和一个描述性的 message 属性。你也可以添加其他的属性。
+
+该 exception 对象将被传递到一个 try 的语句的 catch 从句；
+
+```
+// 构造一个 try_it 函数，用不正确的方式调用之前的 add 函数
+
+var try_it = function () {
+  try {
+    add("seven");
+  } catch (e){
+    console.log(e.name + ': ' + e.message);
+  }
+}
+
+try_it();
+```
+
+如果在 try 代码块内抛出了一个异常，控制权就会跳转到它的 catch 从句。
+
+一个 try 语句只会有一个将捕获所有异常的 catch 代码块。如果你的处理手段取决于异常的类型，那么异常处理器必须检查异常对象的 name 属性以确定异常的类型。
+
+### 给类型增加方法
+
+JavaScript 允许给语言的基本类型增加方法。在第三章中，我们已经看到，通过给 Object.prototype 添加方法来使得该方法对所有对象可用。这样对方式对函数、数组、字符串、数字、正则表达式和布尔值同样适用；
+
+举例来说，我们可以通过给 Function.prototype 增加方法来使得该方法对所有函数可用：
+
+```
+Function.prototype.method = function (name, func) {
+  this.prototype[name] = func;
+  return this;
+}
+```
+通过给 Function.prototype 增加一个 method 方法，我们就不必键入prototype 这个属性名。这个缺点也就被掩盖了。
+
+JavaScript 并没有单独整数类型，因此有时候只提取数字中的整数部分是必要的。JavaScript 本身提供的取整方法有些丑陋。我们可以通过给 Number.prototype 添加一个 integer 方法来改善它。它会根据数字的正负来判断是使用 Math.celling 还是 Math.floor。
+
+`测试报错`
+```
+Number.method('integer', function () {
+  return Math[this < 0 ? 'ceiling': 'floor'](this);
+})
+
+console.log((-10/3).integer());
+```
+
+JavaScript 缺少一个移除字符串末端空白的方法。那是一个很容易修复的疏忽：
+
+```
+String.method('trim', function () {
+  return this.replace(/^\s+|\s+$/g, '');
+})
+console.log('"' + "  neat    ".trim() + '"');
+```
+
+我们的 trim 方法使用了一个正则表达式。我们将在第 7 章看到更多关于正则表达式的内容。
+
+通过给基本类型增加方法，我们可以大大提高语言的表现力。因为 JavaScript 原型继承的动态本质，新的方法立刻被赋予到所有的值（对象实例）上，哪怕值（对象实例）是在方法被创建之前就创建好了。
+
+基本类型的原型是公共的结构，所以在类库混用时务必小心。一个保险的做法就是只在确定没有该方法时才添加他。
+
+```
+// 有条件的增加一个方法
+
+Function.prototype.method = function(name, func) {
+  if (!this.prototype[name]) {
+    this.prototype[name] = func;
+  }
+}
+```
+
+另一个要注意的就是 for in 语句用在原型上时表现很糟糕。 我们在第 3 章已经看到了几个减轻这个问题的影响办法：
+1. 我们可以使用 hasOwnProperty 方法去筛选出继承而来的属性，或者我们可以查找特定的类型。
+
+### 递归（Recursion）
+
+递归函数会直接或间接调用自身的一种函数。递归是一种强大的编程技术，它将一个问题分解为一组相似的子问题，每一个都用一个寻常解去解决。一般来说，一个递归函数调用自身去解决它的子问题。
+
+"汉诺塔"是一个著名的难题。塔的设备包括三根柱子和一套直径各不相同的空心圆盘。开始时圆柱子上的所有圆盘都按照较小的圆盘放在较大的圆盘之上的顺序堆叠。目标是通过每次移动一个圆盘到另一根柱子，最终将一堆圆盘移动到目标柱子上，过程中不可以将大的圆盘放置在较小的圆盘之上。这个难题又一个寻常解：
+```
+
+var hanoi = function (disc, src, aux, dst) {
+  if (disc > 0) {
+    hanoi(disc - 1, src, dst, aux);
+    console.log('move disc ' + disc + ' from ' + src + ' to ' + dst);
+    hanoi(disc - 1, aux, src, dst);
+  }
+};
+
+hanoi(3, 'Src', 'Aux', 'Dst');
+```
+圆盘数量为3时，返回这样的解法
+```
+move disc 1 from Src to Dst
+move disc 2 from Src to Aux
+move disc 1 from Dst to Aux
+move disc 3 from Src to Dst
+move disc 1 from Aux to Src
+move disc 2 from Aux to Dst
+move disc 1 from Src to Dst
+
+```
+
+汉诺塔函数的目的是把一堆圆盘从一根柱子全部转移到另一根柱子上，必要时使用辅助柱子。汉诺塔函数将这个问题分解成三个子问题。首先，它移动一对圆盘中较小的盘子到辅助柱上，从而露出下面较大的圆盘；然后，移动下面的圆盘到目标柱子上；最后，将刚才较小的圆盘从辅助柱上再移到目标柱上。
+
+汉诺塔函数通过递归地调用自身，去处理一对圆盘的移动，从而实现这些子步骤。传递给汉诺塔函数的参数包括当前移动的圆盘编号和它将要用到的三根柱子。当它调用自身时，处理的是当前函数正在处理的圆盘之上的圆盘。最终，它会以一个不存在的圆盘编号去调用，而这样的情况则函数不会在再执行。由于该函数对非法值不予理会，我们也就不必担心它会导致死循环。
+
+递归函数可以非常高效对操作树形结构，比如浏览器端的文档对象模型（DOM）。每次递归调用时处理给定树的一小段。
+> 参考 https://dmego.me/2016/10/16/hanoi.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

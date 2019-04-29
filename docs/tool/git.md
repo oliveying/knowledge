@@ -256,3 +256,8 @@ ORIG_HEAD,用于指向前一个操作状态,每次的commit或者pull或者reset
 因为使用npm就是自己编译的意思，而不使用npm直接拿编译后的版本的，这些依赖项也看不到。
 
 
+### 配置npm
+```js
+npm config list //查看配置列表
+~/.npmrc  // 把 registry=https://registry.npm.taobao.org 放在里面
+```

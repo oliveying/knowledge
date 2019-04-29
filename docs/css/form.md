@@ -1,7 +1,7 @@
-## form 表单之input
-### input和textarea设置placeholder的样式
+# form 表单之input
+## input和textarea设置placeholder的样式
 
-```
+```css
 ::-webkit-input-placeholder { /* WebKit browsers */
     color:    #999;
   }
@@ -18,8 +18,10 @@
   }
 ```
 
-### 解决input表单元素在ios系统上默认圆角的问题
-```
- -webkit-appearance: none ;
- border-radius: 2px;
+## 解决input表单元素在ios系统上默认圆角的问题
+```css
+input {
+    -webkit-appearance: none ;
+    border-radius: 2px;
+}
 ```

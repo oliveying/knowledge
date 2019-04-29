@@ -18,7 +18,7 @@
 
 函数对象通过函数字面量来创建：
 
-```
+```js
 // 创建一个名为add的变量，并用来把两个数字相加的函数赋值给它；
 var add = function (a, b) {
     return a+b
@@ -44,7 +44,7 @@ JavaScript中一共有四种调用模式：方法调用模式、函数调用模�
 
 当一个函数被保存为对象的一个属性时，我们称它为一个方法。当一个方法被调用时，this被绑定到该对象。如果一个调用表达式包含一个属性存取表达式（即一个.点表达式或者[subscript]下标表达式），那么它被当作一个方法来调用。
 
-```
+```js
 // 创建一个 myObject 。它有一个value 属性和一个 increment 方法。
 // increment 方法接收一个可选的参数。如果参数不是数字，那么默认使用数字1。
 
@@ -69,13 +69,13 @@ console.log(myObject.value);
 #### 函数调用模式
 
 当一个函数并非一个对象的属性时，那么它被当作一个函数来调用；
-```
+```js
 var sum = add(3, 4);   // sum 的值为7
 ```
 
 当函数以此模式调用时，this 被绑定到全局对象。这是语言设计上的一个错误。倘若语言设计正确，当内部函数被调用时， this应该仍然绑定到外部函数的 this 变量。这个错误的后果是方法不能利用内部函数来帮助它工资，因为内部函数的 this 被绑定来错误的值，所以不能共享该方法对对象的访问权。幸运的是，有一个很容易的解决方案：如果该方法定义的一个变量并给它赋值为 this，那么内部函数就可以通过那个变量访问到 this。按照约定，我给那个变量命名为 that。
 
-```
+```js
 // 给 myObject 增加一个 double 方法
 myObject.double = function () {
   var that = this;
@@ -103,7 +103,7 @@ JavaScript是一门基于原型继承的语言。这意味着对象可以直接�
 
 new 前缀也会改变 return 语句的行为。我们将会在后面看到更多相关的内容。
 
-```
+```js
 // 创建一个名为que 的构造器函数，它构造一个带有 status 属性的对象。
 
 var Que = function (string) {
@@ -135,7 +135,7 @@ console.log(myQue.get_status()); // confused
 apply 方法让我们构建一个参数数组并用其去调用函数。它也允许我们选择 this 的值。
 apply 方法接收两个参数。第一个是将被绑定给 this 的值。第二个就是一个参数数组。
 
-```
+```js
 // 构造一个包含两个数字的数组，并将它们相加。
 
 var array = [3, 4];
@@ -159,7 +159,7 @@ console.log(status);
 
 当一个函数被调用时，会得到一个"免费"奉送的参数，那就是 arguments 数组。通过它函数可以访问所有它被调用时传递给它的参数列表，包括那些没有被分配给函数声明时定义的形式参数的多余参数。这使得编写一个无须指定参数个数的函数成为可能；
 
-```
+```js
 // 构造一个将很多个值相加的函数
 
 // 注意该函数内部定义的变量 sum 不会与函数外部定义的sum 产生冲突。
@@ -194,7 +194,7 @@ return语句可用来使函数提前返回。当 return 被执行时，函数立
 
 JavaScript 提供了一套异常处理机制。异常是干扰程序的正常流程的非正常（但并非完全出乎意料）的事故。当查出这样的事故时，你的程序应该抛出一个异常；
 
-```
+```js
 var add = function (a, b) {
   if (typeof a !== 'number' || typeof b !== 'number') {
     throw {
@@ -210,7 +210,7 @@ throw 语句中断函数的执行。它应该抛出一个exception对象，该�
 
 该 exception 对象将被传递到一个 try 的语句的 catch 从句；
 
-```
+```js
 // 构造一个 try_it 函数，用不正确的方式调用之前的 add 函数
 
 var try_it = function () {
@@ -234,7 +234,7 @@ JavaScript 允许给语言的基本类型增加方法。在第三章中，我们
 
 举例来说，我们可以通过给 Function.prototype 增加方法来使得该方法对所有函数可用：
 
-```
+```js
 Function.prototype.method = function (name, func) {
   this.prototype[name] = func;
   return this;
@@ -245,7 +245,7 @@ Function.prototype.method = function (name, func) {
 JavaScript 并没有单独整数类型，因此有时候只提取数字中的整数部分是必要的。JavaScript 本身提供的取整方法有些丑陋。我们可以通过给 Number.prototype 添加一个 integer 方法来改善它。它会根据数字的正负来判断是使用 Math.celling 还是 Math.floor。
 
 `测试报错`
-```
+```js
 Number.method('integer', function () {
   return Math[this < 0 ? 'ceiling': 'floor'](this);
 })
@@ -255,7 +255,7 @@ console.log((-10/3).integer());
 
 JavaScript 缺少一个移除字符串末端空白的方法。那是一个很容易修复的疏忽：
 
-```
+```js
 String.method('trim', function () {
   return this.replace(/^\s+|\s+$/g, '');
 })
@@ -268,7 +268,7 @@ console.log('"' + "  neat    ".trim() + '"');
 
 基本类型的原型是公共的结构，所以在类库混用时务必小心。一个保险的做法就是只在确定没有该方法时才添加他。
 
-```
+```js
 // 有条件的增加一个方法
 
 Function.prototype.method = function(name, func) {
@@ -286,7 +286,7 @@ Function.prototype.method = function(name, func) {
 递归函数会直接或间接调用自身的一种函数。递归是一种强大的编程技术，它将一个问题分解为一组相似的子问题，每一个都用一个寻常解去解决。一般来说，一个递归函数调用自身去解决它的子问题。
 
 "汉诺塔"是一个著名的难题。塔的设备包括三根柱子和一套直径各不相同的空心圆盘。开始时圆柱子上的所有圆盘都按照较小的圆盘放在较大的圆盘之上的顺序堆叠。目标是通过每次移动一个圆盘到另一根柱子，最终将一堆圆盘移动到目标柱子上，过程中不可以将大的圆盘放置在较小的圆盘之上。这个难题又一个寻常解：
-```
+```js
 
 var hanoi = function (disc, src, aux, dst) {
   if (disc > 0) {
@@ -299,7 +299,7 @@ var hanoi = function (disc, src, aux, dst) {
 hanoi(3, 'Src', 'Aux', 'Dst');
 ```
 圆盘数量为3时，返回这样的解法
-```
+```js
 move disc 1 from Src to Dst
 move disc 2 from Src to Aux
 move disc 1 from Dst to Aux

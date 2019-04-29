@@ -1,4 +1,4 @@
-区别：
+和一般元素的区别：
 * 默认样式不一样
 * 有SEO优化作用
 
@@ -14,7 +14,7 @@
 |hggroup|专门用来包含标题h标签的分组||
 |\<details open><br><summary\></summary\><br></details\>|细节、详情<br>1、open属性：默认展开<br>2、summary相当于详情的标题||
 | \<dialog open>\</dialog>|对话框，不写open 不显示||
-|figure|图像区域：可以包含多个图片或者一个figcaption，<br>\<figcaption></figcaption>用来表示图片标题|相当于figure里写figcaption+img；figcaption定义在figure的头部或者尾部|
+|figure|图像区域：可以包含多个图片或者一个figcaption，<br>\<figcaption>\</figcaption>用来表示图片标题|相当于figure里写figcaption+img；figcaption定义在figure的头部或者尾部|
 |mark|有特殊效果，突出显示部分文本，背景默认黄色||
 |time|没有特殊效果。是给浏览器看的，仅供浏览器抓取信息抓的更准确。||
 |meter| 定义已知范围或分数值内的标量测量，IE不支持||
@@ -22,3 +22,4 @@
 |ruby|给一个解释||
 |三种引用<br>1、city<br>2、blockquote<br>3、q|1、行元素，字体倾斜<br>2、块元素，默认上下一个字的间距，左右40px的margin<br>3、块元素，带引号的引入||
 |两种格式化代码<br>1、code<br>2、pre|1、把换行和空格格式化显示<br>2、我们怎么写的就能怎么显示||
+|\<canvas>|元素可被用来通过脚本（通常是JavaScript）绘制图形。比如,它可以被用来绘制图形,制作图片集合,甚至用来实现动画效果。你可以(也应该)在元素标签内写入可提供替代的的代码内容，这些内容将会在在旧的、不支持\<canvas>元素的浏览器或是禁用了JavaScript的浏览器内渲染并展现。|

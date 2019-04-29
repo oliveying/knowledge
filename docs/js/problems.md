@@ -1,21 +1,23 @@
-### 检测下拉到底部
+# 常见需求总结
+## 检测下拉到底部
+```js
+$(document).ready(function() {
+  var nScrollHight = 0; //滚动距离总长
+  var nScrollTop = 20;   //滚动到的当前位置
+  var nDivHight = 500;
+  $(".box").scroll(function(){
+    nScrollHight = $(this)[0].scrollHeight;
+    nScrollTop = $(this)[0].scrollTop;
 
-        $(document).ready(function() {
-          var nScrollHight = 0; //滚动距离总长
-          var nScrollTop = 20;   //滚动到的当前位置
-          var nDivHight = 500;
-          $(".company-comment-list").scroll(function(){
-            nScrollHight = $(this)[0].scrollHeight;
-            nScrollTop = $(this)[0].scrollTop;
-
-            if(nScrollTop + nDivHight >= nScrollHight)
-              alert("滚动条到底部了");
-          });
-        });
-
-### js构造函数里的方法和prototype上定义方法的区别
-
+    if(nScrollTop + nDivHight >= nScrollHight)
+      alert("滚动条到底部了");
+  });
+});
 ```
+
+## js构造函数里的方法和prototype上定义方法的区别
+
+```js
 function Func1() {
   this.name = 'duruo';
   this.getName = function () {
@@ -28,7 +30,7 @@ fun1;
 ```
 
 ![func1](./images/func1.png)
-```
+```js
 function Func2() {
   this.name = 'duruo';
 }

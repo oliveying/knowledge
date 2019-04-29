@@ -1,11 +1,4 @@
-## table的td里如果是比较长的数字，会影响样式，不会换行，所以需要加强制换行，兼容浏览器换行
-```
--ms-word-break: break-all;    // ie
-word-break:break-all;         // ff
-word-break: break-word;       // chrome
-```
-
-
+# 适配及兼容问题
 
 ## 手机端适配使用px还是rem
 

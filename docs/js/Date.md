@@ -21,51 +21,56 @@
 + new Date().setTime() // 方法以一个表示从1970-1-1 00:00:00 UTC计时的毫秒数为来为 Date 对象设置时间。
 + new Date().valueOf() // 方法返回一个 Date 对象的原始值。  与Date.prototype.getTime() 方法一样。
 
-
-        function checkTime(i) {
-            if(i < 10)i = '0' + i;
-            return i;
-        }
+```js
+ function checkTime(i) {
+    if(i < 10)i = '0' + i;
+    return i;
+ }
+```
 1. 获取当前日期
 
-        function getNewDate() {
-            var date = new Date();
-            var year = date.getFullYear();
-            var month = date.getMonth() + 1;
-            var day = date.getDate();
-            var hour = date.getHours();
-            var minute = date.getMinutes();
-            var second = date.getSeconds();
-            month = checkTime(month);
-            day = checkTime(day);
-            hour = checkTime(hour);
-            minute = checkTime(minute);
-            second = checkTime(second);
-            return (year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second)
-        }
+```js
+function getNewDate() {
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+    month = checkTime(month);
+    day = checkTime(day);
+    hour = checkTime(hour);
+    minute = checkTime(minute);
+    second = checkTime(second);
+    return (year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second)
+}
+```
 
 2. 实现倒计时
 
-            var futureTime = new Date().setDate(20190313);
-            function remainingTime(futureTime) {
-                var leftTime = (new Date(futureTime)) - (Date.now()); //计算剩余的毫秒数
-                var days = parseInt(leftTime / 1000 / 60 / 60 / 24, 10); //计算剩余的天数
-                var hours = parseInt(leftTime / 1000 / 60 / 60 % 24, 10); //计算剩余的小时
-                var minutes = parseInt(leftTime / 1000 / 60 % 60, 10);//计算剩余的分钟
-                var seconds = parseInt(leftTime / 1000 % 60, 10);//计算剩余的秒数
-                days = checkTime(days);
-                hours = checkTime(hours);
-                minutes = checkTime(minutes);
-                seconds = checkTime(seconds);
-                if (leftTime > 0) {
-                setTimeout(function () {
-                  remainingTime();
-                }, 1000);
-                $("#remainingTime").html(year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second);
-                } else {
+```js
+var futureTime = new Date().setDate(20190313);
+function remainingTime(futureTime) {
+    var leftTime = (new Date(futureTime)) - (Date.now()); //计算剩余的毫秒数
+    var days = parseInt(leftTime / 1000 / 60 / 60 / 24, 10); //计算剩余的天数
+    var hours = parseInt(leftTime / 1000 / 60 / 60 % 24, 10); //计算剩余的小时
+    var minutes = parseInt(leftTime / 1000 / 60 % 60, 10);//计算剩余的分钟
+    var seconds = parseInt(leftTime / 1000 % 60, 10);//计算剩余的秒数
+    days = checkTime(days);
+    hours = checkTime(hours);
+    minutes = checkTime(minutes);
+    seconds = checkTime(seconds);
+    if (leftTime > 0) {
+    setTimeout(function () {
+      remainingTime();
+    }, 1000);
+    $("#remainingTime").html(year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second);
+    } else {
 
-                }
-            }
+    }
+}
+```
 
 
 参考：[https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date)

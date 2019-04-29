@@ -214,3 +214,25 @@ Markdown的使用者：
 |:------------------------------------:|:-----|-----:|
 |哈咯|你好啊|小可爱|
 关于其它扩展语法可参见具体工具的使用说明。
+
+### 给代码增加颜色
+
+```json
+   // code for coloring
+   {'a': b}
+```
+```html
+   // code for coloring
+   <div>hello html</div>
+```
+```js
+   // code for coloring
+   var a = 1;
+   console.log(a);
+```
+```css
+   // code for coloring
+   .color {
+   font-size: 12px
+   }
+```

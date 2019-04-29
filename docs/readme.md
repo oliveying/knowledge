@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /hero.png
+heroImage: /oliveying.png
 actionText: 起步 →
 actionLink: /guide/
 features:

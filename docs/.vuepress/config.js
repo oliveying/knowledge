@@ -25,6 +25,10 @@ module.exports = {
     // 添加导航栏
     nav: [
       {text: 'Home', link: '/'},
+      {text: 'book',
+      items: [
+        {text: '语言精粹', link: '/Bgoodparts'}
+      ]},
       {
         text: '前端技术',
         // 这里是下拉列表展现形式。
@@ -36,16 +40,20 @@ module.exports = {
           {text: 'node', link: '/node/'},
         ]
       },
+      {text: '总结', items: [
+          {text: '总结', link: '/summary/'},
+          {text: 'problem', link: '/problem/'},
+        ]
+      },
       {
         text: '扩展', items: [
           {text: '启动', link: '/start/'},
           {text: '工具用法', link: '/tool/'},
           {text: 'markDown', link: '/markdown/'},
+          {text: 'linux', link: '/linux/'},
+          {text: 'mac', link: '/linux/'},
         ]
       },
-      {text: '测试', link: '/test_tool/'},
-      {text: 'problem', link: '/problem/'},
-      {text: 'error', link: '/error/'},
     ],
     // 为以下路由添加侧边栏
     sidebar: {
@@ -53,8 +61,8 @@ module.exports = {
         'Array',
         'Date',
         'Math',
-        'function',
         'problems',
+        'error',
       ],
       '/test_tool/': [
         'mobile',
@@ -75,6 +83,14 @@ module.exports = {
       ],
       '/node/': [
         'crypto',
+      ],
+      '/summary/': [
+        'JavaScript 小技巧',
+        '其他链接资源',
+        '本地调试H5页面方案总结'
+      ],
+      'Bgoodparts': [
+        'function',
       ]
     }
   },

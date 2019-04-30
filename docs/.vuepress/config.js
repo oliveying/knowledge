@@ -20,7 +20,7 @@ module.exports = {
     repo: 'https://github.com/oliveying/knowledge', // 添加 github 链接
     head: ['link', {
       rel: 'icon',
-      href: '/oliveying/images/favicon.ico'
+      href: '/images/favicon.ico'
     }],
     // 添加导航栏
     nav: [

@@ -10,6 +10,12 @@ module.exports = {
       description: '前端知识，JavaScript，html，css，tool，git，markdown',
     }
   },
+  head: [
+    ['link', {
+      rel: 'icon',
+      href: '/img/favicon.ico'
+    }]
+  ],
   plugins: [
     ['@vuepress/google-analytics', {
       ga: 'UA-137025177-1'
@@ -18,10 +24,6 @@ module.exports = {
   ],
   themeConfig: {
     repo: 'https://github.com/oliveying/knowledge', // 添加 github 链接
-    head: ['link', {
-      rel: 'icon',
-      href: '/images/favicon.ico'
-    }],
     // 添加导航栏
     nav: [
       {text: 'Home', link: '/'},

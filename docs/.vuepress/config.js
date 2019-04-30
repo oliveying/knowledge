@@ -18,16 +18,16 @@ module.exports = {
   ],
   themeConfig: {
     repo: 'https://github.com/oliveying/knowledge', // 添加 github 链接
-    // head: ['link', {
-    //   rel: 'icon',
-    //   href: '/favicon.ico'
-    // }],
+    head: ['link', {
+      rel: 'icon',
+      href: '/oliveying/images/favicon.ico'
+    }],
     // 添加导航栏
     nav: [
       {text: 'Home', link: '/'},
       {text: 'book',
       items: [
-        {text: '语言精粹', link: '/Bgoodparts'}
+        {text: '语言精粹', link: '/bgoodparts/'}
       ]},
       {
         text: '前端技术',
@@ -51,7 +51,7 @@ module.exports = {
           {text: '工具用法', link: '/tool/'},
           {text: 'markDown', link: '/markdown/'},
           {text: 'linux', link: '/linux/'},
-          {text: 'mac', link: '/linux/'},
+          {text: 'mac', link: '/mac/'},
         ]
       },
     ],
@@ -89,7 +89,7 @@ module.exports = {
         '其他链接资源',
         '本地调试H5页面方案总结'
       ],
-      'Bgoodparts': [
+      '/bgoodparts/': [
         'function',
       ]
     }

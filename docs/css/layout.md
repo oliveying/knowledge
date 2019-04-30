@@ -36,7 +36,7 @@
     3. 元素的宽度如果不设置的话，默认为父元素的宽度。
 
         常见的块级元素：
-        ```
+        ```html
          <address>   <article> HTML5 <aside> HTML5 <audio> HTML5 <blockquote>  <canvas> HTML5
 
          <dd>  <div> <dl>  <fieldset>  <figcaption> HTML5  <figure> HTML5  <footer> HTML5  <form>
@@ -47,7 +47,7 @@
 
          <tfoot>  <ul> <video>  HTML5
         ```
-        \<blockquote>: HTML中的元素（或者 HTML 块级引用元素），代表其中的文字是引用内容。通常在渲染时，这部分的内容会有一定的缩进（注 中说明了如何更改）。若引文来源于网络，则可以将原内容的出处 URL 地址设置到 cite 特性上，若要以文本的形式告知读者引文的出处时，可以通过 <cite> 元素。
+        \<blockquote>: HTML中的元素（或者 HTML 块级引用元素），代表其中的文字是引用内容。通常在渲染时，这部分的内容会有一定的缩进（注 中说明了如何更改）。若引文来源于网络，则可以将原内容的出处 URL 地址设置到 cite 特性上，若要以文本的形式告知读者引文的出处时，可以通过 \<cite> 元素。
 
         \<output>HTML 标签定义一个用户的操作或者计算的结果。
 

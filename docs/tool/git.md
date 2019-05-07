@@ -261,3 +261,9 @@ ORIG_HEAD,用于指向前一个操作状态,每次的commit或者pull或者reset
 npm config list //查看配置列表
 ~/.npmrc  // 把 registry=https://registry.npm.taobao.org 放在里面
 ```
+
+### 强制覆盖推送到远程分支
+
+```js
+git push -f
+```

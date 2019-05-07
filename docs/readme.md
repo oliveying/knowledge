@@ -14,5 +14,3 @@ footer: MIT Licensed | Copyright © 2018-present Evan oliveying
 ---
 
 <Home/>
-
-this is test

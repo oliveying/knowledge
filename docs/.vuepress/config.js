@@ -63,6 +63,7 @@ module.exports = {
         'Array',
         'Date',
         'Math',
+        'Regex',
         'problems',
         'error',
       ],
@@ -89,7 +90,8 @@ module.exports = {
       '/summary/': [
         'JavaScript 小技巧',
         '其他链接资源',
-        '本地调试H5页面方案总结'
+        '本地调试H5页面方案总结',
+        '各种浏览器调试错误方法及错误处理机制'
       ],
       '/bgoodparts/': [
         'function',

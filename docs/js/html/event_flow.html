@@ -1,0 +1,80 @@
+<html lang="zh-cn">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>js事件机制</title>
+  <style>
+    #parent{
+      width: 200px;
+      height:200px;
+      text-align: center;
+      line-height: 3;
+      background: blue;
+    }
+    #child{
+      display: block;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+<div id="parent">
+  父元素
+  <p id="child">子元素</p>
+  <p id="child2">子元素2</p>
+  <p id="child3">子元素3</p>
+</div>
+<script type="text/javascript">
+  var parent = document.getElementById("parent");
+  var child = document.getElementById("child");
+
+  // 事件冒泡
+  document.body.addEventListener("click",function(e){
+    alert("click-body --- 事件冒泡");
+    // e.stopPropagation();
+  },false);
+
+  parent.addEventListener("click",function(e){
+    alert("click-parent --- 事件冒泡");
+    // e.stopPropagation();
+  },false);
+
+  child.addEventListener("click",function(e){
+    alert("click-child --- 事件冒泡");
+    // e.stopPropagation();
+
+  },false);
+
+
+  // 事件捕获
+  // document.body.addEventListener("click",function(e){
+  //   alert("click-body --- 事件捕获");
+  //   // e.stopPropagation();
+  // },true);
+  //
+  // parent.addEventListener("click",function(e){
+  //   alert("click-parent --- 事件捕获");
+  //   // e.stopPropagation();
+  // },true);
+  //
+  // child.addEventListener("click",function(e){
+  //   alert("click-child --- 事件捕获");
+  //   // e.stopPropagation();
+  // },true);
+
+
+  // 事件委托
+  // parent.onclick = function(e){
+  //   if(e.target.id == "child"){
+  //     alert("您点击了child元素")
+  //   } else if (e.target.id == "child2") {
+  //     alert("您点击了child2元素")
+  //   } else if (e.target.id == "child3") {
+  //     alert("您点击了child3元素")
+  //   }
+  // }
+</script>
+</body>
+</html>

@@ -65,6 +65,8 @@ module.exports = {
         'Math',
         'Regex',
         'problems',
+        'js事件流',
+        'object',
         'error',
       ],
       '/test_tool/': [
@@ -72,6 +74,7 @@ module.exports = {
       ],
       '/css/': [
         'css',
+        'animation',
         'css_compatibility',
         'form',
         'layout',

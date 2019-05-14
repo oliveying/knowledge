@@ -54,6 +54,7 @@ module.exports = {
           {text: 'markDown', link: '/markdown/'},
           {text: 'linux', link: '/linux/'},
           {text: 'mac', link: '/mac/'},
+          {text: '提升', link: '/develop/'},
         ]
       },
     ],

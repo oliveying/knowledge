@@ -99,6 +99,9 @@ module.exports = {
       ],
       '/bgoodparts/': [
         'function',
+      ],
+      '/develop/': [
+        'wx',
       ]
     }
   },

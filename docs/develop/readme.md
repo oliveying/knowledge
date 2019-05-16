@@ -5,6 +5,15 @@
 `X-DNS-Prefetch-Control` 头控制着浏览器的 DNS 预读取功能。DNS 预读取是一项使浏览器主动去执行域名解析的功能，其范围包括文档的所有链接，无论图片的，css的，还是JavaScript 等其他用户能够点击的 URL。
 
 因为预存取会在后台执行，所以 DNS 很可能在链接对应的东西出现之前就已经解析完毕。这能够减少用户点击链接时的延迟。
+>X-DNS-Prefetch-Control: on
+* 启用 DNS 预解析。在浏览器支持 DNS 预解析的特性时即使不使用该标签浏览器依然会进行预解析。
+>X-DNS-Prefetch-Control: off
+* 关闭 DNS 预解析。这个属性在页面上的链接并不是由你控制的或是你根本不想向这些域名引导数据时是非常有用的。
+
+### 强制查询特定主机名
+```html
+<link rel="dns-prefetch" href="http://www.spreadfirefox.com/">
+```
 
 ## web开发会话跟踪的方法
 
@@ -95,3 +104,25 @@ $(window).on("scroll", function handle(){});  //绑定滚动事件
 $(window).off("scroll", handle); //卸载滚动事件
 ```
 
+## 手机滑到页面底部自动加载数据
+
+```js
+$(window).scroll(function(){
+
+　　var scrollTop = $(this).scrollTop();
+　　var scrollHeight = $(document).height();
+　　var windowHeight = $(this).height();
+　　if(scrollTop + windowHeight == scrollHeight){
+　　 //加载数据的函数
+　　}
+});
+```
+
+## 图片放在自己网站不显示，打开图片链接显示问题？防盗链
+
+  防盗链，这个是由于对方网站会看我们发过去的host， host是我们的域名。 有可能会屏蔽。
+
+  可以加
+```html
+  <meta name="referrer" content="no-referrer" />// 隐藏来源页地址
+```

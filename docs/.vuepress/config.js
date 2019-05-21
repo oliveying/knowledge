@@ -69,6 +69,7 @@ module.exports = {
         'js事件流',
         'object',
         'error',
+        'http'
       ],
       '/test_tool/': [
         'mobile',
@@ -87,6 +88,7 @@ module.exports = {
       ],
       '/h5/': [
         'h5',
+        '处理移动端样式及内嵌app总结_20190920.md',
       ],
       '/node/': [
         'crypto',

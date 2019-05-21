@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>移动端问题总结</title>
+  <style type="text/css">
+    .px-line {
+      border-bottom: 1px solid #666;
+    }
+    .px-translate {
+      position: relative;
+    }
+    .px-translate::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width:100%;
+      height:1px;
+      border-top:1px solid #666;
+      transform: scaleY(0.5);
+    }
+    .box-shadow {
+      -webkit-box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.5);
+    }
+    .sanjiao {
+      position: relative;
+      background-color: #666;
+    }
+    .sanjiao::after {
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+      border-left: 10px solid red;
+    }
+  </style>
+</head>
+<body>
+<div class="px-line">这是正常一像素</div>
+
+<div>这是用一个三像素的图片压缩的一像素</div>
+<div style='vertical-align: top; overflow: hidden;height: 1px'><img src="../images/line3.png" alt=""></div>
+
+<div class="px-translate">使用transform去实现</div>
+<div class="box-shadow">
+  利用box-shadow
+</div>
+<div class="sanjiao">哈哈哈</div>
+
+</body>
+</html>

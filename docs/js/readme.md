@@ -1,56 +1,9 @@
 ### js 知识点总结
 
-## 弹窗下拉加载数据
-
-```html
-<div class="body">
-  <div class="popup">
-    <div class="item"></div>
-    <div class="item"></div>
-    <div class="item"></div>
-    <div class="item"></div>
-    <div class="item"></div>
-    <div class="item"></div>
-  </div>
-</div>
-```
-```css
-.body {
-    max-height: 200px;
-    padding: 10px 26px;
-    overflow: scroll;
-}
-```
-```js
-var pn = 1;
-var limitTotal = '';
-window.getData = function () {
-        query.getData(pn).then(function (result) {
-          if (result.state === 'ok') {
-            limitTotal = Math.ceil(result.data.count / 10);
-            var items = result.data.items;
-            $('.popup').append(items);
-
-            if (unitPn < limitTotal) {
-              unitPn++;
-              $(".body").unbind("scroll").bind("scroll",window.dropDownRefresh);
-            } else {
-              $('.body').unbind("scroll", window.dropDownRefresh);
-            }
-          } else {
-          }
-      });
-    };
-// 检测下拉到底部
-    window.dropDownRefresh = function (e) {
-      var scrollTop = $(this).scrollTop();
-      var scrollHeight = $(this).height();
-      var windowHeight = $('.popup').height();
-      if ((scrollTop + scrollHeight) >= windowHeight) {
-        $('.body').unbind("scroll", window.dropDownRefresh);
-        window.getData();
-      }
-    };
-```
+## 去掉 console 的意义，
+   1.  一些浏览器 如:低版本ie ，未打开控制台之前，没有console.log 对应的对象和方法。
+   2. 在传递给console.log的对象是不能被垃圾回收,最好不要在页面中console.log任何大对象，这样可能会影响页面的整体性能，特别在生产环境中。
+   3. 代码不严谨，泄漏代码逻辑
+   4. 对有意义的 console 造成污染。
 
 

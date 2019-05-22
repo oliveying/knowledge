@@ -69,7 +69,8 @@ module.exports = {
         'js事件流',
         'object',
         'error',
-        'http'
+        'http',
+        'js获取窗口兼容ie',
       ],
       '/test_tool/': [
         'mobile',

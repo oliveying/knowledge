@@ -71,6 +71,7 @@ module.exports = {
         'error',
         'http',
         'js获取窗口兼容ie',
+        '存储的几种方式',
       ],
       '/test_tool/': [
         'mobile',
@@ -98,7 +99,8 @@ module.exports = {
         'JavaScript 小技巧',
         '其他链接资源',
         '本地调试H5页面方案总结',
-        '各种浏览器调试错误方法及错误处理机制'
+        '各种浏览器调试错误方法及错误处理机制',
+        '浏览器特性',
       ],
       '/bgoodparts/': [
         'function',

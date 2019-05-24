@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div>test</div>
+<script>
+  window.onload = function () {
+    var image = new Image();
+    var EventUtil = {
+
+      addHandler: function (element, type, handler) { //添加事件
+        if (element.addEventListener) {
+          element.addEventListener(type, handler, false);  //使用DOM2级方法添加事件
+        } else if (element.attachEvent) {                    //使用IE方法添加事件
+          element.attachEvent("on" + type, handler);
+        } else {
+          element["on" + type] = handler;          //使用DOM0级方法添加事件
+        }
+      },
+    }
+    EventUtil.addHandler(image, 'load', function (event) {
+      alert('Image loaded!')
+    })
+    EventUtil.addHandler(image, 'error', function (event) {
+      alert('Image not loaded!')
+    })
+
+    image.src = 'smilex.gif'
+  }
+</script>
+</body>
+</html>

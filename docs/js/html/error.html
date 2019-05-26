@@ -5,8 +5,16 @@
   <title>Title</title>
 </head>
 <body>
-<div>test</div>
+<div class="div">test</div>
+<script type="text/javascript">
+  document.body.appendChild(document.createElement('div'))</script>
 <script>
+  document.onclick = function () {
+    var event = window.event;
+    setTimeout(function (){
+      event.returnValue = false; //未找到成员错误
+    }, 1000);
+  };
   window.onload = function () {
     var image = new Image();
     var EventUtil = {
@@ -29,6 +37,16 @@
     })
 
     image.src = 'smilex.gif'
+  }
+
+  function assert(condition, message) {
+    if (!condition) {
+      throw new Error(message)
+    }
+  }
+  function divide(num1, num2) {
+    assert(typeof num1 == 'number' && typeof num2 == 'number', 'divide(): both arguments must be numbers.')
+    return num1 / num2
   }
 </script>
 </body>

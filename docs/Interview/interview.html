@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+    .container, .translate, .fix-width, #step3, #step4 {
+      width: 200px;
+      height: 200px;
+      background-color: #3a5169;
+      margin-bottom: 20px;
+    }
+
+    .top {
+      text-align: center;
+      width: 180px;
+      line-height: 200px;
+      margin: auto;
+      background-color: #33992d;
+    }
+
+    .translate, .fix-width {
+      position: relative;
+    }
+
+    .translate-child {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .fix-child {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 100px;
+      margin: -50px 0 0 -50px;
+      background-color: #999999;
+    }
+
+    #step3 {
+      position: relative;
+    }
+
+    #step3-center {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #888;
+    }
+
+    #step4 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="top">使用line-height</div>
+</div>
+<div class="translate">
+  <div class="translate-child">
+    使用translate淡定淡定淡定的
+  </div>
+</div>
+<div class="fix-width">
+  <div class="fix-child">这是固定宽度时</div>
+</div>
+<div id="step3">
+  <div id="step3-center">dsdfsadf</div>
+</div>
+<div id="step4">
+  <div id="step4-center">dsdfsadf</div>
+</div>
+
+<button onclick="addFunction()">点我增加</button>
+<ul id="ul">
+</ul>
+<script>
+  var num = 1;
+  var ul = document.getElementById('ul');
+  function addFunction() {
+    var li = document.createElement('li');
+    var nodeText = document.createTextNode(num);
+    li.appendChild(nodeText);
+    ul.appendChild(li);
+    num++;
+  }
+  ul.addEventListener('click', function (event) {
+    var event = event || window.event;
+    if (event.target && event.target.nodeName.toUpperCase() === 'LI') {
+      console.log(event.target.innerHTML)
+    }
+  })
+</script>
+</body>
+
+</html>

@@ -72,7 +72,30 @@ function remainingTime(futureTime) {
 }
 ```
 
+3. 格式化时间为多少秒前
 
+```js
+function formatDate(time) {
+    if (typeof time !== 'number') return '';
+    const now = new Date() * 1;
+    // new Date().getTime()
+    const timeDate = new Date().setTime(time);
+    let str = '';
+    const timeDifference = now - time;
+    if (timeDifference < 60000) {
+      str = new Date(timeDifference).getSeconds() + '秒前';
+    } else if (timeDifference < 60000 * 60) {
+      str = new Date(timeDifference).getMinutes() + '分钟前';
+    } else if (timeDifference < 60000 * 60 * 24) {
+      str = parseInt((timeDifference) / 60000 / 60) + '小时' + new Date(timeDifference).getMinutes() + '分钟前';
+    } else if (timeDifference < 60000 * 60 * 24 * 15) {
+      str = parseInt((timeDifference) / (60000 * 60 * 24)) + '天前';
+    } else {
+      str = String(timeDate.getFullYear()) + (timeDate.getMonth() > 8 ? '年' : '年0') + String(timeDate.getMonth() + 1) + (timeDate.getDate() > 9 ? '月' : '月0') + timeDate.getDate() + '日';
+    }
+    return str;
+  },
+```
 参考：[https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
 

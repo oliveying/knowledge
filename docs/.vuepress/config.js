@@ -90,6 +90,7 @@ module.exports = {
       '/tool/': [
         'git',
         'yarn',
+        'npm',
         'command'
       ],
       '/h5/': [

@@ -5,7 +5,7 @@
   overflow {
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: no-wrap;
+    white-space: nowrap;
     display: block;
     width: 100%;
   }
@@ -18,10 +18,37 @@ overflow2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  white-space: initial;
 }
 ```
+所遇问题
+> -webkit-box-orient: vertical 在使用 webpack 打包的时候这段代码会被删除掉，原因是 optimize-css-assets-webpack-plugin 这个插件的问题。
 
+```css
+    /*! autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+```
+
+## 两端对齐
+
+```
+div {
+    margin: 10px 0;
+    width: 100px;
+    border: 1px solid red;
+    text-align: justify;
+    text-align-last:justify;
+    -moz-text-align-last: right; /* 针对 Firefox 的代码 */
+}
+div:after{
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+
+
+
+```
 ## table的td里换行问题
 * 描述： table的td里如果是比较长的数字，会影响样式，不会换行，所以需要加强制换行，兼容浏览器换行
 ```css

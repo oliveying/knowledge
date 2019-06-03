@@ -44,6 +44,7 @@ module.exports = {
       },
       {text: '总结', items: [
           {text: '总结', link: '/summary/'},
+          {text: '面试', link: '/interview/'},
           {text: 'problem', link: '/problem/'},
         ]
       },
@@ -75,6 +76,9 @@ module.exports = {
       ],
       '/test_tool/': [
         'mobile',
+      ],
+      '/interview/': [
+        'interview',
       ],
       '/css/': [
         'css',

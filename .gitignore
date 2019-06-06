@@ -8,5 +8,5 @@ docs/.vuepress/dist/*
 
 dist/*
 
-practice/
-practice/*
+exec/
+exec/*

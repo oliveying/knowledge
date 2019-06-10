@@ -12,4 +12,14 @@
 
 3. rem是指相对于根元素的字体大小的单位, 只会相对于html的值，不会受到父级的影响
 
+## background-size兼容ie
 
+```css
+.back {
+background: url("图片路径") 0 0 no-repeat;
+    background-size: cover;
+    -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='图片路径',sizingMethod='scale');
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='图片路径',sizingMethod='scale');
+    background: none\9;
+}
+```

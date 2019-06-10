@@ -71,7 +71,7 @@ module.exports = {
         'object',
         'error',
         'http',
-        'js获取窗口兼容ie',
+        'js兼容ie',
         '存储的几种方式',
       ],
       '/test_tool/': [

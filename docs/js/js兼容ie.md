@@ -128,3 +128,19 @@ Window `pageXOffset` 和 `pageYOffset` 属性
 var heightTop = document.documentElement.scrollTop || document.body.scrollTop;
 console.log(heightTop);
 ```
+
+
+# Lodash兼容IE6~IE8
+> https://blog.csdn.net/j510924/article/details/52701137/
+lodash 从4.0.0开始支持的环境有： Chrome 46-47, Firefox 42-43, IE 9-11, Edge 13, Safari 8-9, Node.js 0.10.x, 0.12.x, 4.x, & 5.x, & PhantomJS 1.9.8。已不再支持IE6~IE8。
+如果想兼容IE6~IE8，可以使用3.x版本。3.x版本支持的环境有：
+Chrome 43-44, Firefox 38-39, IE 6-11, MS Edge, Safari 5-8, ChakraNode 0.12.2, io.js 2.5.0, Node.js 0.8.28, 0.10.40, & 0.12.7, PhantomJS 1.9.8, RingoJS 0.11, & Rhino1.7.6
+
+lodash 3.x 版本没有直接提供可用的js， 需要手动构建。
+安装
+npm i -g lodash-cli@3.10.1
+安装完成后执行
+lodash compat
+会输出兼容IE6~IE8的版本lodash.custom.js及lodash.custom.min.js
+
+lodash 3.10.1版本文档地址： https://lodash.com/docs/3.10.1#template

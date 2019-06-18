@@ -76,6 +76,7 @@ module.exports = {
       ],
       '/test_tool/': [
         'mobile',
+        'webstorm'
       ],
       '/interview/': [
         'interview',
@@ -102,6 +103,7 @@ module.exports = {
       ],
       '/summary/': [
         'JavaScript 小技巧',
+        '常见兼容性问题',
         '其他链接资源',
         '本地调试H5页面方案总结',
         '各种浏览器调试错误方法及错误处理机制',

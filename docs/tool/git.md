@@ -302,7 +302,7 @@ git push origin --delete developbranch
 
 1.执行:git origin fetch 获得最新.
 
-2.通过:git branch <new-branch-name> <tag-name> 会根据tag创建新的分支.
+2.通过:git branch \<new-branch-name> \<tag-name> 会根据tag创建新的分支.
 
 例如:git branch newbranch v1.0 . 会以tag v1.0创建新的分支newbranch;
 

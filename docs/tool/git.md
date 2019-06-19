@@ -123,8 +123,8 @@ $ git config list
 
 * 先在本地 $ git init，之后
 ```bash
-$ git remote add origin git@github.com:han1202012/TabHost_Test.git(你的git仓库地址)
-$ git remote set-url origin git@git.tian.com:oliv/test.git (两个都行)
+$ git remote add origin git@github.com:han1202012/TabHost_Test.git(你的git仓库地址) // 添加仓库地址
+$ git remote set-url origin git@git.tian.com:oliv/test.git (两个都行) // 修改仓库地址
 ```
 ## tag问题，[Git 基础 - 打标签](https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE)
 
@@ -280,6 +280,14 @@ git push -f
 git cherry-pick commitid1..commitid10
 ```
 
+## 分支操作
+```bash
+git branch // 列出本地已经存在的分支，并且在当前分支的前面加“*”号标记
+
+git branch -r // 列出远程分支
+
+git branch -a // 列出本地分支和远程分支
+```
 ## github删除本地分支和远程分支
 
 删除本地分支：git branch -d 分支名称

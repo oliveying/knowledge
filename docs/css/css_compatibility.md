@@ -23,3 +23,82 @@ background: url("图片路径") 0 0 no-repeat;
     background: none\9;
 }
 ```
+
+
+## 多行文本溢出...
+* `-webkit-line-clamp` 因使用了WebKit的CSS扩展属性，该方法适用于WebKit浏览器及移动端；
+
+* 可以使用css控制、css+js控制[文本超出省略号](./html/overflow2.html)
+
+*使用css控制* _注意事项：由于是靠右侧，所以当设置的宽度和字体存放的一列宽度有间隙时，右侧的最后一个字会有一点点截断，所以需要UI正确合理控制一行的字宽，防止溢出、或者使用渐变_
+```css
+    background-image: -webkit-gradient(linear,left top,right top,color-stop(0,rgba(255,255,255,0)),color-stop(26.4%,#fff));
+    background-image: linear-gradient(90deg,rgba(255,255,255,0) 0,#fff 26.4%);
+```
+思路：使用css控制，在外层加高度，超出隐藏，利用外层的before为float:left, after的content为relation控制，所以，当超出的时候显示...， 不超出，显示不了
+```css
+ /* css完美解决 */
+    .wrap {
+      height: 40px;
+      line-height: 20px;
+      overflow: hidden;
+    }
+
+    .wrap .text {
+      float: right;
+      margin-left: -5px;
+      width: 100%;
+      word-break: break-all;
+    }
+
+    .wrap::before {
+      float: left;
+      width: 5px;
+      content: '';
+      height: 40px;
+    }
+
+    .wrap::after {
+      float: right;
+      content: "...";
+      height: 20px;
+      line-height: 20px;
+      /* 为三个省略号的宽度 */
+      width: 3em;
+      /* 使盒子不占位置 */
+      margin-left: -3em;
+      /* 移动省略号位置 */
+      position: relative;
+      left: 100%;
+      top: -20px;
+      padding-right: 5px;
+      text-align: right;
+      background-color: #aaeeff;
+    }
+```
+
+*使用css+js控制*
+```css
+/*超出隐藏js实现*/
+
+    .figcaption {
+      background: #EEE;
+      width: 410px;
+      height: 80px;
+    }
+    .figcaption p {
+      margin: 0;
+      line-height: 20px;
+    }
+```
+
+```js
+$(".figcaption").each(function(i){
+    var divH = $(this).height();
+    var $p = $("p", $(this)).eq(0);
+    while ($p.outerHeight() > divH) {
+      $p.text($p.text().replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, "..."));
+    };
+  });
+```
+

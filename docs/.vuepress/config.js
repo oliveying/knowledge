@@ -92,7 +92,8 @@ module.exports = {
         'git',
         'yarn',
         'npm',
-        'command'
+        'command',
+        'ssh',
       ],
       '/h5/': [
         'h5',
@@ -102,6 +103,8 @@ module.exports = {
         'crypto',
       ],
       '/summary/': [
+        'html规范',
+        'JavaScript编码规范',
         'JavaScript 小技巧',
         '常见兼容性问题',
         '其他链接资源',

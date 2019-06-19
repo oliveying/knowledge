@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>完美解决多行文本溢出显示省略号的问题</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+    .overflow1, .overflow2 {
+      display: inline-block;
+      width: 400px;
+      height: 200px;
+      padding: 14px;
+      margin: 40px;
+      border: 1px solid #f3f3f3;
+      background-color: #aaeeff;
+    }
+    /* css完美解决 */
+    .wrap {
+      height: 40px;
+      line-height: 20px;
+      overflow: hidden;
+    }
+
+    .wrap .text {
+      float: right;
+      margin-left: -5px;
+      width: 100%;
+      word-break: break-all;
+    }
+
+    .wrap::before {
+      float: left;
+      width: 5px;
+      content: '';
+      height: 40px;
+    }
+
+    .wrap::after {
+      float: right;
+      content: "...";
+      height: 20px;
+      line-height: 20px;
+      /* 为三个省略号的宽度 */
+      width: 3em;
+      /* 使盒子不占位置 */
+      margin-left: -3em;
+      /* 移动省略号位置 */
+      position: relative;
+      left: 100%;
+      top: -20px;
+      padding-right: 5px;
+      text-align: right;
+      background-color: #aaeeff;
+    }
+
+
+    /*超出隐藏js实现*/
+
+    .figcaption {
+      background: #EEE;
+      width: 410px;
+      height: 80px;
+    }
+    .figcaption p {
+      margin: 0;
+      line-height: 20px;
+    }
+  </style>
+</head>
+<body>
+<div class="overflow1">
+  <div class="wrap">
+    <div class="text"> That's the basic idea. 溢出显示省略，号的问题完美解决多行文本溢出显示省略号的问题完美解决多行文本溢出显示省略号的问题完美解决多行文本溢出显示省略号的问题完美解决多行文本溢出显示省略号，的问题完美解决多行文本溢出显示You can imagine the light blue region as the title, and the yellow region as
+      the ellipsis. Then you may think that the pink box takes up space, but will the title be delayed as a whole? Here
+      you can come out by the negative value of margin. Set the negative value of the pale blue box to be the same width
+      as the pink box, and the title can also be displayed normally.本
+    </div>
+  </div>
+</div>
+<div class="overflow2">
+  <div class="figcaption">
+    <p>完美解决多行文本溢出显示省略号的问题完美解决多行文本溢出显示省略号的问题完美解决多行文本溢出显示省略号的问题完美解决多行文本溢出显示省略号的问题完美解决多行文本溢出显示省略号的问题完美解决多行文本溢出显示省略号的问题</p>
+  </div>
+  <div class="figcaption">
+    <p>From the golden-tipped fields of mid-west America to the ancient kingdoms of verdant Palestine, there is a happy truth to be shared with all who would take heed. In more recent times, this truth has been expressed as: April showers bring May flowers. This is a truth that promises light bursting from darkness, strength born from weakness and, if one dares to believe, life emerging from death.</p>
+  </div>
+  <div class="figcaption">
+    <p>From 完美解决多行文本溢出显示省略号的问题the 完美解决多行文本溢出显示省略号的问题golden-tipped fields of mid-west America to the ancient kingdoms of verdant Palestine, there is a happy truth to be 完美解决多行文本溢出显示省略号的问题shared with all who would take heed. In more recent times, this truth has been expressed as: April showers br完美解决多行文本溢出显示省略号的问题ing May flowers. This is a truth that promises light bursting from darkness, strength born 完美解决多行文本溢出显示省略号的问题 from weakness and, if one dares to believe, life emerging from death.</p>
+  </div>
+</div>
+
+</body>
+<script src="../../js/js/jquery.js"></script>
+<script>
+  $(".figcaption").each(function(i){
+    var divH = $(this).height();
+    var $p = $("p", $(this)).eq(0);
+    while ($p.outerHeight() > divH) {
+      $p.text($p.text().replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, "..."));
+    };
+  });
+</script>
+</html>

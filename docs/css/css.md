@@ -10,7 +10,7 @@
     width: 100%;
   }
   ```
-* 超出两行，显示...，需指定宽度
+* 超出两行，显示...，需指定宽度（兼容性不好，详情查看[css兼容性](./css_compatibility.md)）
 ```css
 overflow2 {
   overflow: hidden;

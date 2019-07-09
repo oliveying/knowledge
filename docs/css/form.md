@@ -25,3 +25,24 @@ input {
     border-radius: 2px;
 }
 ```
+
+## input 跳转链接 实现按回车键也能跳转
+
+```html
+ <input id="input-num" type="text" class="input input-num" onkeypress="checkInfo(event)"/>
+```
+ 页
+ ```html
+          <div class="page-confirm" onclick="checkInfoConfirm(event)">确定</div>
+```
+
+```js
+function checkInfoConfirm(event) {
+ // 此为跳转逻辑
+}
+function checkInfo(event) {
+      if (event.keyCode === 13) {
+        checkInfoConfirm(event)
+      }
+    }
+```

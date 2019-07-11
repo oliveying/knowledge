@@ -342,3 +342,10 @@ git rm -r --cached .
 git add .
 git commit -m 'update .gitignore'
 ```
+
+## git pull出现There is no tracking information for the current branch
+
+* 此问题是指本地的分支和远程的分支之间需要建立联系。如：本地master对应远程的master
+```bash
+git branch --set-upstream-to=origin/master master
+```

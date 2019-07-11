@@ -71,7 +71,7 @@ HTTP1.1增加了OPTIONS, PUT, DELETE, TRACE, CONNECT这些Request方法.
 ## http的状态响应码
 
 ### 1**：请求收到，继续处理
- ```js
+ ```text
  100——客户必须继续发出请求
 
  101——客户要求服务器根据请求转换HTTP协议版本
@@ -80,7 +80,7 @@ HTTP1.1增加了OPTIONS, PUT, DELETE, TRACE, CONNECT这些Request方法.
 
 ### 2**：操作成功收到，分析、接受
 
-```javascript
+```text
 
 200——交易成功
 
@@ -100,7 +100,7 @@ HTTP1.1增加了OPTIONS, PUT, DELETE, TRACE, CONNECT这些Request方法.
 
 ### 3**：完成此请求必须进一步处理
 
-```javascript
+```text
 
 300——请求的资源可在多处得到
 
@@ -110,7 +110,7 @@ HTTP1.1增加了OPTIONS, PUT, DELETE, TRACE, CONNECT这些Request方法.
 
 303——建议客户访问其他URL或访问方式
 
-304——客户端已经执行了GET，但文件未变化
+304——客户端已经执行了GET，但文件未变化  nginx设置一定的缓存时间，如果在缓存时间内去请求资源，直接返回304
 
 305——请求的资源必须从服务器指定的地址得到
 
@@ -122,7 +122,7 @@ HTTP1.1增加了OPTIONS, PUT, DELETE, TRACE, CONNECT这些Request方法.
 
 ### 4**：请求包含一个错误语法或不能完成
 
-```javascript
+```text
 
 400——错误请求，如语法错误
 
@@ -176,7 +176,7 @@ HTTP1.1增加了OPTIONS, PUT, DELETE, TRACE, CONNECT这些Request方法.
 
 404——没有发现文件、查询或URl
 
-405——用户在Request-Line字段定义的方法不允许
+405——用户在Request-Line字段定义的方法不允许  请求的方法，服务端表示不支持
 
 406——根据用户发送的Accept拖，请求资源不可访问
 
@@ -206,7 +206,7 @@ HTTP1.1增加了OPTIONS, PUT, DELETE, TRACE, CONNECT这些Request方法.
 
 ### 5**：服务器执行一个完全有效请求失败
 
-```javascript
+```text
 
 HTTP 500 - 内部服务器错误
 
@@ -226,6 +226,7 @@ Error 501 - 未实现
 
 HTTP 502 - 网关错误
 
+HTTP 504 - 请求超时
 ```
 
 ## 常用的请求方式
@@ -250,7 +251,7 @@ GET与POST方法有以下区别：
 
 HTTP最常见的请求头如下：
 
-```javascript
+```text
 
 Accept：浏览器可接受的MIME类型；
 
@@ -288,7 +289,7 @@ UA-Pixels，UA-Color，UA-OS，UA-CPU：由某些版本的IE浏览器所发送�
 
 HTTP最常见的响应头如下所示：
 
-```javascript
+```text
 
 Allow：服务器支持哪些请求方法（如GET、POST等）；
 
@@ -314,7 +315,7 @@ Refresh：表示浏览器应该在多少时间之后刷新文档，以秒计。
 
 实体头用做实体内容的元信息，描述了实体内容的属性，包括实体信息类型，长度，压缩方法，最后一次修改时间，数据有效性等。
 
-```javascript
+```text
 
 Allow：GET,POST
 
@@ -372,7 +373,7 @@ Cookie和Session有以下明显的不同点：
 
 ### 缓存的实现原理
 
-```javascript
+```text
 
 Expires：指示响应内容过期的时间，格林威治时间GMT
 

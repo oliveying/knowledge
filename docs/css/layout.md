@@ -631,7 +631,7 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 
 ##### 方案2：切一张三像素高，宽度较长的图片,设置其高度为1px
 ```
-<div style='overflow: hidden;height: 1px'><img src="https://cdn.tianyancha.com/wap/images/feed-line2.png" class="vertical-top" alt=""></div>
+<div style='overflow: hidden;height: 1px'><img src="./images/line.png"></div>
 ```
 ##### 方案3：巧用渐变（由于采用相对定位的方式，需要考虑绝对定位时的位置）
 ```

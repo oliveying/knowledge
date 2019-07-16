@@ -113,6 +113,7 @@ module.exports = {
         '什么是服务器端渲染和客户端渲染',
         '前端常见跨域解决方案',
         '浏览器特性',
+        'phantomjs安装',
         'http协议'
       ],
       '/bgoodparts/': [

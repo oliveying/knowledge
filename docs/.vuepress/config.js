@@ -114,7 +114,8 @@ module.exports = {
         '前端常见跨域解决方案',
         '浏览器特性',
         'phantomjs安装',
-        'http协议'
+        'http协议',
+        'Promise详解'
       ],
       '/bgoodparts/': [
         'function',

@@ -98,7 +98,7 @@
 
       常见的行内元素：
 
-    ```
+    ```html
     <b>, <big>,  <i>, <small>, <tt>
 
     <abbr>, <acronym>,  <cite>, <code>, <dfn>,  <em>, <kbd>, <strong>,  <samp>, var
@@ -122,7 +122,7 @@
         margin左右起作用，上下不起作用，原因在于：行内非替换元素的外边距不会改变一个元素的行高（《css权威指南》 P227）。
 
 # 常见的布局方案
-### 静态布局(Static Layout)
+## 静态布局(Static Layout)
 1. 布局概念：最传统、原始的Web布局设计。网页最外层容器(outer)有固定的大小,所有的内容以该容器为标准,超出宽高的部分用滚动条(overflow:scroll)来实现滚动查阅。
 
 2. 优点：采用的是css2之前的写法,不需要考虑用户浏览器的宽度，不存在浏览器兼容性。布局简单。
@@ -131,7 +131,7 @@
 
 4. 实现方法：PC端: 最外层居中,限制了最小的宽度, 低于了则以最小宽度出现滚动条，移动端限制了最大的宽度, 超过了则以最大宽度居中显示
 
-### 流式布局(Liquid Layout)，也叫百分比布局
+## 流式布局(Liquid Layout)，也叫百分比布局
 
 * 布局概念
 
@@ -153,7 +153,7 @@
 
 分别为不同的屏幕设置布局格式，当屏幕大小改变时，会出现不同的布局，意思就是在这个屏幕下这个元素块在这个地方，但是在那个屏幕下，这个元素块又会出现在那个地方。只是布局改变，元素不变。可以看成是不同屏幕下由多个静态布局组成的。
 
-### 弹性盒子布局（flex layout）
+## 弹性盒子布局（flex layout）
 
 * 布局概念
 
@@ -248,74 +248,28 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 * space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
 * stretch（默认值）：轴线占满整个交叉轴。
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 百分比宽度布局（Percentage Widths Layout）
 
 * 固定页面布局，当屏幕大小改变时，页面的大体格局保持不变。
 * 宽度使用百分比，文字使用em，rem。
 * 随着浏览器宽度的改变，页面的格局会逐渐发生变化。
-```
+```css
 .layout {
-  &-wrap {
-    width:100%;
+  width: 100%;
+  font-size: 0;
+  .left {
+  width: 20%;
   }
-
-  &-left {
-    width: 20%;
-  }
-  &-right {
-    width:80%;
+  .content {
+  width: 80%
   }
 }
 ```
 
+## 双栏布局
 
-### 双栏布局
-
-
-#### 方案1：撑满window，随浏览器大小变化而变化
-```
+## 方案1：撑满window，随浏览器大小变化而变化
+```html
 
     <div class="layout-wrap">
       <div class="layout-head">
@@ -328,7 +282,9 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
       右侧
       </div>
     </div>
-    .layout {
+```
+```css
+.layout {
       &-wrap {
         position: absolute;
         top: 0;
@@ -364,14 +320,13 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
         overflow: auto;
       }
     }
-
 ```
 
 * abs布局，简单快速的达到我们想要的效果，兼容性好，但是整个页面脱离了文档流
 
 #### 方案2 采用行内块元素布局
 
-```
+```html
     <div class="layout-wrap">
       <div class="layout-head">
       上部
@@ -385,8 +340,8 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
         </div>
       </div>
     </div>
-
-    .layout {
+<style>
+ .layout {
       &-wrap {
         height: 100%;
       }
@@ -417,6 +372,8 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
         overflow: auto;
       }
     }
+</style>
+   
 ```
 
 * 由于用到了calc 影响性能，还需要在较高版本的浏览器运行
@@ -424,7 +381,7 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 
 #### 方案3：float布局
 
-```
+```scss
     .layout {
       &-wrap {
         height: 100%;
@@ -461,24 +418,13 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 
 * 在方案二的基础上调整一下左右两个div的样式即可，需要清除浮动带来的影响
 
-## 弹性布局（Flex Layout）
-
-* 采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。
-* flex模块定义了弹性元素的水平方向与垂直方向的对齐显示方式
-* 容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis），项目默认沿主轴排列。
-* CSS3引入的布局方式，简单方便快捷
-* CSS3新特性,浏览器兼容性不好，特别是一些android手机浏览器对flex的支持也不是很好。
-
-### flex 容器
-
-
 ## 响应式布局（Liquid Layout）
 
 * 采用自适应布局和流式布局的综合方式，为不同屏幕分辨率范围创建流式布局
 * 利用媒体查询可以检测到屏幕的尺寸(主要检测宽度)，并设置不同的CSS样式，当屏幕大小改变时，会出现不同的布局。
 * 栅格布局；将当前屏幕划分为n个，普遍划分为12，24个，根据不同的屏幕显示不同的大小，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。
 * 随着用户浏览器宽度的变化，到达特定尺寸样式会突变，比如左右模块突变为上下模块。
-```
+```css
 @media (min-width: 1200px)
 .container {
     width: 1170px;
@@ -492,8 +438,6 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
     width: 750px;
 }
 ```
-
-###
 
 # 移动端
 
@@ -526,7 +470,7 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 * 4倍：1pt=1dp=4px（xxxhdpi）
 
 #### 屏幕宽即为设备宽
-```
+```html
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="UTF-8">
 ```
 * 以iPhone 5s为例，屏幕的分辨率是640x1136，倍率是2。浏览器会认为屏幕的分辨率是320x568，仍然是基准倍率的尺寸。所以在制作页面时，只需要按照基准倍率来就行了。无论什么样的屏幕，倍率是多少，都按逻辑像素尺寸来设计和开发页面。只不过在准备资源图的时候，需要准备2倍大小的图，通过代码把它缩成1倍大小显示，才能保证清晰。
@@ -534,19 +478,17 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 * 1px像素的问题，一些canvas画布上圆角矩形会有锯齿
 
 * 使用rem自适应布局，利用rem单位相对根元素的font-size来做计算，根据不同的屏幕算出html的font-size，页面内的大小单位都根据rem来写。
-```
-<script>
-    var docEl = doc.documentElement,
-	var remStyle = document.createElement("style"),
+```js
+ var docEl = doc.documentElement;
+	var remStyle = document.createElement("style");
     var width = docEl.getBoundingClientRect().width;
     var rem = width * 100 / designWidth;
 	remStyle.innerHTML = 'html{font-size:' + rem + 'px;}';
-<script>
 ```
-##### 常见布局
+## 常见布局
 
 
-```
+```html
     <div class="layout-wrap">
       <div class="layout-head">
         这是顶部
@@ -587,18 +529,16 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
  }
 ```
 
-#### 设定固定的视口宽度
+## 设定固定的视口宽度
 * 先设定好固定的视口宽度，再根据屏幕宽度与设备宽度的比例设定缩放比，一般meta viewport宽度为设计稿宽度。
-```
-<script>
-  !function(){
+```js
+ !function(){
     var i=screen.width/1242;
     document.write('<meta name="viewport"content="width=1242,initial-scale='+i+",maximum-scale="+i+", minimum-scale="+i+',user-scalable=no,target-densitydpi=device-dpi,minimal-ui"/>');
   }();
-</script>
 ```
 * 目前在wap项目中存在两种layout，view/layout/h5.ejs 采用的是屏幕宽即为设备宽，view/layout/h5.fixwidth.ejs，是以1242作为固定宽度。
-```
+```scss
     $h5-fixwidth: 1242px;
     $h5-fixwidth-base-ratio: 3;
     @function realPx($px) {
@@ -620,21 +560,21 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
     }
 ```
 * 所有的像素都需要重新计算长度
-#### 1px
+### 1px
 * 像素的原因 由于视口显示宽度与设备宽度一样，实际像素与逻辑像素，而设备宽度为逻辑像素，逻辑像素=像素密度✖倍率，比如android大部分屏幕的倍率为2，ios的为3，比如ios手机一逻辑像素实际对应9个像素点。
 ##### 方案1：透明度
-```
+```css
 .border-1px{
  border:1px solid rgba(255,255,255,0.5)
 }
 ```
 
-##### 方案2：切一张三像素高，宽度较长的图片,设置其高度为1px
-```
+### 方案2：切一张三像素高，宽度较长的图片,设置其高度为1px
+```html
 <div style='overflow: hidden;height: 1px'><img src="./images/line.png"></div>
 ```
-##### 方案3：巧用渐变（由于采用相对定位的方式，需要考虑绝对定位时的位置）
-```
+### 方案3：巧用渐变（由于采用相对定位的方式，需要考虑绝对定位时的位置）
+```css
 .app-border-bottom {
     position: relative;
 }
@@ -656,7 +596,7 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 
 * 直观从html结构中就能看出大致结构，方便后续人员的开发与查找元素
 
-```
+```html
 <header></header>
 <footer></footer>
 <section></section>
@@ -669,7 +609,7 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 * 使用场景--一些使用共用的文字且不适用于同一模板，方便随时更新
 * 结构尽量精简，减少层级，降低html解析的DOM树复杂度
 
-```
+```css
 .company-history-count:before {
     content: '查看更多 ';
 }
@@ -680,7 +620,7 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 ```
 * 一些特定的样式，不需要多余元素包裹，比如异型元素小三角，
 
-```
+```css
 .tab-main .active.tab .top::after {
     position: absolute;
     left: 35%;
@@ -699,7 +639,7 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 
 * 组件与组件间的间隔，无须增加新的css
 
-```
+```html
 <ul class="list-warp">
     <li class="list"></li>
     <li class="list"></li>
@@ -720,7 +660,7 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 * 由于当前本地开发的html未压缩，而发到测试与线上的html是压缩过后的，导致本地与测试所看到的页面会稍显不同。
 * 行内元素间的空格回车等会造成行内元素的空隙，特别是inline-block元素，解决方法：
 * 1.设置空隙的字体大小，font-size:0;
-```
+```scss
 .list-warp{
     font-size:0;
     .list{
@@ -730,7 +670,7 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 }
 ```
 * 2.设置元素浮动，但需要清除浮动的影响，而且图文并排时由于脱离了文档流，导致外部环绕文字显示会有问题
-```
+```scss
 .list-warp{
     clear:both;
     .list{

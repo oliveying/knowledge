@@ -151,8 +151,8 @@ v1.4
 4. 验证标签
 * 后期加注标签
 ```bash
-$ git log --pretty=oneline // 展示提交历史
-$ git tag -a v0.1 9fceb02  // 对应提交对象的校验和（或前几位字符）
+$ git log --pretty=oneline # 展示提交历史
+$ git tag -a v0.1 9fceb02  # 对应提交对象的校验和（或前几位字符）
 ```
 5. 分享标签（把tag标签提交给远程）
 

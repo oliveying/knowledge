@@ -98,6 +98,7 @@ module.exports = {
       '/h5/': [
         'h5',
         '处理移动端样式及内嵌app总结_20190920',
+        '小程序'
       ],
       '/node/': [
         'crypto',
@@ -122,6 +123,7 @@ module.exports = {
       ],
       '/develop/': [
         'wx',
+        '反爬'
       ]
     }
   },

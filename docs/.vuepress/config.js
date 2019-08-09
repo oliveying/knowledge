@@ -80,6 +80,7 @@ module.exports = {
       ],
       '/interview/': [
         'interview',
+        '防抖和节流'
       ],
       '/css/': [
         'css',

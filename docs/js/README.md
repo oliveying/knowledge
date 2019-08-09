@@ -82,5 +82,21 @@ call()和apply()唯一区别是参数不一样，call()是apply()的语法糖；
 
 bind()是返回一个新函数，供以后调用，而apply()和call()是立即调用。
 
+应用实践：
+
+1. 使用log去调用console
+
+```js
+function log () {
+  console.log.apply(console, arguments);
+}
+```
+2. arguments类数组转为数组
+
+```js
+function test(){
+  return Array.prototype.slice.apply(arguments);
+}
+```
 
 

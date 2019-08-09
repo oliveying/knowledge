@@ -80,7 +80,8 @@ module.exports = {
       ],
       '/interview/': [
         'interview',
-        '防抖和节流'
+        '防抖和节流',
+        '懒加载',
       ],
       '/css/': [
         'css',

@@ -3,7 +3,7 @@
 > auth duruo
 
 
-* [github](/git/git.md)
+* [github](/docs/git/readme.md)
 
 
-* [markdown](/markdown/markdown.md)
+* [markdown](/docs/markdown/readme.md)

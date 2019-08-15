@@ -338,7 +338,7 @@ doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
 
 把某些目录或文件加入忽略规则，按照上述方法定义后发现并未生效，原因是.gitignore只能忽略那些原来没有被追踪的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。那么解决方法就是先把本地缓存删除（改变成未被追踪状态），然后再提交：
 ```bash
-git rm -r --cached .
+git rm -r --cached . # 误操作使用之后可以用git reset 还原
 git add .
 git commit -m 'update .gitignore'
 ```
@@ -349,3 +349,11 @@ git commit -m 'update .gitignore'
 ```bash
 git branch --set-upstream-to=origin/master master
 ```
+
+## 分支后面出现R的原因
+错误的执行了rebase；所以会有一个rebase-merge目录
+```bash
+  rm -fr ".git/rebase-merge"
+
+```
+

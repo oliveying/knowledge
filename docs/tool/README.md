@@ -4,6 +4,8 @@
 
 [https://tinypng.com/](https://tinypng.com/)
 
+[https://imageoptim.com/mac](https://imageoptim.com/mac)
+
 ## sketch
 [https://oursketch.com/](https://oursketch.com/)
 

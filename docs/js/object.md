@@ -390,6 +390,417 @@ var plus5 = add.bind(null, 5);
 plus5(10) // 15
 ```
 
-bind注意点
+## bind注意点
 
+### 每一次返回一个新函数
+所以监听事件时，要写成
+```js
+var listener = o.m.bind(o);
+element.addEventListener('click', listener);
+//  ...
+element.removeEventListener('click', listener);
+```
+### 结合回调函数使用
+回调函数是 JavaScript 最常用的模式之一，但是一个常见的错误是，将包含this的方法直接当作回调函数。解决方法就是使用bind方法，将counter.inc绑定counter。
+```js
+var counter = {
+  count: 0,
+  inc: function () {
+    'use strict';
+    this.count++;
+  }
+};
+
+function callIt(callback) {
+  callback();
+}
+
+callIt(counter.inc.bind(counter));
+counter.count // 1
+```
+还有一种情况比较隐蔽，就是某些数组方法可以接受一个函数当作参数。这些函数内部的this指向，很可能也会出错。
+```js
+obj.print = function () {
+  this.times.forEach(function (n) {
+    console.log(this.name);
+  }.bind(this));
+};
+
+obj.print()
+```
+
+### 结合call方法使用
+
+利用bind方法，可以改写一些 JavaScript 原生方法的使用形式，以数组的slice方法为例。
+```js
+[1, 2, 3].slice(0, 1) // [1]
+// 等同于
+Array.prototype.slice.call([1, 2, 3], 0, 1) // [1]
+```
+
+上面的代码中，数组的slice方法从[1, 2, 3]里面，按照指定位置和长度切分出另一个数组。这样做的本质是在[1, 2, 3]上面调用Array.prototype.slice方法，因此可以用call方法表达这个过程，得到同样的结果。
+
+call方法实质上是调用Function.prototype.call方法，因此上面的表达式可以用bind方法改写。
+```js
+var slice = Function.prototype.call.bind(Array.prototype.slice);
+slice([1, 2, 3], 0, 1) // [1]
+```
+
+上面代码的含义就是，将Array.prototype.slice变成Function.prototype.call方法所在的对象，调用时就变成了Array.prototype.slice.call。类似的写法还可以用于其他数组方法。
+```js
+var push = Function.prototype.call.bind(Array.prototype.push);
+var pop = Function.prototype.call.bind(Array.prototype.pop);
+
+var a = [1 ,2 ,3];
+push(a, 4)
+a // [1, 2, 3, 4]
+
+pop(a)
+a // [1, 2, 3]
+```
+
+如果再进一步，将Function.prototype.call方法绑定到Function.prototype.bind对象，就意味着bind的调用形式也可以被改写。
+```js
+function f() {
+  console.log(this.v);
+}
+
+var o = { v: 123 };
+var bind = Function.prototype.call.bind(Function.prototype.bind);
+bind(f, o)() // 123
+```
+
+上面代码的含义就是，将Function.prototype.bind方法绑定在Function.prototype.call上面，所以bind方法就可以直接使用，不需要在函数实例上使用。
+
+## 构造函数的prototype
+> https://wangdoc.com/javascript/oop/prototype.html
+
+JavaScript 通过构造函数生成新对象，因此构造函数可以视为对象的模板。实例对象的属性和方法，可以定义在构造函数内部。
+同一个构造函数的多个实例之间，无法共享属性，从而造成对系统资源的浪费。
+
+可以使用JavaScript 的原型对象（prototype）来解决
+
+JavaScript 继承机制的设计思想就是，原型对象的所有属性和方法，都能被实例对象共享。也就是说，如果属性和方法定义在原型上，那么所有实例对象就能共享，不仅节省了内存，还体现了实例对象之间的联系。而实例对象可以视作从原型对象衍生出来的子对象。
+
+## 原型链
+
+JavaScript 规定，所有对象都有自己的原型对象（prototype）。一方面，任何一个对象，都可以充当其他对象的原型；另一方面，由于原型对象也是对象，所以它也有自己的原型。因此，就会形成一个“原型链”（prototype chain）：对象到原型，再到原型的原型……
+
+如果一层层地上溯，所有对象的原型最终都可以上溯到Object.prototype，即Object构造函数的prototype属性。也就是说，所有对象都继承了Object.prototype的属性。这就是所有对象都有valueOf和toString方法的原因，因为这是从Object.prototype继承的。
+
+那么，Object.prototype对象有没有它的原型呢？回答是Object.prototype的原型是null。null没有任何属性和方法，也没有自己的原型。因此，原型链的尽头就是null。
+```js
+Object.getPrototypeOf(Object.prototype)
+// null
+```
+
+上面代码表示，Object.prototype对象的原型是null，由于null没有任何属性，所以原型链到此为止。Object.getPrototypeOf方法返回参数对象的原型，具体介绍请看后文。
+
+读取对象的某个属性时，JavaScript 引擎先寻找对象本身的属性，如果找不到，就到它的原型去找，如果还是找不到，就到原型的原型去找。如果直到最顶层的Object.prototype还是找不到，则返回undefined。如果对象自身和它的原型，都定义了一个同名属性，那么优先读取对象自身的属性，这叫做“覆盖”（overriding）。
+
+注意，一级级向上，在整个原型链上寻找某个属性，对性能是有影响的。所寻找的属性在越上层的原型对象，对性能的影响越大。如果寻找某个不存在的属性，将会遍历整个原型链。
+
+举例来说，如果让构造函数的prototype属性指向一个数组，就意味着实例对象可以调用数组方法。
+```js
+var MyArray = function () {};
+
+MyArray.prototype = new Array();
+MyArray.prototype.constructor = MyArray;
+
+var mine = new MyArray();
+mine.push(1, 2, 3);
+mine.length // 3
+mine instanceof Array // true
+```
+
+上面代码中，mine是构造函数MyArray的实例对象，由于MyArray.prototype指向一个数组实例，使得mine可以调用数组方法（这些方法定义在数组实例的prototype对象上面）。最后那行instanceof表达式，用来比较一个对象是否为某个构造函数的实例，结果就是证明mine为Array的实例，instanceof运算符的详细解释详见后文。
+
+## constructor 属性
+
+prototype对象有一个constructor属性，默认指向prototype对象所在的构造函数。
+```js
+function P() {}
+P.prototype.constructor === P // true
+```
+
+由于constructor属性定义在prototype对象上面，意味着可以被所有实例对象继承。
+```js
+function P() {}
+var p = new P();
+
+p.constructor === P // true
+p.constructor === P.prototype.constructor // true
+p.hasOwnProperty('constructor') // false
+```
+
+上面代码中，p是构造函数P的实例对象，但是p自身没有constructor属性，该属性其实是读取原型链上面的P.prototype.constructor属性。
+
+constructor属性的作用是，可以得知某个实例对象，到底是哪一个构造函数产生的。
+```js
+function F() {};
+var f = new F();
+
+f.constructor === F // true
+f.constructor === RegExp // false
+```
+
+上面代码中，constructor属性确定了实例对象f的构造函数是F，而不是RegExp。
+
+另一方面，有了constructor属性，就可以从一个实例对象新建另一个实例。
+```js
+function Constr() {}
+var x = new Constr();
+
+var y = new x.constructor();
+y instanceof Constr // true
+```
+
+上面代码中，x是构造函数Constr的实例，可以从x.constructor间接调用构造函数。这使得在实例方法中，调用自身的构造函数成为可能。
+```js
+Constr.prototype.createCopy = function () {
+  return new this.constructor();
+};
+```
+
+上面代码中，createCopy方法调用构造函数，新建另一个实例。
+
+constructor属性表示原型对象与构造函数之间的关联关系，如果修改了原型对象，一般会同时修改constructor属性，防止引用的时候出错。
+```js
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.constructor === Person // true
+
+Person.prototype = {
+  method: function () {}
+};
+
+Person.prototype.constructor === Person // false
+Person.prototype.constructor === Object // true
+```
+
+上面代码中，构造函数Person的原型对象改掉了，但是没有修改constructor属性，导致这个属性不再指向Person。由于Person的新原型是一个普通对象，而普通对象的constructor属性指向Object构造函数，导致Person.prototype.constructor变成了Object。
+
+所以，修改原型对象时，一般要同时修改constructor属性的指向。
+```js
+// 坏的写法
+C.prototype = {
+  method1: function (...) { ... },
+  // ...
+};
+
+// 好的写法
+C.prototype = {
+  constructor: C,
+  method1: function (...) { ... },
+  // ...
+};
+
+// 更好的写法
+C.prototype.method1 = function (...) { ... };
+```
+
+上面代码中，要么将constructor属性重新指向原来的构造函数，要么只在原型对象上添加方法，这样可以保证instanceof运算符不会失真。
+
+如果不能确定constructor属性是什么函数，还有一个办法：通过name属性，从实例得到构造函数的名称。
+```js
+function Foo() {}
+var f = new Foo();
+f.constructor.name // "Foo"
+```
+
+## instanceof 运算符
+
+instanceof运算符返回一个布尔值，表示对象是否为某个构造函数的实例。
+```js
+var v = new Vehicle();
+v instanceof Vehicle // true
+```
+
+上面代码中，对象v是构造函数Vehicle的实例，所以返回true。
+
+instanceof运算符的左边是实例对象，右边是构造函数。它会检查右边构建函数的原型对象（prototype），是否在左边对象的原型链上。因此，下面两种写法是等价的。
+```js
+v instanceof Vehicle
+// 等同于
+Vehicle.prototype.isPrototypeOf(v)
+```
+
+上面代码中，Object.prototype.isPrototypeOf的详细解释见后文。
+
+由于instanceof检查整个原型链，因此同一个实例对象，可能会对多个构造函数都返回true。
+```js
+var d = new Date();
+d instanceof Date // true
+d instanceof Object // true
+```
+
+上面代码中，d同时是Date和Object的实例，因此对这两个构造函数都返回true。
+
+由于任意对象（除了null）都是Object的实例，所以instanceof运算符可以判断一个值是否为非null的对象。
+```js
+var obj = { foo: 123 };
+obj instanceof Object // true
+
+null instanceof Object // false
+```
+
+上面代码中，除了null，其他对象的instanceOf Object的运算结果都是true。
+
+instanceof的原理是检查右边构造函数的prototype属性，是否在左边对象的原型链上。有一种特殊情况，就是左边对象的原型链上，只有null对象。这时，instanceof判断会失真。
+```js
+var obj = Object.create(null);
+typeof obj // "object"
+Object.create(null) instanceof Object // false
+```
+
+上面代码中，Object.create(null)返回一个新对象obj，它的原型是null（Object.create的详细介绍见后文）。右边的构造函数Object的prototype属性，不在左边的原型链上，因此instanceof就认为obj不是Object的实例。但是，只要一个对象的原型不是null，instanceof运算符的判断就不会失真。
+
+instanceof运算符的一个用处，是判断值的类型。
+```js
+var x = [1, 2, 3];
+var y = {};
+x instanceof Array // true
+y instanceof Object // true
+```
+
+上面代码中，instanceof运算符判断，变量x是数组，变量y是对象。
+
+注意，instanceof运算符只能用于对象，不适用原始类型的值。
+```js
+var s = 'hello';
+s instanceof String // false
+```
+
+上面代码中，字符串不是String对象的实例（因为字符串不是对象），所以返回false。
+
+此外，对于undefined和null，instanceOf运算符总是返回false。
+```js
+undefined instanceof Object // false
+null instanceof Object // false
+```
+利用instanceof运算符，还可以巧妙地解决，调用构造函数时，忘了加new命令的问题。
+
+```js
+function Fubar (foo, bar) {
+  if (this instanceof Fubar) {
+    this._foo = foo;
+    this._bar = bar;
+  } else {
+    return new Fubar(foo, bar);
+  }
+}
+```
+
+上面代码使用instanceof运算符，在函数体内部判断this关键字是否为构造函数Fubar的实例。如果不是，就表明忘了加new命令。
+
+
+## 构造函数的继承
+
+让一个构造函数继承另一个构造函数，是非常常见的需求。这可以分成两步实现。第一步是在子类的构造函数中，调用父类的构造函数。
+```js
+function Sub(value) {
+  Super.call(this);
+  this.prop = value;
+}
+```
+
+上面代码中，Sub是子类的构造函数，this是子类的实例。在实例上调用父类的构造函数Super，就会让子类实例具有父类实例的属性。
+
+第二步，是让子类的原型指向父类的原型，这样子类就可以继承父类原型。
+```js
+Sub.prototype = Object.create(Super.prototype);
+Sub.prototype.constructor = Sub;
+Sub.prototype.method = '...';
+```
+
+上面代码中，Sub.prototype是子类的原型，要将它赋值为Object.create(Super.prototype)，而不是直接等于Super.prototype。否则后面两行对Sub.prototype的操作，会连父类的原型Super.prototype一起修改掉。
+
+另外一种写法是Sub.prototype等于一个父类实例。
+```js
+Sub.prototype = new Super();
+
+```
+上面这种写法也有继承的效果，但是子类会具有父类实例的方法。有时，这可能不是我们需要的，所以不推荐使用这种写法。
+
+举例来说，下面是一个Shape构造函数。
+```js
+function Shape() {
+  this.x = 0;
+  this.y = 0;
+}
+
+Shape.prototype.move = function (x, y) {
+  this.x += x;
+  this.y += y;
+  console.info('Shape moved.');
+};
+```
+
+我们需要让Rectangle构造函数继承Shape。
+```js
+// 第一步，子类继承父类的实例
+function Rectangle() {
+  Shape.call(this); // 调用父类构造函数
+}
+// 另一种写法
+function Rectangle() {
+  this.base = Shape;
+  this.base();
+}
+
+// 第二步，子类继承父类的原型
+Rectangle.prototype = Object.create(Shape.prototype);
+Rectangle.prototype.constructor = Rectangle;
+```
+
+采用这样的写法以后，instanceof运算符会对子类和父类的构造函数，都返回true。
+```js
+var rect = new Rectangle();
+
+rect instanceof Rectangle  // true
+rect instanceof Shape  // true
+```
+
+上面代码中，子类是整体继承父类。有时只需要单个方法的继承，这时可以采用下面的写法。
+```js
+ClassB.prototype.print = function() {
+  ClassA.prototype.print.call(this);
+  // some code
+}
+```
+
+上面代码中，子类B的print方法先调用父类A的print方法，再部署自己的代码。这就等于继承了父类A的print方法。
+
+## 多重继承
+JavaScript 不提供多重继承功能，即不允许一个对象同时继承多个对象。但是，可以通过变通方法，实现这个功能。
+```js
+function M1() {
+  this.hello = 'hello';
+}
+
+function M2() {
+  this.world = 'world';
+}
+
+function S() {
+  M1.call(this);
+  M2.call(this);
+}
+
+// 继承 M1
+S.prototype = Object.create(M1.prototype);
+// 继承链上加入 M2
+Object.assign(S.prototype, M2.prototype);
+
+// 指定构造函数
+S.prototype.constructor = S;
+
+var s = new S();
+s.hello // 'hello'
+s.world // 'world'
+```
+
+上面代码中，子类S同时继承了父类M1和M2。这种模式又称为 Mixin（混入）。
 

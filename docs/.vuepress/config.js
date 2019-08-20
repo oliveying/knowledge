@@ -73,6 +73,8 @@ module.exports = {
         'http',
         'js兼容ie',
         '存储的几种方式',
+        'Navigator对象、Screen对象',
+        '操作符'
       ],
       '/test_tool/': [
         'mobile',
@@ -118,7 +120,8 @@ module.exports = {
         '浏览器特性',
         'phantomjs安装',
         'http协议',
-        'Promise详解'
+        'Promise详解',
+        'js实现二代身份证号码验证详解'
       ],
       '/bgoodparts/': [
         'function',

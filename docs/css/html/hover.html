@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .name {
+      display: inline-block;
+      position: relative;
+    }
+    .hover-content {
+      border: 1px solid #f3f3f3;
+      position: absolute;
+      height: 24px;
+      top: 0;
+      right: -154px;
+      width: 120px;
+      padding: 0 10px;
+
+    }
+    .hover-content:after, .hover-content:before {
+      content: '';
+      border-right: 8px solid #fff;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      width: 0;
+      height: 0;
+      position: absolute;
+      left: -6px;
+      top: 4px;
+    }
+    .hover-content:before {
+      border-right: 8px solid #f3f3f3;
+      left: -8px;
+    }
+
+  </style>
+</head>
+<body>
+<div class="name">百度网讯
+<div class="hover-content">
+  这是百度
+</div>
+</div>
+</body>
+</html>

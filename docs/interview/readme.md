@@ -114,3 +114,85 @@ function distinct(a, b) {
 ```
 
 > [扩展](https://github.com/lessfish/underscore-analysis/issues/9)
+
+
+## 运算符左移，使用左移将颜色rgb值转为hex，详见操作符
+```js
+var color = {r: 186, g: 218, b: 85};
+
+// RGB to HEX
+// (1 << 24)的作用为保证结果是6位数
+var rgb2hex = function(r, g, b) {
+  return '#' + ((1 << 24) + (r << 16) + (g << 8) + b)
+    .toString(16) // 先转成十六进制，然后返回字符串
+    .substr(1);   // 去除字符串的最高位，返回后面六个字符串
+}
+
+rgb2hex(color.r, color.g, color.b)
+// "#bada55"
+```
+
+## 箭头函数有几个使用注意点
+
+1. 函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。
+2. 不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。
+3. 不可以使用arguments对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。
+4. 不可以使用yield命令，因此箭头函数不能用作 Generator 函数
+
+## 判断原型链输出结果
+
+```js
+function Foo() {
+  getName = function () {
+    alert(1);
+  }
+  return this;
+}
+
+Foo.getName = function () {
+  alert(2)
+}
+Foo.prototype.getName = function () {
+  alert(3)
+}
+
+var getName = function () {
+  alert(4)
+}
+
+function getName() {
+  alert(5)
+}
+
+Foo.getName();
+getName();
+Foo().getName(); 
+new Foo.getName();
+new Foo().getName();
+new new Foo().getName();
+
+// 2 4 1 2 3 3
+```
+
+## 计算当前页面打开之后停留时间
+
+```js
+var second = 0;
+var minute = 0;
+var hour = 0;
+window.setTimeout("interval();", 1000);
+
+function interval() {
+  second++;
+  if (second == 60) {
+    second = 0;
+    minute += 1;
+  }
+  if (minute == 60) {
+    minute = 0;
+    hour += 1;
+  }
+  document.form1.textarea.value = hour + "时" + minute + "分" + second + "秒";
+  window.setTimeout("interval();", 1000);
+}
+```

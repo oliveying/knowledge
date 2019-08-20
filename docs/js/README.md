@@ -131,3 +131,9 @@ function _new(/* 构造函数 */ constructor, /* 构造函数参数 */ params) {
 // 实例
 var actor = _new(Person, '张三', 28);
 ```
+
+## 判断ie浏览器
+```js
+    var isIE = new RegExp("MSIE (\\d+\\.\\d+);").test(window.navigator.userAgent) || ("ActiveXObject" in window);
+
+```

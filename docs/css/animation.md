@@ -1,5 +1,6 @@
 ## animation动画
 
+[animation](./html/animation.html)
 > 参考[菜鸟教程](https://www.runoob.com/cssref/css3-pr-animation.html)
 
 ```css
@@ -12,7 +13,7 @@ div {
 ```
 
 |值|说明|备注|
-|:---|:----|
+|:---|:----|---|
 |animation-name|指定要绑定到选择器的关键帧的名称|animation-name: keyframename ,none //指定有没有动画（可用于覆盖从级联的动画） ;|
 |animation-duration|动画指定需要多少秒或多少毫秒完成|animation-duration: time;// 指定动画播放完成花费的时间， 默认值0，意味着没有动画效果|
 |animation-timing-function|设置动画将如何完成一个周期|animation-timing-function: value; //使用的是数学函数，成为三次贝塞尔曲线，速度曲线。使用此函数，可以使用您自己的值，或使用预先定义值之一；|
@@ -25,7 +26,7 @@ div {
 |||
 
 ||值|说明|
-|:--|:--|:--|
+|:---|:---|---|
 |animation-timing-function|linear|动画从头到尾速度都是相同的|
 ||ease|默认。动画从低速开始，然后加快，在结束前变慢|
 ||ease-in|动画以低速开始|

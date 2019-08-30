@@ -10,12 +10,12 @@ arrayObject.concat(arrayX,arrayX,......,arrayX)
 ```
 arrayX 必需。该参数可以是具体的值，也可以是数组对象。可以是任意多个。
 
-### 把两个排好序的数组合并成一个
+### 把两个排好序的数组合并成一个，并且按照从小到大的方式排列
 ```JS
 var a = [1,3,5,7,13]
 var b = [0,2,3,4,6,7,8,12]
 c = b.concat(a)
-c.sort(function(a,b){return a-b}
+c.sort(function(a,b){return a-b})
 ```
 
 ## 如果数组成员是undefined或null或空位，会被转成空字符串。

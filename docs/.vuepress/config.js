@@ -40,6 +40,7 @@ module.exports = {
           { text: 'javascript', link: '/js/' },
           {text: 'h5最新用法', link: '/h5/'},
           {text: 'node', link: '/node/'},
+          {text: 'http', link: '/http/'},
         ]
       },
       {text: '总结', items: [

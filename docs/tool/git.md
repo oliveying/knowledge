@@ -357,3 +357,22 @@ git branch --set-upstream-to=origin/master master
 
 ```
 
+## git init 之后删除
+```bash
+rm -rf .git 
+
+```
+
+## git clone时加上--depth 1
+
+当项目过大时，git clone时会出现error: RPC failed; HTTP 504 curl 22 The requested URL returned error: 504 Gateway Time-out的问题
+
+解决方法很简单，在git clone时加上--depth=1即可解决
+
+克隆的项目只包含最近的一次commit的一个分支，体积很小，即可解决文章开头提到的项目过大导致Timeout的问题，但会产生另外一个问题，他只会把默认分支clone下来，其他远程分支并不在本地，所以这种情况下，需要用如下方法拉取其他分支：
+```bash
+$ git clone --depth 1 https://github.com/dogescript/xxxxxxx.git
+$ git remote set-branches origin 'remote_branch_name'
+$ git fetch --depth 1 origin remote_branch_name
+$ git checkout remote_branch_name
+```

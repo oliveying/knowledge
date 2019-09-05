@@ -61,3 +61,10 @@ sudo npm install npm -g
 sudo n 10.13.0
 ```
 4.至此npm恢复正常
+
+## npm link && npm unlink 取消
+
+```bash
+npm link guide-tool
+```
+将npm 模块链接到对应的运行项目中去，方便地对模块进行调试和测试

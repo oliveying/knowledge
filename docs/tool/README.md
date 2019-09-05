@@ -12,3 +12,12 @@
 与ps比较
 * sketch软件比较轻量级，适合做UI设计
 * ps更适合修图、处理图片
+
+## 资料下载pdf
+
+[http://menvscode.com/](http://menvscode.com/)
+
+
+## google分析工具
+
+[google分析工具](https://developers.google.cn/analytics/devguides/reporting/?hl=zh-cn)

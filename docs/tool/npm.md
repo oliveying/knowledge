@@ -63,8 +63,8 @@ sudo n 10.13.0
 4.至此npm恢复正常
 
 ## npm link && npm unlink 取消
-
+在需要全局link的情况下，在需要全局的模块执行npm link
 ```bash
-npm link guide-tool
+npm link
 ```
 将npm 模块链接到对应的运行项目中去，方便地对模块进行调试和测试

@@ -110,7 +110,7 @@ $ git config --global user.email "xxx"
 ```
 * (局部)修改自己的用户名和邮箱地址
 ```bash
-$ git config user.name “gitlab’s Name”
+$ git config user.name "gitlab’s Name"
 $ git config user.email "gitlab@xx.com"
 $ git config --list
 ```
@@ -170,15 +170,15 @@ $ git tag -d 20181127  删除本地tag
 
 1. 想切换分支，并且不想提交正在进行的工作，所有需要储藏这些变更
 ```bash
-$ git status //(自己变动的目录)
+$ git status # (自己变动的目录)
 $ git stash
-$ git status  // 目录清理干净
+$ git status  # 目录清理干净
 ```
 * 这时，你可以方便地切换到其他分支工作；你的变更都保存在栈上。要查看现有的储藏，你可以使用 git stash list：
 ```bash
-$ git stash list  // 自己储藏的列表
-$ git stash apply // 最新实施的储藏，为默认
-$ git stash apply stash@{2}  // 指明哪个
+$ git stash list  # 自己储藏的列表
+$ git stash apply # 最新实施的储藏，为默认
+$ git stash apply stash@{2}  # 指明哪个
 ```
 2. 从储藏中创建分支
 ```bash

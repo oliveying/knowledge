@@ -29,7 +29,8 @@ module.exports = {
       {text: 'Home', link: '/'},
       {text: 'book',
       items: [
-        {text: '语言精粹', link: '/bgoodparts/'}
+        {text: '语言精粹', link: '/bgoodparts/'},
+        {text: '图解http', link: '/http/'}
       ]},
       {
         text: '前端技术',
@@ -40,7 +41,6 @@ module.exports = {
           { text: 'javascript', link: '/js/' },
           {text: 'h5最新用法', link: '/h5/'},
           {text: 'node', link: '/node/'},
-          {text: 'http', link: '/http/'},
         ]
       },
       {text: '总结', items: [
@@ -126,6 +126,14 @@ module.exports = {
       ],
       '/bgoodparts/': [
         'function',
+      ],
+      '/http/': [
+        'http',
+        'http报文内的http信息',
+        '返回结果的http状态码',
+        '代理网关隧道',
+        'http首部',
+        '确保Web安全的HTTPS',
       ],
       '/develop/': [
         'wx',

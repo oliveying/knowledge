@@ -125,7 +125,13 @@ module.exports = {
         'js实现二代身份证号码验证详解'
       ],
       '/bgoodparts/': [
+        'string',
+        'object',
         'function',
+        '继承',
+        'array',
+        'regexp',
+        '方法'
       ],
       '/http/': [
         'http',

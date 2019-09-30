@@ -141,6 +141,9 @@ module.exports = {
         'http首部',
         '确保Web安全的HTTPS',
       ],
+      '/linux/': [
+        'linux'
+      ],
       '/develop/': [
         'wx',
         '反爬'

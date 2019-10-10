@@ -174,4 +174,5 @@ linux压缩和解压缩命令大全
 		压缩:rar e filename.rar	
 
 ```
-
+`ps -aux | grep emailcase` 查看进程
+`kill 5565` 杀进程，进入目录 `rm -rf .log`

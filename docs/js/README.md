@@ -137,3 +137,15 @@ var actor = _new(Person, '张三', 28);
     var isIE = new RegExp("MSIE (\\d+\\.\\d+);").test(window.navigator.userAgent) || ("ActiveXObject" in window);
 
 ```
+## 11个内置对象
+* String
+* Number
+* Boolean
+* Error（6个）
+* Math
+* Date
+* RegExp
+* Object
+* Function
+* Array
+* Global(Window)

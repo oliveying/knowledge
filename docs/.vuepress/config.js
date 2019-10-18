@@ -41,6 +41,7 @@ module.exports = {
           { text: 'javascript', link: '/js/' },
           {text: 'h5最新用法', link: '/h5/'},
           {text: 'node', link: '/node/'},
+          {text: '浏览器特性', link: '/brower/'}
         ]
       },
       {text: '总结', items: [
@@ -81,6 +82,10 @@ module.exports = {
         'mobile',
         'webstorm'
       ],
+      '/brower/': [
+        '浏览器特性',
+        '各种浏览器调试错误方法及错误处理机制',
+      ],
       '/interview/': [
         'interview',
         '防抖和节流',
@@ -110,6 +115,7 @@ module.exports = {
       ],
       '/problem/': [
         '缩写',
+        'vue',
       ],
       '/html/': [
         'html标签属性名称',
@@ -120,10 +126,8 @@ module.exports = {
         'JavaScript 小技巧',
         '常见兼容性问题',
         '本地调试H5页面方案总结',
-        '各种浏览器调试错误方法及错误处理机制',
         '什么是服务器端渲染和客户端渲染',
         '前端常见跨域解决方案',
-        '浏览器特性',
         'phantomjs安装',
         'http协议',
         'Promise详解',

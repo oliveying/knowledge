@@ -55,7 +55,12 @@
 ## 前端安全系列：如何防止 XSS 攻击？
 [前端安全系列：如何防止 XSS 攻击？](https://tech.meituan.com/2018/09/27/fe-security.html)
 
+* 什么是跨域脚本（xss）攻击：简单来说就是恶意用户提交的代码中加入script标签，放入JavaScript逻辑。如果不经修改把这些数据展示给其他用户，可能会发送令人厌恶的事情，比如将用户转到其他web页面上。
+
+
 [无头浏览器 Puppeteer 初探](https://juejin.im/post/59e5a86c51882578bf185dba)
+
+
 
 ## 扩展
 

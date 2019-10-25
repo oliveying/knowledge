@@ -213,6 +213,12 @@ import/export 最终都是编译为 require/exports 来执行的。
 CommonJS 规范规定，每个模块内部，module 变量代表当前模块。这个变量是一个对象，它的 exports 属性（即 module.exports ）是对外的接口。加载某个模块，其实是加载该模块的 module.exports 属性。
 export 命令规定的是对外的接口，必须与模块内部的变量建立一一对应关系。
 
+* module.exports 可以对外提供单个变量、函数或者对象。如果创建了exports 和module.exports ,exports 会被忽略
+如果想继续用，则需要 module.exports = exports = test
+
+exports.test 只是 modules.exports.test的简写
+
+
 ## 一行代码实现数组去重？
 1. [...new Set([1,2,3,1,'a',1,'a'])]
 

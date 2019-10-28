@@ -151,7 +151,10 @@ module.exports = {
         '确保Web安全的HTTPS',
       ],
       '/linux/': [
-        'linux'
+        'linux',
+        'rsync',
+        'rsync命令',
+        'Linux下的tar压缩解压缩命令详解'
       ],
       '/develop/': [
         'wx',

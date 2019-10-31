@@ -15,6 +15,8 @@
 ## 网站
 [阮一峰javascript 书](https://wangdoc.com/javascript/index.html)
 
+[gulp资料大全](https://segmentfault.com/a/1190000004915222)
+
 [前端进阶](https://www.jianshu.com/p/cd3fee40ef59)
 
 [前端资料](https://leohxj.gitbooks.io/front-end-database/html-and-css-basic/common-tag.html)

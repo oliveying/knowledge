@@ -102,6 +102,7 @@ module.exports = {
         'git',
         'yarn',
         'npm',
+        'gulp',
         'command',
         'ssh',
       ],
@@ -112,6 +113,8 @@ module.exports = {
       ],
       '/node/': [
         'crypto',
+        'node截屏',
+        'nodeapi'
       ],
       '/problem/': [
         '缩写',
@@ -152,9 +155,10 @@ module.exports = {
       ],
       '/linux/': [
         'linux',
+        'linux下的ps',
         'rsync',
         'rsync命令',
-        'Linux下的tar压缩解压缩命令详解'
+        'Linux下的tar压缩解压缩命令详解',
       ],
       '/develop/': [
         'wx',

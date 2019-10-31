@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>sh 是shell脚本 | oliveying</title>
+    <meta name="description" content="前端知识，JavaScript，html，css，tool，git，markdown">
+    <link rel="icon" href="/knowledge/img/favicon.ico">
+    
+    <link rel="preload" href="/knowledge/assets/css/0.styles.9483da07.css" as="style"><link rel="preload" href="/knowledge/assets/js/app.e79fa9dd.js" as="script"><link rel="preload" href="/knowledge/assets/js/69.6d8cbb52.js" as="script"><link rel="prefetch" href="/knowledge/assets/js/10.59f0afd1.js"><link rel="prefetch" href="/knowledge/assets/js/11.dcc96315.js"><link rel="prefetch" href="/knowledge/assets/js/12.0a4c434b.js"><link rel="prefetch" href="/knowledge/assets/js/13.cc03ea2b.js"><link rel="prefetch" href="/knowledge/assets/js/14.3d9b50ad.js"><link rel="prefetch" href="/knowledge/assets/js/15.74079c8f.js"><link rel="prefetch" href="/knowledge/assets/js/16.26a6dbf3.js"><link rel="prefetch" href="/knowledge/assets/js/17.7a4fc304.js"><link rel="prefetch" href="/knowledge/assets/js/18.25d231ba.js"><link rel="prefetch" href="/knowledge/assets/js/19.b02852de.js"><link rel="prefetch" href="/knowledge/assets/js/2.59c9280e.js"><link rel="prefetch" href="/knowledge/assets/js/20.62522f91.js"><link rel="prefetch" href="/knowledge/assets/js/21.b16f034c.js"><link rel="prefetch" href="/knowledge/assets/js/22.b470c21c.js"><link rel="prefetch" href="/knowledge/assets/js/23.d39e7c43.js"><link rel="prefetch" href="/knowledge/assets/js/24.d87a309d.js"><link rel="prefetch" href="/knowledge/assets/js/25.e41e528b.js"><link rel="prefetch" href="/knowledge/assets/js/26.d47ab7eb.js"><link rel="prefetch" href="/knowledge/assets/js/27.37fe1b31.js"><link rel="prefetch" href="/knowledge/assets/js/28.352ce51a.js"><link rel="prefetch" href="/knowledge/assets/js/29.6a96dba7.js"><link rel="prefetch" href="/knowledge/assets/js/3.99abc0fd.js"><link rel="prefetch" href="/knowledge/assets/js/30.6474890c.js"><link rel="prefetch" href="/knowledge/assets/js/31.a248ccf8.js"><link rel="prefetch" href="/knowledge/assets/js/32.db190804.js"><link rel="prefetch" href="/knowledge/assets/js/33.993491f9.js"><link rel="prefetch" href="/knowledge/assets/js/34.1ba0fffb.js"><link rel="prefetch" href="/knowledge/assets/js/35.4fc96a05.js"><link rel="prefetch" href="/knowledge/assets/js/36.e128ee91.js"><link rel="prefetch" href="/knowledge/assets/js/37.a44c2902.js"><link rel="prefetch" href="/knowledge/assets/js/38.86d71f07.js"><link rel="prefetch" href="/knowledge/assets/js/39.f2e92521.js"><link rel="prefetch" href="/knowledge/assets/js/4.1de77468.js"><link rel="prefetch" href="/knowledge/assets/js/40.dfa2181a.js"><link rel="prefetch" href="/knowledge/assets/js/41.e22c2db9.js"><link rel="prefetch" href="/knowledge/assets/js/42.6d0c1757.js"><link rel="prefetch" href="/knowledge/assets/js/43.161eea11.js"><link rel="prefetch" href="/knowledge/assets/js/44.da0b3287.js"><link rel="prefetch" href="/knowledge/assets/js/45.8f4a25e0.js"><link rel="prefetch" href="/knowledge/assets/js/46.de843aa6.js"><link rel="prefetch" href="/knowledge/assets/js/47.5f210d37.js"><link rel="prefetch" href="/knowledge/assets/js/48.7ae78a12.js"><link rel="prefetch" href="/knowledge/assets/js/49.ea2b0606.js"><link rel="prefetch" href="/knowledge/assets/js/5.85428d44.js"><link rel="prefetch" href="/knowledge/assets/js/50.5e0a20e6.js"><link rel="prefetch" href="/knowledge/assets/js/51.98ddb8a9.js"><link rel="prefetch" href="/knowledge/assets/js/52.da5a607c.js"><link rel="prefetch" href="/knowledge/assets/js/53.81125f57.js"><link rel="prefetch" href="/knowledge/assets/js/54.2a8e0fe0.js"><link rel="prefetch" href="/knowledge/assets/js/55.b0dd590a.js"><link rel="prefetch" href="/knowledge/assets/js/56.1db7aaee.js"><link rel="prefetch" href="/knowledge/assets/js/57.528dd72a.js"><link rel="prefetch" href="/knowledge/assets/js/58.a07935ce.js"><link rel="prefetch" href="/knowledge/assets/js/59.1b818a9c.js"><link rel="prefetch" href="/knowledge/assets/js/6.abaeb4e7.js"><link rel="prefetch" href="/knowledge/assets/js/60.1a192e8e.js"><link rel="prefetch" href="/knowledge/assets/js/61.d7699c39.js"><link rel="prefetch" href="/knowledge/assets/js/62.270c36b9.js"><link rel="prefetch" href="/knowledge/assets/js/63.41e48796.js"><link rel="prefetch" href="/knowledge/assets/js/64.d3fa7809.js"><link rel="prefetch" href="/knowledge/assets/js/65.e415840b.js"><link rel="prefetch" href="/knowledge/assets/js/66.34bd11cb.js"><link rel="prefetch" href="/knowledge/assets/js/67.4c44a10f.js"><link rel="prefetch" href="/knowledge/assets/js/68.f6ceeeaf.js"><link rel="prefetch" href="/knowledge/assets/js/7.7c7f1a03.js"><link rel="prefetch" href="/knowledge/assets/js/70.a0211414.js"><link rel="prefetch" href="/knowledge/assets/js/71.3caae260.js"><link rel="prefetch" href="/knowledge/assets/js/72.abfc5e49.js"><link rel="prefetch" href="/knowledge/assets/js/73.c87378cc.js"><link rel="prefetch" href="/knowledge/assets/js/74.0a1ebb23.js"><link rel="prefetch" href="/knowledge/assets/js/75.c77adf2a.js"><link rel="prefetch" href="/knowledge/assets/js/76.4eaafece.js"><link rel="prefetch" href="/knowledge/assets/js/77.7127dcaa.js"><link rel="prefetch" href="/knowledge/assets/js/78.4a9e187e.js"><link rel="prefetch" href="/knowledge/assets/js/79.68a879a2.js"><link rel="prefetch" href="/knowledge/assets/js/8.5b94648d.js"><link rel="prefetch" href="/knowledge/assets/js/80.199d9d57.js"><link rel="prefetch" href="/knowledge/assets/js/81.29e06690.js"><link rel="prefetch" href="/knowledge/assets/js/82.3504ffc6.js"><link rel="prefetch" href="/knowledge/assets/js/83.ce578d4a.js"><link rel="prefetch" href="/knowledge/assets/js/84.94ae713c.js"><link rel="prefetch" href="/knowledge/assets/js/85.c10e53bd.js"><link rel="prefetch" href="/knowledge/assets/js/86.c2fbd74a.js"><link rel="prefetch" href="/knowledge/assets/js/87.15713121.js"><link rel="prefetch" href="/knowledge/assets/js/88.d6ed52fa.js"><link rel="prefetch" href="/knowledge/assets/js/89.ae9ad5b0.js"><link rel="prefetch" href="/knowledge/assets/js/9.240bee87.js"><link rel="prefetch" href="/knowledge/assets/js/90.47eff7fd.js"><link rel="prefetch" href="/knowledge/assets/js/91.7a0b2b40.js"><link rel="prefetch" href="/knowledge/assets/js/92.acdab808.js"><link rel="prefetch" href="/knowledge/assets/js/93.f61551c5.js"><link rel="prefetch" href="/knowledge/assets/js/94.f0100f42.js"><link rel="prefetch" href="/knowledge/assets/js/95.24479e49.js"><link rel="prefetch" href="/knowledge/assets/js/96.4cd4e864.js">
+    <link rel="stylesheet" href="/knowledge/assets/css/0.styles.9483da07.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/knowledge/" class="home-link router-link-active"><!----> <span class="site-name">oliveying</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/knowledge/" class="nav-link">Home</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">book</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/bgoodparts/" class="nav-link">语言精粹</a></li><li class="dropdown-item"><!----> <a href="/knowledge/http/" class="nav-link">图解http</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端技术</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/html/" class="nav-link">html</a></li><li class="dropdown-item"><!----> <a href="/knowledge/css/" class="nav-link">css</a></li><li class="dropdown-item"><!----> <a href="/knowledge/js/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/knowledge/h5/" class="nav-link">h5最新用法</a></li><li class="dropdown-item"><!----> <a href="/knowledge/node/" class="nav-link">node</a></li><li class="dropdown-item"><!----> <a href="/knowledge/brower/" class="nav-link">浏览器特性</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">总结</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/summary/" class="nav-link">总结</a></li><li class="dropdown-item"><!----> <a href="/knowledge/interview/" class="nav-link">面试</a></li><li class="dropdown-item"><!----> <a href="/knowledge/problem/" class="nav-link">problem</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">扩展</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/start/" class="nav-link">启动</a></li><li class="dropdown-item"><!----> <a href="/knowledge/tool/" class="nav-link">工具用法</a></li><li class="dropdown-item"><!----> <a href="/knowledge/markdown/" class="nav-link">markDown</a></li><li class="dropdown-item"><!----> <a href="/knowledge/linux/" class="nav-link router-link-active">linux</a></li><li class="dropdown-item"><!----> <a href="/knowledge/mac/" class="nav-link">mac</a></li><li class="dropdown-item"><!----> <a href="/knowledge/develop/" class="nav-link">提升</a></li></ul></div></div> <a href="https://github.com/oliveying/knowledge" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/knowledge/" class="nav-link">Home</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">book</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/bgoodparts/" class="nav-link">语言精粹</a></li><li class="dropdown-item"><!----> <a href="/knowledge/http/" class="nav-link">图解http</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端技术</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/html/" class="nav-link">html</a></li><li class="dropdown-item"><!----> <a href="/knowledge/css/" class="nav-link">css</a></li><li class="dropdown-item"><!----> <a href="/knowledge/js/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/knowledge/h5/" class="nav-link">h5最新用法</a></li><li class="dropdown-item"><!----> <a href="/knowledge/node/" class="nav-link">node</a></li><li class="dropdown-item"><!----> <a href="/knowledge/brower/" class="nav-link">浏览器特性</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">总结</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/summary/" class="nav-link">总结</a></li><li class="dropdown-item"><!----> <a href="/knowledge/interview/" class="nav-link">面试</a></li><li class="dropdown-item"><!----> <a href="/knowledge/problem/" class="nav-link">problem</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">扩展</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/start/" class="nav-link">启动</a></li><li class="dropdown-item"><!----> <a href="/knowledge/tool/" class="nav-link">工具用法</a></li><li class="dropdown-item"><!----> <a href="/knowledge/markdown/" class="nav-link">markDown</a></li><li class="dropdown-item"><!----> <a href="/knowledge/linux/" class="nav-link router-link-active">linux</a></li><li class="dropdown-item"><!----> <a href="/knowledge/mac/" class="nav-link">mac</a></li><li class="dropdown-item"><!----> <a href="/knowledge/develop/" class="nav-link">提升</a></li></ul></div></div> <a href="https://github.com/oliveying/knowledge" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/knowledge/linux/linux.html" class="sidebar-link">linux</a></li><li><a href="/knowledge/linux/linux下的ps.html" class="sidebar-link">linux命令ps aux|grep xxx详解</a></li><li><a href="/knowledge/linux/rsync.html" class="sidebar-link">rsync</a></li><li><a href="/knowledge/linux/rsync命令.html" class="sidebar-link">服务器端配置：</a></li><li><a href="/knowledge/linux/Linux下的tar压缩解压缩命令详解.html" class="sidebar-link">Linux下的tar压缩解压缩命令详解</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="sh-是shell脚本"><a href="#sh-是shell脚本" aria-hidden="true" class="header-anchor">#</a> sh 是shell脚本</h1> <ul><li>#!/bin/sh 可以改为 #!/bin/bash</li></ul> <p><code>#!</code> 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种shell</p> <h2 id="运行-shell-脚本有两种方法"><a href="#运行-shell-脚本有两种方法" aria-hidden="true" class="header-anchor">#</a> 运行 Shell 脚本有两种方法</h2> <ol><li>作为可执行程序</li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token shebang important">#!/bin/bash</span>
+<span class="token builtin class-name">echo</span> <span class="token string">'hello world'</span>
+</code></pre></div><p>将上面的代码保存为 test.sh, 并 cd 到相应目录：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>chomd +x ./test.sh <span class="token comment"># 使脚本具有执行权限 ,注意一定要写成./test.sh</span>
+ ./test.sh <span class="token comment"># 执行脚本</span>
+</code></pre></div><ol start="2"><li>作为解释器参数</li></ol> <ul><li>这种运行方式是，直接运行解释器，其参数就是 shell 脚本的文件名，如：</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>/bin/sh test.sh
+/bin/php test/php
+</code></pre></div><h2 id="shell-变量"><a href="#shell-变量" aria-hidden="true" class="header-anchor">#</a> shell 变量</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token assign-left variable">your_name</span><span class="token operator">=</span><span class="token string">&quot;duruo.com&quot;</span> <span class="token comment"># 定义变量时，变量名不加美元符号， </span>
+                      <span class="token comment"># 只能使用英文字母，数字和下划线，首个字符不能以数字开头；</span>
+                      <span class="token comment"># 变量名和等号之间不能有空格；</span>
+                      <span class="token comment"># 不能使用标点符号；</span>
+                      <span class="token comment"># 不能使用bash里的关键字（可用help命令查看保留关键字）。</span>
+    
+
+<span class="token comment"># 除了显式地直接赋值，还可以用语句给变量赋值</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">file</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span><span class="token function">ls</span> /etc<span class="token variable">`</span></span> <span class="token comment"># 将 /etc 下目录的文件名循环出来。</span>
+<span class="token comment"># 或</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">file</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">ls</span> /etc<span class="token variable">)</span></span>
+
+
+<span class="token comment"># 使用变量</span>
+<span class="token assign-left variable">your_name</span><span class="token operator">=</span><span class="token string">&quot;duruo&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$your_name</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${your_name}</span>  <span class="token comment"># 使用一个定义过的变量，只要在变量名前面加美元符号即可</span>
+
+<span class="token comment"># 变量名外面的花括号是可选的，加不加都行，加花括号是为了帮助解释器识别变量的边界</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">skill</span> <span class="token keyword">in</span> Ada Coffe Action Java<span class="token punctuation">;</span> <span class="token keyword">do</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;I am good at <span class="token variable">${skill}</span>Script&quot;</span> <span class="token comment"># 写成echo &quot;I am good at $skillScript&quot;，解释器就会把$skillScript当成一个变量（其值为空）</span>
+<span class="token keyword">done</span>
+
+<span class="token comment"># 已定义的变量，可以被重新定义</span>
+<span class="token assign-left variable">your_name</span><span class="token operator">=</span><span class="token string">&quot;tom&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$your_name</span>
+<span class="token assign-left variable">your_name</span><span class="token operator">=</span><span class="token string">&quot;alibaba&quot;</span> <span class="token comment"># 这样写是合法的，但注意，第二次赋值的时候不能写$your_name=&quot;alibaba&quot;，使用变量的时候才加美元符（$）</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$your_name</span>
+
+
+<span class="token comment"># 只读变量</span>
+
+<span class="token comment">#!/bin/bash</span>
+<span class="token assign-left variable">myUrl</span><span class="token operator">=</span><span class="token string">&quot;http://www.google.com&quot;</span>
+<span class="token builtin class-name">readonly</span> myUrl   <span class="token comment"># 使用 readonly 命令可以将变量定义为只读变量，只读变量的值不能被改变。</span>
+<span class="token assign-left variable">myUrl</span><span class="token operator">=</span><span class="token string">&quot;http://www.baidu.com&quot;</span> <span class="token comment"># 报错 /bin/sh: NAME: This variable is read only.</span>
+
+
+<span class="token comment"># 删除变量</span>
+<span class="token builtin class-name">unset</span> variable_name <span class="token comment"># 使用 unset 命令可以删除变量 变量被删除后不能再次使用。unset 命令不能删除只读变量。</span>
+
+<span class="token comment">#!/bin/sh</span>
+<span class="token assign-left variable">myUrl</span><span class="token operator">=</span><span class="token string">&quot;http://www.baidu.com&quot;</span>
+<span class="token builtin class-name">unset</span> myUrl
+<span class="token builtin class-name">echo</span> <span class="token variable">$myUrl</span> <span class="token comment"># 执行将没有任何输出。</span>
+</code></pre></div><h3 id="变量类型"><a href="#变量类型" aria-hidden="true" class="header-anchor">#</a> 变量类型</h3> <p>运行shell时，会同时存在三种变量：</p> <ol><li>局部变量 局部变量在脚本或命令中定义，仅在当前shell实例中有效，其他shell启动的程序不能访问局部变量。</li> <li>环境变量 所有的程序，包括shell启动的程序，都能访问环境变量，有些程序需要环境变量来保证其正常运行。必要的时候shell脚本也可以定义环境变量。</li> <li>shell变量 shell变量是由shell程序设置的特殊变量。shell变量中有一部分是环境变量，有一部分是局部变量，这些变量保证了shell的正常运行</li></ol> <h3 id="shell-字符串"><a href="#shell-字符串" aria-hidden="true" class="header-anchor">#</a> Shell 字符串</h3> <p>字符串是shell编程中最常用最有用的数据类型（除了数字和字符串，也没啥其它类型好用了），字符串可以用单引号，也可以用双引号，也可以不用引号。单双引号的区别跟PHP类似。</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token assign-left variable">str</span><span class="token operator">=</span><span class="token string">'this is a string'</span> <span class="token comment"># 单引号字符串的限制：</span>
+                       <span class="token comment"># 单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的；</span>
+                       <span class="token comment"># 单引号字串中不能出现单独一个的单引号（对单引号使用转义符后也不行），但可成对出现，作为字符串拼接使用。</span>
+
+<span class="token assign-left variable">your_name</span><span class="token operator">=</span><span class="token string">'runoob'</span>    <span class="token comment"># 双引号</span>
+<span class="token assign-left variable">str</span><span class="token operator">=</span><span class="token string">&quot;Hello, I know you are <span class="token entity" title="\"">\&quot;</span><span class="token variable">$your_name</span><span class="token entity" title="\"">\&quot;</span>! <span class="token entity" title="\n">\n</span>&quot;</span>
+<span class="token builtin class-name">echo</span> -e <span class="token variable">$str</span> <span class="token comment"># 输出结果为：Hello, I know you are &quot;runoob&quot;! </span>
+             <span class="token comment"># 双引号的优点</span>
+             <span class="token comment"># 双引号里可以有变量; 双引号里可以出现转义字符; 拼接字符串</span>
+
+<span class="token comment"># 使用双引号拼接</span>
+<span class="token assign-left variable">your_name</span><span class="token operator">=</span><span class="token string">&quot;runoob&quot;</span>
+<span class="token assign-left variable">greeting</span><span class="token operator">=</span><span class="token string">&quot;hello, &quot;</span><span class="token variable">$your_name</span><span class="token string">&quot; !&quot;</span>
+<span class="token assign-left variable">greeting_1</span><span class="token operator">=</span><span class="token string">&quot;hello, <span class="token variable">${your_name}</span> !&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$greeting</span>  <span class="token variable">$greeting_1</span>
+<span class="token comment"># 输出结果为 hello, runoob ! hello, runoob !</span>
+
+<span class="token comment"># 使用单引号拼接</span>
+<span class="token assign-left variable">greeting_2</span><span class="token operator">=</span><span class="token string">'hello, '</span><span class="token variable">$your_name</span><span class="token string">' !'</span>
+<span class="token assign-left variable">greeting_3</span><span class="token operator">=</span><span class="token string">'hello, <span class="token variable">${your_name}</span> !'</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$greeting_2</span>  <span class="token variable">$greeting_3</span>
+<span class="token comment"># 输出结果为： hello, runoob ! hello, ${your_name} !</span>
+
+<span class="token comment"># 获取字符串长度</span>
+<span class="token assign-left variable">string</span><span class="token operator">=</span><span class="token string">&quot;abcd&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${<span class="token operator">#</span>string}</span> <span class="token comment">#输出 4</span>
+
+<span class="token comment"># 提取子字符串</span>
+<span class="token assign-left variable">string</span><span class="token operator">=</span><span class="token string">&quot;runoob is a great site&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${string<span class="token operator">:</span>1<span class="token operator">:</span>4}</span> <span class="token comment"># 从字符串第 2 个字符开始截取 4 个字符： 输出 unoo </span>
+
+<span class="token comment"># 查找子字符串</span>
+<span class="token assign-left variable">string</span><span class="token operator">=</span><span class="token string">&quot;runoob is a great site&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token variable"><span class="token variable">`</span><span class="token function">expr</span> index <span class="token string">&quot;<span class="token variable">$string</span>&quot;</span> io<span class="token variable">`</span></span>  <span class="token comment"># 查找字符 i 或 o 的位置(哪个字母先出现就计算哪个)：: 输出 4</span>
+
+
+<span class="token comment">#----------</span>
+<span class="token comment"># Shell 数组</span>
+<span class="token comment"># bash支持一维数组（不支持多维数组），并且没有限定数组的大小。</span>
+
+<span class="token comment"># 类似于 C 语言，数组元素的下标由 0 开始编号。获取数组中的元素要利用下标，下标可以是整数或算术表达式，其值应大于或等于 0。</span>
+
+<span class="token comment"># 定义数组</span>
+<span class="token comment"># 在 Shell 中，用括号来表示数组，数组元素用&quot;空格&quot;符号分割开。定义数组的一般形式为：</span>
+
+<span class="token comment"># 数组名=(值1 值2 ... 值n)</span>
+
+<span class="token assign-left variable">array_name</span><span class="token operator">=</span><span class="token punctuation">(</span>value0 value1 value2 value3<span class="token punctuation">)</span>
+<span class="token comment"># 或者</span>
+
+<span class="token assign-left variable">array_name</span><span class="token operator">=</span><span class="token punctuation">(</span>
+value0
+value1
+value2
+value3
+<span class="token punctuation">)</span>
+
+<span class="token comment"># 还可以单独定义数组的各个分量：</span>
+array_name<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>value0
+array_name<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>value1
+array_name<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token operator">=</span>valuen <span class="token comment"># 可以不使用连续的下标，而且下标的范围没有限制。</span>
+
+<span class="token comment"># 读取数组</span>
+
+<span class="token assign-left variable">valuen</span><span class="token operator">=</span><span class="token variable">${array_name<span class="token punctuation">[</span>n<span class="token punctuation">]</span>}</span> <span class="token comment"># ${数组名[下标]}</span>
+
+<span class="token builtin class-name">echo</span> <span class="token variable">${array_name<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span> <span class="token comment"># 使用 @ 符号可以获取数组中的所有元素</span>
+
+<span class="token comment"># 获取数组的长度</span>
+<span class="token comment"># 获取数组长度的方法与获取字符串长度的方法相同，例如：</span>
+
+
+<span class="token assign-left variable">length</span><span class="token operator">=</span><span class="token variable">${<span class="token operator">#</span>array_name<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span> <span class="token comment"># 取得数组元素的个数</span>
+<span class="token comment"># 或者</span>
+<span class="token assign-left variable">length</span><span class="token operator">=</span><span class="token variable">${<span class="token operator">#</span>array_name<span class="token punctuation">[</span>*<span class="token punctuation">]</span>}</span>
+
+<span class="token assign-left variable">lengthn</span><span class="token operator">=</span><span class="token variable">${<span class="token operator">#</span>array_name<span class="token punctuation">[</span>n<span class="token punctuation">]</span>}</span> <span class="token comment"># 取得数组单个元素的长度</span>
+
+
+<span class="token comment"># Shell 注释</span>
+<span class="token comment"># 以 # 开头的行就是注释，会被解释器忽略。</span>
+
+<span class="token comment"># 通过每一行加一个 # 号设置多行注释，像这样：</span>
+
+<span class="token comment">#--------------------------------------------</span>
+<span class="token comment"># 这是一个注释</span>
+<span class="token comment"># author：菜鸟教程</span>
+<span class="token comment"># site：www.runoob.com</span>
+<span class="token comment"># slogan：学的不仅是技术，更是梦想！</span>
+<span class="token comment">#--------------------------------------------</span>
+<span class="token comment">##### 用户配置区 开始 #####</span>
+<span class="token comment">#</span>
+<span class="token comment">#</span>
+<span class="token comment"># 这里可以添加脚本描述信息</span>
+<span class="token comment"># </span>
+<span class="token comment">#</span>
+<span class="token comment">##### 用户配置区 结束  #####</span>
+<span class="token comment"># 如果在开发过程中，遇到大段的代码需要临时注释起来，过一会儿又取消注释，怎么办呢？</span>
+
+<span class="token comment"># 每一行加个#符号太费力了，可以把这一段要注释的代码用一对花括号括起来，定义成一个函数，没有地方调用这个函数，这块代码就不会执行，达到了和注释一样的效果。</span>
+
+<span class="token comment"># 多行注释</span>
+<span class="token comment"># 多行注释还可以使用以下格式：</span>
+
+:<span class="token operator">&lt;&lt;</span><span class="token string">EOF
+注释内容...
+注释内容...
+注释内容...
+EOF</span>
+EOF 也可以使用其他符号:
+
+:<span class="token operator">&lt;&lt;</span><span class="token string">'
+注释内容...
+注释内容...
+注释内容...
+'</span>
+
+:<span class="token operator">&lt;&lt;</span><span class="token operator">!</span>
+注释内容<span class="token punctuation">..</span>.
+注释内容<span class="token punctuation">..</span>.
+注释内容<span class="token punctuation">..</span>.
+<span class="token operator">!</span>
+</code></pre></div><h2 id="shell-传递参数"><a href="#shell-传递参数" aria-hidden="true" class="header-anchor">#</a> shell 传递参数</h2> <ul><li>我们可以在执行 Shell 脚本时，向脚本传递参数，脚本内获取参数的格式为：$n。n 代表一个数字，1 为执行脚本的第一个参数，2 为执行脚本的第二个参数，以此类推……</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment"># 我们向脚本传递三个参数，并分别输出，其中 $0 为执行的文件名</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;Shell 传递参数实例！&quot;</span><span class="token punctuation">;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;执行的文件名：<span class="token variable">$0</span>&quot;</span><span class="token punctuation">;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;第一个参数为：<span class="token variable">$1</span>&quot;</span><span class="token punctuation">;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;第二个参数为：<span class="token variable">$2</span>&quot;</span><span class="token punctuation">;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;第三个参数为：<span class="token variable">$3</span>&quot;</span><span class="token punctuation">;</span> 
+<span class="token comment"># 输出结果如下所示：</span>
+$ ./test.sh <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span>
+Shell 传递参数实例！
+执行的文件名：./test.sh
+第一个参数为：1
+第二个参数为：2
+第三个参数为：3
+
+
+<span class="token comment"># 几个特殊字符用来处理参数：</span>
+参数处理	说明
+<span class="token variable">$#</span>	传递到脚本的参数个数
+<span class="token variable">$*</span>	以一个单字符串显示所有向脚本传递的参数。
+    如<span class="token string">&quot;<span class="token variable">$*</span>&quot;</span>用「<span class="token string">&quot;」括起来的情况、以&quot;</span><span class="token variable">$1</span> <span class="token variable">$2</span> … <span class="token variable">$n</span><span class="token string">&quot;的形式输出所有参数。
+<span class="token variable">$$</span>	脚本运行的当前进程ID号
+<span class="token variable">$!</span>	后台运行的最后一个进程的ID号
+<span class="token variable">$@</span>	与<span class="token variable">$*</span>相同，但是使用时加引号，并在引号中返回每个参数。
+    如&quot;</span><span class="token variable">$@</span><span class="token string">&quot;用「&quot;</span>」括起来的情况、以<span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> <span class="token string">&quot;<span class="token variable">$2</span>&quot;</span> … <span class="token string">&quot;<span class="token variable">$n</span>&quot;</span> 的形式输出所有参数。
+$-	显示Shell使用的当前选项，与set命令功能相同。
+<span class="token variable">$?</span>	显示最后命令的退出状态。0表示没有错误，其他任何值表明有错误。
+
+<span class="token comment">#!/bin/bash</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;Shell 传递参数实例！&quot;</span><span class="token punctuation">;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;第一个参数为：<span class="token variable">$1</span>&quot;</span><span class="token punctuation">;</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;参数个数为：<span class="token variable">$#</span>&quot;</span><span class="token punctuation">;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;传递的参数作为一个字符串显示：<span class="token variable">$*</span>&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment"># 输出结果如下所示：</span>
+$ ./test.sh <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span>
+Shell 传递参数实例！
+第一个参数为：1
+参数个数为：3
+传递的参数作为一个字符串显示：1 <span class="token number">2</span> <span class="token number">3</span>
+
+<span class="token comment"># $* 与 $@ 区别：</span>
+
+<span class="token comment"># 相同点：都是引用所有参数。</span>
+<span class="token comment"># 不同点：只有在双引号中体现出来。假设在脚本运行时写了三个参数 1、2、3，，则 &quot; * &quot; 等价于 &quot;1 2 3&quot;（传递了一个参数），而 &quot;@&quot; 等价于 &quot;1&quot; &quot;2&quot; &quot;3&quot;（传递了三个参数）。</span>
+
+<span class="token comment">#!/bin/bash</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;-- \<span class="token variable">$*</span> 演示 ---&quot;</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> <span class="token string">&quot;<span class="token variable">$*</span>&quot;</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+    <span class="token builtin class-name">echo</span> <span class="token variable">$i</span>
+<span class="token keyword">done</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;-- \<span class="token variable">$@</span> 演示 ---&quot;</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> <span class="token string">&quot;<span class="token variable">$@</span>&quot;</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+    <span class="token builtin class-name">echo</span> <span class="token variable">$i</span>
+<span class="token keyword">done</span>
+<span class="token comment"># 输出结果如下所示：</span>
+
+$ <span class="token function">chmod</span> +x test.sh 
+$ ./test.sh <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span>
+-- <span class="token variable">$*</span> 演示 ---
+<span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span>
+-- <span class="token variable">$@</span> 演示 ---
+<span class="token number">1</span>
+<span class="token number">2</span>
+<span class="token number">3</span>
+</code></pre></div><h2 id="shell-数组"><a href="#shell-数组" aria-hidden="true" class="header-anchor">#</a> shell 数组</h2> <ul><li>数组中可以存放多个值。Bash Shell 只支持一维数组（不支持多维数组），初始化时不需要定义数组大小（与 PHP 类似）。</li></ul> <p>与大部分编程语言类似，数组元素的下标由0开始。</p> <p>Shell 数组用括号来表示，元素用&quot;空格&quot;符号分割开，语法格式如下：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token assign-left variable">array_name</span><span class="token operator">=</span><span class="token punctuation">(</span>value1 <span class="token punctuation">..</span>. valuen<span class="token punctuation">)</span>
+
+实例
+<span class="token comment">#!/bin/bash</span>
+
+<span class="token assign-left variable">my_array</span><span class="token operator">=</span><span class="token punctuation">(</span>A B <span class="token string">&quot;C&quot;</span> D<span class="token punctuation">)</span>
+
+<span class="token comment"># 我们也可以使用下标来定义数组:</span>
+array_name<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>value0
+array_name<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>value1
+array_name<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span>value2
+
+<span class="token comment"># 读取数组</span>
+<span class="token comment"># 读取数组元素值的一般格式是：</span>
+<span class="token variable">${array_name<span class="token punctuation">[</span>index<span class="token punctuation">]</span>}</span>
+
+<span class="token comment">#!/bin/bash</span>
+
+<span class="token assign-left variable">my_array</span><span class="token operator">=</span><span class="token punctuation">(</span>A B <span class="token string">&quot;C&quot;</span> D<span class="token punctuation">)</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;第一个元素为: <span class="token variable">${my_array<span class="token punctuation">[</span>0<span class="token punctuation">]</span>}</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;第二个元素为: <span class="token variable">${my_array<span class="token punctuation">[</span>1<span class="token punctuation">]</span>}</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;第三个元素为: <span class="token variable">${my_array<span class="token punctuation">[</span>2<span class="token punctuation">]</span>}</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;第四个元素为: <span class="token variable">${my_array<span class="token punctuation">[</span>3<span class="token punctuation">]</span>}</span>&quot;</span>
+<span class="token comment"># 结果如下所示：</span>
+$ ./test.sh
+第一个元素为: A
+第二个元素为: B
+第三个元素为: C
+第四个元素为: D
+获取数组中的所有元素
+
+
+<span class="token comment"># 使用@ 或 * 可以获取数组中的所有元素，例如：</span>
+
+<span class="token comment">#!/bin/bash</span>
+
+my_array<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>A
+my_array<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>B
+my_array<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span>C
+my_array<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">=</span>D
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;数组的元素为: <span class="token variable">${my_array<span class="token punctuation">[</span>*<span class="token punctuation">]</span>}</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;数组的元素为: <span class="token variable">${my_array<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span>&quot;</span>
+执行脚本，输出结果如下所示：
+
+$ ./test.sh
+数组的元素为: A B C D
+数组的元素为: A B C D
+
+<span class="token comment"># 获取数组的长度</span>
+<span class="token comment"># 获取数组长度的方法与获取字符串长度的方法相同，例如：</span>
+
+<span class="token comment">#!/bin/bash</span>
+
+my_array<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>A
+my_array<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>B
+my_array<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span>C
+my_array<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">=</span>D
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;数组元素个数为: <span class="token variable">${<span class="token operator">#</span>my_array<span class="token punctuation">[</span>*<span class="token punctuation">]</span>}</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;数组元素个数为: <span class="token variable">${<span class="token operator">#</span>my_array<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span>&quot;</span>
+<span class="token comment"># 结果如下所示：</span>
+$ ./test.sh
+数组元素个数为: <span class="token number">4</span>
+数组元素个数为: <span class="token number">4</span>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/knowledge/assets/js/app.e79fa9dd.js" defer></script><script src="/knowledge/assets/js/69.6d8cbb52.js" defer></script>
+  </body>
+</html>

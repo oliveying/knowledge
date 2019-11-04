@@ -156,6 +156,7 @@ module.exports = {
       '/linux/': [
         'linux',
         'linux下的ps',
+        'sh',
         'rsync',
         'rsync命令',
         'Linux下的tar压缩解压缩命令详解',

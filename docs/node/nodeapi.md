@@ -51,3 +51,38 @@ readStream.on('close', () => {
 })
 
 ```
+
+## fs.Stats 类
+fs.Stats 对象提供了关于文件的信息。
+
+从 fs.stat()、fs.lstat() 和 fs.fstat() 及其同步的方法返回的对象都属于此类型。 如果传给这些方法的 options 中的 bigint 为 true，则数值将会为 bigint 型而不是 number 型，并且该对象将会包含额外的以 Ns 为后缀的纳秒精度的属性。
+### fs.stat
+```js
+var fs = require("fs");
+/*
+    读取文件的状态；
+    fs.stat(path,callback);
+    callback有两个参数；err，stats；stats是一个fs.Stats对象；
+    如果发生错误err.code是常见错误之一；
+ 不建议在调用 fs.open() 、fs.readFile() 或 fs.writeFile() 之前使用 fs.stat() 检查一个文件是否存在。 作为替代，用户代码应该直接打开/读取/写入文件，当文件无效时再处理错误。
+ 如果要检查一个文件是否存在且不操作它，推荐使用 fs.access()。
+ */
+fs.stat("./wenjian.txt",function(err,stats){
+    console.log(err);
+    console.log(stats);
+//    获取文件的大小；
+    console.log(stats.size);
+//    获取文件最后一次访问的时间；
+    console.log(stats.atime.toLocaleString());
+//    文件创建的时间；
+    console.log(stats.birthtime.toLocaleString());
+//    文件最后一次修改时间；
+    console.log(stats.mtime.toLocaleString());
+//    状态发生变化的时间；
+    console.log(stats.ctime.toLocaleString())
+//    判断是否是目录；是返回true；不是返回false；
+    console.log(stats.isFile())
+//    判断是否是文件；是返回true、不是返回false；
+    console.log(stats.isDirectory())
+})
+```

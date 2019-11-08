@@ -86,3 +86,23 @@ fs.stat("./wenjian.txt",function(err,stats){
     console.log(stats.isDirectory())
 })
 ```
+## net
+* net 模块用于创建基于流的 ICP 或 IPC 的服务器（net.createServer()）与客户端（net.createConnection()）
+```js
+var net = require('net');
+var server = net.createServer(function(socket) {
+  socket.on('data', function (data) {
+    socket.write(data)
+  })
+}) 
+server.on(8888);
+telnet 127.0.0.1 8888 # 使用telnet // 检测端口
+```
+
+## telnet命令一般用来检测一个端口使用
+
+```bash
+brew install telnet # mac安装telnet
+telnet 127.0.0.1 8888 # 使用telnet
+```
+使用telnet

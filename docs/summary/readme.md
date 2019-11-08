@@ -63,7 +63,8 @@
 [无头浏览器 Puppeteer 初探](https://juejin.im/post/59e5a86c51882578bf185dba)
 
 
-
+## d3
+[d3](http://www.it1352.com/OnLineTutorial/d3js/d3js_installation.html)
 ## 扩展
 
 [前端水印生成方案(网页水印+图片水印)](https://juejin.im/entry/5b55db355188251b11097366?utm_medium=fe&utm_source=weixinqun)

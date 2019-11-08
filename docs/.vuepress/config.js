@@ -41,7 +41,8 @@ module.exports = {
           { text: 'javascript', link: '/js/' },
           {text: 'h5最新用法', link: '/h5/'},
           {text: 'node', link: '/node/'},
-          {text: '浏览器特性', link: '/brower/'}
+          {text: '浏览器特性', link: '/brower/'},
+          {text: 'd3', link: '/d3/'}
         ]
       },
       {text: '总结', items: [
@@ -86,6 +87,9 @@ module.exports = {
         '浏览器特性',
         '各种浏览器调试错误方法及错误处理机制',
       ],
+      '/d3/': [
+        'd3选择器'
+      ],
       '/interview/': [
         'interview',
         '防抖和节流',
@@ -121,10 +125,10 @@ module.exports = {
         'vue',
       ],
       '/html/': [
+        'html规范',
         'html标签属性名称',
       ],
       '/summary/': [
-        'html规范',
         'JavaScript编码规范',
         'JavaScript 小技巧',
         '常见兼容性问题',

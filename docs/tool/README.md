@@ -1,5 +1,22 @@
 # 各种便捷工具
 
+## 测试tdk工具
+[META SEO inspector](https://chrome.google.com/webstore/detail/ibkclpciafdglkjkcibmohobjkcfkaef)
+
+Axure RP Extension for Chrome
+0.6.3
+
+竞品排名比较
+
+JSONView 0.0.32.3
+
+React Developer Tools 4.2.0 (10/3/2019)
+
+Vue.js devtools 5.3.2
+
+Postman 5.5.4
+
+User-Agent Switcher for Google Chrome 1.9.3
 ## 图片压缩工具
 
 [https://tinypng.com/](https://tinypng.com/)

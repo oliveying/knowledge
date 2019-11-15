@@ -7,7 +7,7 @@ module.exports = {
     '/': {
       lang: 'zh-CN',
       title: 'oliveying',
-      description: '前端知识，JavaScript，html，css，tool，git，markdown',
+      description: '前端知识，对前端遇到的问题进行总结',
     }
   },
   head: [
@@ -30,7 +30,8 @@ module.exports = {
       {text: 'book',
       items: [
         {text: '语言精粹', link: '/bgoodparts/'},
-        {text: '图解http', link: '/http/'}
+        {text: '图解http', link: '/http/'},
+        {text: 'es6', link: '/es6/'}
       ]},
       {
         text: '前端技术',
@@ -42,7 +43,7 @@ module.exports = {
           {text: 'h5最新用法', link: '/h5/'},
           {text: 'node', link: '/node/'},
           {text: '浏览器特性', link: '/brower/'},
-          {text: 'd3', link: '/d3/'}
+          {text: 'd3', link: '/d3/'},
         ]
       },
       {text: '总结', items: [
@@ -139,6 +140,16 @@ module.exports = {
         'http协议',
         'Promise详解',
         'js实现二代身份证号码验证详解'
+      ],
+      '/es6/': [
+        'let,const',
+        '变量的解构赋值',
+        '字符串的扩展',
+        '字符串的新增方法',
+        '正则的扩展',
+        '数值的扩展',
+        '函数的扩展',
+        '对象的扩展',
       ],
       '/bgoodparts/': [
         'string',

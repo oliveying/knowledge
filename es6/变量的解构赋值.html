@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>变量的解构赋值 | oliveying</title>
+    <meta name="description" content="前端知识，对前端遇到的问题进行总结">
+    <link rel="icon" href="/knowledge/img/favicon.ico">
+    
+    <link rel="preload" href="/knowledge/assets/css/0.styles.9483da07.css" as="style"><link rel="preload" href="/knowledge/assets/js/app.a23dccfb.js" as="script"><link rel="preload" href="/knowledge/assets/js/42.00442ca7.js" as="script"><link rel="prefetch" href="/knowledge/assets/js/10.82f1ac31.js"><link rel="prefetch" href="/knowledge/assets/js/100.710ae8c8.js"><link rel="prefetch" href="/knowledge/assets/js/101.79f1d68a.js"><link rel="prefetch" href="/knowledge/assets/js/102.836832c5.js"><link rel="prefetch" href="/knowledge/assets/js/103.2a2342d9.js"><link rel="prefetch" href="/knowledge/assets/js/104.6c0352ac.js"><link rel="prefetch" href="/knowledge/assets/js/105.f2dafd18.js"><link rel="prefetch" href="/knowledge/assets/js/106.2725f391.js"><link rel="prefetch" href="/knowledge/assets/js/107.11b4be36.js"><link rel="prefetch" href="/knowledge/assets/js/108.6e58d5e1.js"><link rel="prefetch" href="/knowledge/assets/js/109.2b8d9319.js"><link rel="prefetch" href="/knowledge/assets/js/11.c3a4b8cc.js"><link rel="prefetch" href="/knowledge/assets/js/12.a2383675.js"><link rel="prefetch" href="/knowledge/assets/js/13.c9163124.js"><link rel="prefetch" href="/knowledge/assets/js/14.66649c82.js"><link rel="prefetch" href="/knowledge/assets/js/15.bd045bef.js"><link rel="prefetch" href="/knowledge/assets/js/16.13d185f5.js"><link rel="prefetch" href="/knowledge/assets/js/17.72e20066.js"><link rel="prefetch" href="/knowledge/assets/js/18.32dea7a8.js"><link rel="prefetch" href="/knowledge/assets/js/19.b67df91d.js"><link rel="prefetch" href="/knowledge/assets/js/2.b1865bca.js"><link rel="prefetch" href="/knowledge/assets/js/20.2035cfcd.js"><link rel="prefetch" href="/knowledge/assets/js/21.771eb7fb.js"><link rel="prefetch" href="/knowledge/assets/js/22.082d2e99.js"><link rel="prefetch" href="/knowledge/assets/js/23.7d077895.js"><link rel="prefetch" href="/knowledge/assets/js/24.c3be360e.js"><link rel="prefetch" href="/knowledge/assets/js/25.e28be3eb.js"><link rel="prefetch" href="/knowledge/assets/js/26.5fe6090e.js"><link rel="prefetch" href="/knowledge/assets/js/27.dbe5de8a.js"><link rel="prefetch" href="/knowledge/assets/js/28.a5dc69a9.js"><link rel="prefetch" href="/knowledge/assets/js/29.b6b39d14.js"><link rel="prefetch" href="/knowledge/assets/js/3.a7bb5468.js"><link rel="prefetch" href="/knowledge/assets/js/30.1da30401.js"><link rel="prefetch" href="/knowledge/assets/js/31.e6d0e0f8.js"><link rel="prefetch" href="/knowledge/assets/js/32.1037354f.js"><link rel="prefetch" href="/knowledge/assets/js/33.f3dd5cc9.js"><link rel="prefetch" href="/knowledge/assets/js/34.75063b8e.js"><link rel="prefetch" href="/knowledge/assets/js/35.597834c8.js"><link rel="prefetch" href="/knowledge/assets/js/36.24c5dafb.js"><link rel="prefetch" href="/knowledge/assets/js/37.a07ffc37.js"><link rel="prefetch" href="/knowledge/assets/js/38.31a599c8.js"><link rel="prefetch" href="/knowledge/assets/js/39.b12328b6.js"><link rel="prefetch" href="/knowledge/assets/js/4.1e2f3504.js"><link rel="prefetch" href="/knowledge/assets/js/40.afa3d09e.js"><link rel="prefetch" href="/knowledge/assets/js/41.b303e7d8.js"><link rel="prefetch" href="/knowledge/assets/js/43.6ac0cb4a.js"><link rel="prefetch" href="/knowledge/assets/js/44.abec367b.js"><link rel="prefetch" href="/knowledge/assets/js/45.620d9f4c.js"><link rel="prefetch" href="/knowledge/assets/js/46.58fca970.js"><link rel="prefetch" href="/knowledge/assets/js/47.91fba140.js"><link rel="prefetch" href="/knowledge/assets/js/48.d6e41266.js"><link rel="prefetch" href="/knowledge/assets/js/49.b90c33e9.js"><link rel="prefetch" href="/knowledge/assets/js/5.212669cd.js"><link rel="prefetch" href="/knowledge/assets/js/50.ebeb77e4.js"><link rel="prefetch" href="/knowledge/assets/js/51.7182bd98.js"><link rel="prefetch" href="/knowledge/assets/js/52.821a7ed9.js"><link rel="prefetch" href="/knowledge/assets/js/53.fb656f5d.js"><link rel="prefetch" href="/knowledge/assets/js/54.e80da2cc.js"><link rel="prefetch" href="/knowledge/assets/js/55.a1ff5a8d.js"><link rel="prefetch" href="/knowledge/assets/js/56.53e53964.js"><link rel="prefetch" href="/knowledge/assets/js/57.7bbe81c7.js"><link rel="prefetch" href="/knowledge/assets/js/58.3abe0248.js"><link rel="prefetch" href="/knowledge/assets/js/59.b19598d9.js"><link rel="prefetch" href="/knowledge/assets/js/6.b16a49bb.js"><link rel="prefetch" href="/knowledge/assets/js/60.237d43dd.js"><link rel="prefetch" href="/knowledge/assets/js/61.c7cd5127.js"><link rel="prefetch" href="/knowledge/assets/js/62.dbb64bc2.js"><link rel="prefetch" href="/knowledge/assets/js/63.c481a707.js"><link rel="prefetch" href="/knowledge/assets/js/64.27a99eec.js"><link rel="prefetch" href="/knowledge/assets/js/65.e59fc797.js"><link rel="prefetch" href="/knowledge/assets/js/66.af1d4587.js"><link rel="prefetch" href="/knowledge/assets/js/67.48b4abb3.js"><link rel="prefetch" href="/knowledge/assets/js/68.56f1702d.js"><link rel="prefetch" href="/knowledge/assets/js/69.83a39237.js"><link rel="prefetch" href="/knowledge/assets/js/7.dabc4f85.js"><link rel="prefetch" href="/knowledge/assets/js/70.03c39bad.js"><link rel="prefetch" href="/knowledge/assets/js/71.ae39b905.js"><link rel="prefetch" href="/knowledge/assets/js/72.052918f2.js"><link rel="prefetch" href="/knowledge/assets/js/73.8c443a97.js"><link rel="prefetch" href="/knowledge/assets/js/74.f07f992f.js"><link rel="prefetch" href="/knowledge/assets/js/75.be08c78c.js"><link rel="prefetch" href="/knowledge/assets/js/76.2ede18c2.js"><link rel="prefetch" href="/knowledge/assets/js/77.7600c317.js"><link rel="prefetch" href="/knowledge/assets/js/78.2e6aa3dd.js"><link rel="prefetch" href="/knowledge/assets/js/79.e4081627.js"><link rel="prefetch" href="/knowledge/assets/js/8.f29d5fb2.js"><link rel="prefetch" href="/knowledge/assets/js/80.a816e64d.js"><link rel="prefetch" href="/knowledge/assets/js/81.c7e64106.js"><link rel="prefetch" href="/knowledge/assets/js/82.b4fc9a25.js"><link rel="prefetch" href="/knowledge/assets/js/83.011eb764.js"><link rel="prefetch" href="/knowledge/assets/js/84.146d85bc.js"><link rel="prefetch" href="/knowledge/assets/js/85.e5040c06.js"><link rel="prefetch" href="/knowledge/assets/js/86.110512e6.js"><link rel="prefetch" href="/knowledge/assets/js/87.6b9a483f.js"><link rel="prefetch" href="/knowledge/assets/js/88.15048b12.js"><link rel="prefetch" href="/knowledge/assets/js/89.ac6d505c.js"><link rel="prefetch" href="/knowledge/assets/js/9.37d6421d.js"><link rel="prefetch" href="/knowledge/assets/js/90.065ffd4e.js"><link rel="prefetch" href="/knowledge/assets/js/91.bf66c0b7.js"><link rel="prefetch" href="/knowledge/assets/js/92.5119d1fd.js"><link rel="prefetch" href="/knowledge/assets/js/93.6afa331c.js"><link rel="prefetch" href="/knowledge/assets/js/94.f273e6d6.js"><link rel="prefetch" href="/knowledge/assets/js/95.5b5d9ea3.js"><link rel="prefetch" href="/knowledge/assets/js/96.556363d4.js"><link rel="prefetch" href="/knowledge/assets/js/97.423df42a.js"><link rel="prefetch" href="/knowledge/assets/js/98.d73b75da.js"><link rel="prefetch" href="/knowledge/assets/js/99.59320208.js">
+    <link rel="stylesheet" href="/knowledge/assets/css/0.styles.9483da07.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/knowledge/" class="home-link router-link-active"><!----> <span class="site-name">oliveying</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/knowledge/" class="nav-link">Home</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">book</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/bgoodparts/" class="nav-link">语言精粹</a></li><li class="dropdown-item"><!----> <a href="/knowledge/http/" class="nav-link">图解http</a></li><li class="dropdown-item"><!----> <a href="/knowledge/es6/" class="nav-link router-link-active">es6</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端技术</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/html/" class="nav-link">html</a></li><li class="dropdown-item"><!----> <a href="/knowledge/css/" class="nav-link">css</a></li><li class="dropdown-item"><!----> <a href="/knowledge/js/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/knowledge/h5/" class="nav-link">h5最新用法</a></li><li class="dropdown-item"><!----> <a href="/knowledge/node/" class="nav-link">node</a></li><li class="dropdown-item"><!----> <a href="/knowledge/brower/" class="nav-link">浏览器特性</a></li><li class="dropdown-item"><!----> <a href="/knowledge/d3/" class="nav-link">d3</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">总结</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/summary/" class="nav-link">总结</a></li><li class="dropdown-item"><!----> <a href="/knowledge/interview/" class="nav-link">面试</a></li><li class="dropdown-item"><!----> <a href="/knowledge/problem/" class="nav-link">problem</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">扩展</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/start/" class="nav-link">启动</a></li><li class="dropdown-item"><!----> <a href="/knowledge/tool/" class="nav-link">工具用法</a></li><li class="dropdown-item"><!----> <a href="/knowledge/markdown/" class="nav-link">markDown</a></li><li class="dropdown-item"><!----> <a href="/knowledge/linux/" class="nav-link">linux</a></li><li class="dropdown-item"><!----> <a href="/knowledge/mac/" class="nav-link">mac</a></li><li class="dropdown-item"><!----> <a href="/knowledge/develop/" class="nav-link">提升</a></li></ul></div></div> <a href="https://github.com/oliveying/knowledge" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/knowledge/" class="nav-link">Home</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">book</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/bgoodparts/" class="nav-link">语言精粹</a></li><li class="dropdown-item"><!----> <a href="/knowledge/http/" class="nav-link">图解http</a></li><li class="dropdown-item"><!----> <a href="/knowledge/es6/" class="nav-link router-link-active">es6</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端技术</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/html/" class="nav-link">html</a></li><li class="dropdown-item"><!----> <a href="/knowledge/css/" class="nav-link">css</a></li><li class="dropdown-item"><!----> <a href="/knowledge/js/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/knowledge/h5/" class="nav-link">h5最新用法</a></li><li class="dropdown-item"><!----> <a href="/knowledge/node/" class="nav-link">node</a></li><li class="dropdown-item"><!----> <a href="/knowledge/brower/" class="nav-link">浏览器特性</a></li><li class="dropdown-item"><!----> <a href="/knowledge/d3/" class="nav-link">d3</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">总结</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/summary/" class="nav-link">总结</a></li><li class="dropdown-item"><!----> <a href="/knowledge/interview/" class="nav-link">面试</a></li><li class="dropdown-item"><!----> <a href="/knowledge/problem/" class="nav-link">problem</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">扩展</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/start/" class="nav-link">启动</a></li><li class="dropdown-item"><!----> <a href="/knowledge/tool/" class="nav-link">工具用法</a></li><li class="dropdown-item"><!----> <a href="/knowledge/markdown/" class="nav-link">markDown</a></li><li class="dropdown-item"><!----> <a href="/knowledge/linux/" class="nav-link">linux</a></li><li class="dropdown-item"><!----> <a href="/knowledge/mac/" class="nav-link">mac</a></li><li class="dropdown-item"><!----> <a href="/knowledge/develop/" class="nav-link">提升</a></li></ul></div></div> <a href="https://github.com/oliveying/knowledge" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/knowledge/es6/let和const.html" class="sidebar-link">es6 let const</a></li><li><a href="/knowledge/es6/变量的解构赋值.html" class="active sidebar-link">变量的解构赋值</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/knowledge/es6/变量的解构赋值.html#基本用法" class="sidebar-link">基本用法</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/变量的解构赋值.html#默认值" class="sidebar-link">默认值</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/变量的解构赋值.html#对象的解构赋值" class="sidebar-link">对象的解构赋值</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/变量的解构赋值.html#字符串的解构赋值" class="sidebar-link">字符串的解构赋值</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/变量的解构赋值.html#数值和布尔值的解构赋值" class="sidebar-link">数值和布尔值的解构赋值</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/变量的解构赋值.html#函数参数的解构赋值" class="sidebar-link">函数参数的解构赋值</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/变量的解构赋值.html#圆括号问题" class="sidebar-link">圆括号问题</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/变量的解构赋值.html#用途" class="sidebar-link">用途</a></li></ul></li><li><a href="/knowledge/es6/字符串的扩展.html" class="sidebar-link">字符串的扩展</a></li><li><a href="/knowledge/es6/字符串的新增方法.html" class="sidebar-link">String.fromCodePoint()</a></li><li><a href="/knowledge/es6/正则的扩展.html" class="sidebar-link">正则的扩展</a></li><li><a href="/knowledge/es6/数值的扩展.html" class="sidebar-link">数值的扩展</a></li><li><a href="/knowledge/es6/函数的扩展.html" class="sidebar-link">函数的扩展</a></li><li><a href="/knowledge/es6/对象的扩展.html" class="sidebar-link">对象的扩展</a></li><li><a href="/knowledge/es6/对象的新增方法.html" class="sidebar-link">对象的新增方法</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="变量的解构赋值"><a href="#变量的解构赋值" aria-hidden="true" class="header-anchor">#</a> 变量的解构赋值</h1> <h2 id="基本用法"><a href="#基本用法" aria-hidden="true" class="header-anchor">#</a> 基本用法</h2> <p>ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 可以从数组中提取值，按照对应位置，对变量赋值。本质上，这种写法属于“模式匹配”，只要等号两边的模式相同，左边的变量就会被赋予对应的值</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">[</span>foo<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>bar<span class="token punctuation">]</span><span class="token punctuation">,</span> baz<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+foo <span class="token comment">// 1</span>
+bar <span class="token comment">// 2</span>
+baz <span class="token comment">// 3</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">[</span> <span class="token punctuation">,</span> <span class="token punctuation">,</span> third<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;foo&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;bar&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;baz&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+third <span class="token comment">// &quot;baz&quot;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> <span class="token punctuation">,</span> y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+x <span class="token comment">// 1</span>
+y <span class="token comment">// 3</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">[</span>head<span class="token punctuation">,</span> <span class="token operator">...</span>tail<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+head <span class="token comment">// 1</span>
+tail <span class="token comment">// [2, 3, 4]</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> <span class="token operator">...</span>z<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+x <span class="token comment">// &quot;a&quot;</span>
+y <span class="token comment">// undefined</span>
+z <span class="token comment">// []</span>
+
+<span class="token comment">// 如果解构不成功，变量的值就等于undefined。</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>foo<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>bar<span class="token punctuation">,</span> foo<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// foo的值都会等于undefined。</span>
+
+<span class="token comment">// 不完全解构，即等号左边的模式，只匹配一部分的等号右边的数组。这种情况下，解构依然可以成功。</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+x <span class="token comment">// 1</span>
+y <span class="token comment">// 2</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> <span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token punctuation">,</span> d<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+a <span class="token comment">// 1</span>
+b <span class="token comment">// 2</span>
+d <span class="token comment">// 4</span>
+
+
+<span class="token comment">// 如果等号的右边不是数组（或者严格地说，不是可遍历的结构，参见《Iterator》一章），那么将会报错。</span>
+<span class="token comment">// 报错</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>foo<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>foo<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>foo<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">NaN</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>foo<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>foo<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>foo<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 上面的语句都会报错，因为等号右边的值，要么转为对象以后不具备 Iterator 接口（前五个表达式），要么本身就不具备 Iterator 接口（最后一个表达式）。</span>
+
+<span class="token comment">// 对于 Set 结构，也可以使用数组的解构赋值。</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+x <span class="token comment">// &quot;a&quot;</span>
+<span class="token comment">// 事实上，只要某种数据结构具有 Iterator 接口，都可以采用数组形式的解构赋值。</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">fibs</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">yield</span> a<span class="token punctuation">;</span>
+    <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>b<span class="token punctuation">,</span> a <span class="token operator">+</span> b<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">[</span>first<span class="token punctuation">,</span> second<span class="token punctuation">,</span> third<span class="token punctuation">,</span> fourth<span class="token punctuation">,</span> fifth<span class="token punctuation">,</span> sixth<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">fibs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+sixth <span class="token comment">// 5</span>
+<span class="token comment">// 上面代码中，fibs是一个 Generator 函数（参见《Generator 函数》一章），原生具有 Iterator 接口。解构赋值会依次从这个接口获取值。</span>
+
+
+</code></pre></div><h2 id="默认值"><a href="#默认值" aria-hidden="true" class="header-anchor">#</a> 默认值</h2> <p>解构赋值允许指定默认值。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> <span class="token punctuation">[</span>foo <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+foo <span class="token comment">// true</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token string">'b'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// x='a', y='b'</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token string">'b'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token keyword">undefined</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// x='a', y='b'</span>
+
+<span class="token comment">// 注意，ES6 内部使用严格相等运算符（===），判断一个位置是否有值。所以，只有当一个数组成员严格等于undefined，默认值才会生效。</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token keyword">undefined</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+x <span class="token comment">// 1</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token keyword">null</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+x <span class="token comment">// null</span>
+
+<span class="token comment">// 如果默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值。</span>
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'aaa'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x <span class="token operator">=</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码中，因为x能取到值，所以函数f根本不会执行。上面的代码其实等价于下面的代码。</span>
+
+<span class="token keyword">let</span> x<span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  x <span class="token operator">=</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 默认值可以引用解构赋值的其他变量，但该变量必须已经声明。</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> y <span class="token operator">=</span> x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>     <span class="token comment">// x=1; y=1</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> y <span class="token operator">=</span> x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment">// x=2; y=2</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> y <span class="token operator">=</span> x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// x=1; y=2</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>x <span class="token operator">=</span> y<span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>     <span class="token comment">// ReferenceError: y is not defined</span>
+<span class="token comment">// 上面最后一个表达式之所以会报错，是因为x用y做默认值时，y还没有声明。</span>
+</code></pre></div><h2 id="对象的解构赋值"><a href="#对象的解构赋值" aria-hidden="true" class="header-anchor">#</a> 对象的解构赋值</h2> <p>解构不仅可以用于数组，还可以用于对象。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> <span class="token punctuation">{</span> foo<span class="token punctuation">,</span> bar <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span> foo<span class="token punctuation">:</span> <span class="token string">'aaa'</span><span class="token punctuation">,</span> bar<span class="token punctuation">:</span> <span class="token string">'bbb'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+foo <span class="token comment">// &quot;aaa&quot;</span>
+bar <span class="token comment">// &quot;bbb&quot;</span>
+
+<span class="token comment">// 对象的解构与数组有一个重要的不同。数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span> bar<span class="token punctuation">,</span> foo <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span> foo<span class="token punctuation">:</span> <span class="token string">'aaa'</span><span class="token punctuation">,</span> bar<span class="token punctuation">:</span> <span class="token string">'bbb'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+foo <span class="token comment">// &quot;aaa&quot;</span>
+bar <span class="token comment">// &quot;bbb&quot;</span>
+<span class="token comment">// 等号左边的两个变量的次序，与等号右边两个同名属性的次序不一致，但是对取值完全没有影响。</span>
+
+<span class="token comment">// 变量没有对应的同名属性，导致取不到值，最后等于undefined。</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span> baz <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span> foo<span class="token punctuation">:</span> <span class="token string">'aaa'</span><span class="token punctuation">,</span> bar<span class="token punctuation">:</span> <span class="token string">'bbb'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+baz <span class="token comment">// undefined</span>
+
+<span class="token comment">// 对象的解构赋值，可以很方便地将现有对象的方法，赋值到某个变量。</span>
+
+
+<span class="token keyword">let</span> <span class="token punctuation">{</span> log<span class="token punctuation">,</span> sin<span class="token punctuation">,</span> cos <span class="token punctuation">}</span> <span class="token operator">=</span> Math<span class="token punctuation">;</span> <span class="token comment">// 将Math对象的对数、正弦、余弦三个方法，赋值到对应的变量上</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">{</span> log <span class="token punctuation">}</span> <span class="token operator">=</span> console<span class="token punctuation">;</span> <span class="token comment">// console.log赋值到log变量。</span>
+<span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span> <span class="token comment">// hello</span>
+
+<span class="token comment">// 如果变量名与属性名不一致，必须写成下面这样。</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span> foo<span class="token punctuation">:</span> baz <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span> foo<span class="token punctuation">:</span> <span class="token string">'aaa'</span><span class="token punctuation">,</span> bar<span class="token punctuation">:</span> <span class="token string">'bbb'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+baz <span class="token comment">// &quot;aaa&quot;</span>
+
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> first<span class="token punctuation">:</span> <span class="token string">'hello'</span><span class="token punctuation">,</span> last<span class="token punctuation">:</span> <span class="token string">'world'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span> first<span class="token punctuation">:</span> f<span class="token punctuation">,</span> last<span class="token punctuation">:</span> l <span class="token punctuation">}</span> <span class="token operator">=</span> obj<span class="token punctuation">;</span>
+f <span class="token comment">// 'hello'</span>
+l <span class="token comment">// 'world'</span>
+
+<span class="token comment">// 这实际上说明，对象的解构赋值是下面形式的简写（参见《对象的扩展》一章）。</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">{</span> foo<span class="token punctuation">:</span> foo<span class="token punctuation">,</span> bar<span class="token punctuation">:</span> bar <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span> foo<span class="token punctuation">:</span> <span class="token string">'aaa'</span><span class="token punctuation">,</span> bar<span class="token punctuation">:</span> <span class="token string">'bbb'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// 也就是说，对象的解构赋值的内部机制，是先找到同名属性，然后再赋给对应的变量。真正被赋值的是后者，而不是前者。</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">{</span> foo<span class="token punctuation">:</span> baz <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span> foo<span class="token punctuation">:</span> <span class="token string">'aaa'</span><span class="token punctuation">,</span> bar<span class="token punctuation">:</span> <span class="token string">'bbb'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+baz <span class="token comment">// &quot;aaa&quot;</span>
+foo <span class="token comment">// error: foo is not defined</span>
+<span class="token comment">// 上面代码中，foo是匹配的模式，baz才是变量。真正被赋值的是变量baz，而不是模式foo。</span>
+
+<span class="token comment">// 与数组一样，解构也可以用于嵌套结构的对象。</span>
+
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  p<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token string">'Hello'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> y<span class="token punctuation">:</span> <span class="token string">'World'</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">{</span> p<span class="token punctuation">:</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> <span class="token punctuation">{</span> y <span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">}</span> <span class="token operator">=</span> obj<span class="token punctuation">;</span>
+x <span class="token comment">// &quot;Hello&quot;</span>
+y <span class="token comment">// &quot;World&quot;</span>
+
+<span class="token comment">// 注意，这时p是模式，不是变量，因此不会被赋值。如果p也要作为变量赋值，可以写成下面这样。</span>
+
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  p<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token string">'Hello'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> y<span class="token punctuation">:</span> <span class="token string">'World'</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">{</span> p<span class="token punctuation">,</span> p<span class="token punctuation">:</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> <span class="token punctuation">{</span> y <span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">}</span> <span class="token operator">=</span> obj<span class="token punctuation">;</span>
+x <span class="token comment">// &quot;Hello&quot;</span>
+y <span class="token comment">// &quot;World&quot;</span>
+p <span class="token comment">// [&quot;Hello&quot;, {y: &quot;World&quot;}]</span>
+
+<span class="token comment">// start</span>
+<span class="token keyword">const</span> node <span class="token operator">=</span> <span class="token punctuation">{</span>
+  loc<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    start<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      line<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+      column<span class="token punctuation">:</span> <span class="token number">5</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">{</span> loc<span class="token punctuation">,</span> loc<span class="token punctuation">:</span> <span class="token punctuation">{</span> start <span class="token punctuation">}</span><span class="token punctuation">,</span> loc<span class="token punctuation">:</span> <span class="token punctuation">{</span> start<span class="token punctuation">:</span> <span class="token punctuation">{</span> line <span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token operator">=</span> node<span class="token punctuation">;</span>
+line <span class="token comment">// 1</span>
+loc  <span class="token comment">// Object {start: Object}</span>
+start <span class="token comment">// Object {line: 1, column: 5}</span>
+<span class="token comment">// 上面代码有三次解构赋值，分别是对loc、start、line三个属性的解构赋值。注意，最后一次对line属性的解构赋值之中，只有line是变量，loc和start都是模式，不是变量。</span>
+
+<span class="token comment">// 下面是嵌套赋值的例子。</span>
+
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">(</span><span class="token punctuation">{</span> foo<span class="token punctuation">:</span> obj<span class="token punctuation">.</span>prop<span class="token punctuation">,</span> bar<span class="token punctuation">:</span> arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span> foo<span class="token punctuation">:</span> <span class="token number">123</span><span class="token punctuation">,</span> bar<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+obj <span class="token comment">// {prop:123}</span>
+arr <span class="token comment">// [true]</span>
+
+<span class="token comment">// 如果解构模式是嵌套的对象，而且子对象所在的父属性不存在，那么将会报错。</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span>foo<span class="token punctuation">:</span> <span class="token punctuation">{</span>bar<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span>baz<span class="token punctuation">:</span> <span class="token string">'baz'</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码中，等号左边对象的foo属性，对应一个子对象。该子对象的bar属性，解构时会报错。原因很简单，因为foo这时等于undefined，再取子属性就会报错。</span>
+
+<span class="token comment">// 注意，对象的解构赋值可以取到继承的属性。</span>
+
+<span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> obj2 <span class="token operator">=</span> <span class="token punctuation">{</span> foo<span class="token punctuation">:</span> <span class="token string">'bar'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+Object<span class="token punctuation">.</span><span class="token function">setPrototypeOf</span><span class="token punctuation">(</span>obj1<span class="token punctuation">,</span> obj2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">{</span> foo <span class="token punctuation">}</span> <span class="token operator">=</span> obj1<span class="token punctuation">;</span>
+foo <span class="token comment">// &quot;bar&quot;</span>
+<span class="token comment">// 上面代码中，对象obj1的原型对象是obj2。foo属性不是obj1自身的属性，而是继承自obj2的属性，解构赋值可以取到这个属性。</span>
+
+<span class="token comment">// 对象的解构也可以指定默认值。</span>
+
+<span class="token keyword">var</span> <span class="token punctuation">{</span>x <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+x <span class="token comment">// 3</span>
+
+<span class="token keyword">var</span> <span class="token punctuation">{</span>x<span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+x <span class="token comment">// 1</span>
+y <span class="token comment">// 5</span>
+
+<span class="token keyword">var</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> y <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+y <span class="token comment">// 3</span>
+
+<span class="token keyword">var</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> y <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+y <span class="token comment">// 5</span>
+
+<span class="token keyword">var</span> <span class="token punctuation">{</span> message<span class="token punctuation">:</span> msg <span class="token operator">=</span> <span class="token string">'Something went wrong'</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+msg <span class="token comment">// &quot;Something went wrong&quot;</span>
+<span class="token comment">// 默认值生效的条件是，对象的属性值严格等于undefined。</span>
+
+<span class="token keyword">var</span> <span class="token punctuation">{</span>x <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token keyword">undefined</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+x <span class="token comment">// 3</span>
+
+<span class="token keyword">var</span> <span class="token punctuation">{</span>x <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+x <span class="token comment">// null</span>
+<span class="token comment">// 上面代码中，属性x等于null，因为null与undefined不严格相等，所以是个有效的赋值，导致默认值3不会生效。</span>
+
+<span class="token comment">// 注意点</span>
+<span class="token comment">//（1）如果要将一个已经声明的变量用于解构赋值，必须非常小心。</span>
+
+<span class="token comment">// 错误的写法</span>
+<span class="token keyword">let</span> x<span class="token punctuation">;</span>
+<span class="token punctuation">{</span>x<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// SyntaxError: syntax error</span>
+<span class="token comment">// 上面代码的写法会报错，因为 JavaScript 引擎会将{x}理解成一个代码块，从而发生语法错误。只有不将大括号写在行首，避免 JavaScript 将其解释为代码块，才能解决这个问题。</span>
+
+<span class="token comment">// 正确的写法</span>
+<span class="token keyword">let</span> x<span class="token punctuation">;</span>
+<span class="token punctuation">(</span><span class="token punctuation">{</span>x<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码将整个解构赋值语句，放在一个圆括号里面，就可以正确执行。关于圆括号与解构赋值的关系，参见下文。</span>
+
+<span class="token comment">//（2）解构赋值允许等号左边的模式之中，不放置任何变量名。因此，可以写出非常古怪的赋值表达式。</span>
+
+<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token string">'abc'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面的表达式虽然毫无意义，但是语法是合法的，可以执行。</span>
+
+<span class="token comment">// （3）由于数组本质是特殊的对象，因此可以对数组进行对象属性的解构。</span>
+
+<span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span><span class="token number">0</span> <span class="token punctuation">:</span> first<span class="token punctuation">,</span> <span class="token punctuation">[</span>arr<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">:</span> last<span class="token punctuation">}</span> <span class="token operator">=</span> arr<span class="token punctuation">;</span>
+first <span class="token comment">// 1</span>
+last <span class="token comment">// 3</span>
+<span class="token comment">// 上面代码对数组进行对象解构。数组arr的0键对应的值是1，[arr.length - 1]就是2键，对应的值是3。方括号这种写法，属于“属性名表达式”（参见《对象的扩展》一章）。</span>
+
+
+</code></pre></div><h2 id="字符串的解构赋值"><a href="#字符串的解构赋值" aria-hidden="true" class="header-anchor">#</a> 字符串的解构赋值</h2> <p>字符串也可以解构赋值。这是因为此时，字符串被转换成了一个类似数组的对象。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">,</span> e<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'hello'</span><span class="token punctuation">;</span>
+a <span class="token comment">// &quot;h&quot;</span>
+b <span class="token comment">// &quot;e&quot;</span>
+c <span class="token comment">// &quot;l&quot;</span>
+d <span class="token comment">// &quot;l&quot;</span>
+e <span class="token comment">// &quot;o&quot;</span>
+<span class="token comment">// 类似数组的对象都有一个length属性，因此还可以对这个属性解构赋值。</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span>length <span class="token punctuation">:</span> len<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token string">'hello'</span><span class="token punctuation">;</span>
+len <span class="token comment">// 5</span>
+
+</code></pre></div><h2 id="数值和布尔值的解构赋值"><a href="#数值和布尔值的解构赋值" aria-hidden="true" class="header-anchor">#</a> 数值和布尔值的解构赋值</h2> <p>解构赋值时，如果等号右边是数值和布尔值，则会先转为对象。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> <span class="token punctuation">{</span>toString<span class="token punctuation">:</span> s<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span>
+s <span class="token operator">===</span> <span class="token class-name">Number</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString <span class="token comment">// true</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">{</span>toString<span class="token punctuation">:</span> s<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+s <span class="token operator">===</span> <span class="token class-name">Boolean</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString <span class="token comment">// true</span>
+<span class="token comment">// 上面代码中，数值和布尔值的包装对象都有toString属性，因此变量s都能取到值。</span>
+
+<span class="token comment">// 解构赋值的规则是，只要等号右边的值不是对象或数组，就先将其转为对象。由于undefined和null无法转为对象，所以对它们进行解构赋值，都会报错。</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">{</span> prop<span class="token punctuation">:</span> x <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span> <span class="token comment">// TypeError</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span> prop<span class="token punctuation">:</span> y <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// TypeError</span>
+</code></pre></div><h2 id="函数参数的解构赋值"><a href="#函数参数的解构赋值" aria-hidden="true" class="header-anchor">#</a> 函数参数的解构赋值</h2> <p>函数的参数也可以使用解构赋值。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span></span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">return</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 3</span>
+<span class="token comment">// 上面代码中，函数add的参数表面上是一个数组，但在传入参数的那一刻，数组参数就被解构成变量x和y。对于函数内部的代码来说，它们能感受到的参数就是x和y。</span>
+
+<span class="token comment">// 下面是另一个例子。</span>
+
+<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// [ 3, 7 ]</span>
+
+<span class="token comment">// 函数参数的解构也可以使用默认值。</span>
+
+<span class="token keyword">function</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">8</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [3, 8]</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [3, 0]</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [0, 0]</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [0, 0]</span>
+<span class="token comment">// 上面代码中，函数move的参数是一个对象，通过对这个对象进行解构，得到变量x和y的值。如果解构失败，x和y等于默认值。</span>
+
+<span class="token comment">// 注意，下面的写法会得到不一样的结果。</span>
+
+<span class="token keyword">function</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>x<span class="token punctuation">,</span> y<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">0</span> <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">8</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [3, 8]</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [3, undefined]</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [undefined, undefined]</span>
+<span class="token function">move</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [0, 0]</span>
+<span class="token comment">// 上面代码是为函数move的参数指定默认值，而不是为变量x和y指定默认值，所以会得到与前一种写法不同的结果。</span>
+
+<span class="token comment">// undefined就会触发函数参数的默认值。</span>
+
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x <span class="token operator">=</span> <span class="token string">'yes'</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// [ 1, 'yes', 3 ]</span>
+</code></pre></div><h2 id="圆括号问题"><a href="#圆括号问题" aria-hidden="true" class="header-anchor">#</a> 圆括号问题</h2> <p>解构赋值虽然很方便，但是解析起来并不容易。对于编译器来说，一个式子到底是模式，还是表达式，没有办法从一开始就知道，必须解析到（或解析不到）等号才能知道。</p> <p>由此带来的问题是，如果模式中出现圆括号怎么处理。ES6 的规则是，只要有可能导致解构的歧义，就不得使用圆括号。</p> <p>但是，这条规则实际上不那么容易辨别，处理起来相当麻烦。因此，建议只要有可能，就不要在模式中放置圆括号。</p> <p>不能使用圆括号的情况
+以下三种解构赋值不得使用圆括号。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//（1）变量声明语句</span>
+
+<span class="token comment">// 全部报错</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>x<span class="token punctuation">:</span> c<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span><span class="token punctuation">(</span>x<span class="token punctuation">:</span> c<span class="token punctuation">)</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span> c<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">{</span> o<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> p<span class="token punctuation">:</span> p <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span> o<span class="token punctuation">:</span> <span class="token punctuation">{</span> p<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面 6 个语句都会报错，因为它们都是变量声明语句，模式不能使用圆括号。</span>
+
+<span class="token comment">// （2）函数参数</span>
+
+<span class="token comment">// 函数参数也属于变量声明，因此不能带有圆括号。</span>
+
+<span class="token comment">// 报错</span>
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">[</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> z<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token comment">// 报错</span>
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">[</span>z<span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token comment">// （3）赋值语句的模式</span>
+
+<span class="token comment">// 全部报错</span>
+<span class="token punctuation">(</span><span class="token punctuation">{</span> p<span class="token punctuation">:</span> a <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">{</span> p<span class="token punctuation">:</span> <span class="token number">42</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">(</span><span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码将整个模式放在圆括号之中，导致报错。</span>
+
+<span class="token comment">// 报错</span>
+<span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token punctuation">{</span> p<span class="token punctuation">:</span> a <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> x<span class="token punctuation">:</span> c <span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码将一部分模式放在圆括号之中，导致报错。</span>
+
+<span class="token comment">// 可以使用圆括号的情况</span>
+<span class="token comment">// 可以使用圆括号的情况只有一种：赋值语句的非模式部分，可以使用圆括号。</span>
+
+<span class="token punctuation">[</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 正确</span>
+<span class="token punctuation">(</span><span class="token punctuation">{</span> p<span class="token punctuation">:</span> <span class="token punctuation">(</span>d<span class="token punctuation">)</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 正确</span>
+<span class="token punctuation">[</span><span class="token punctuation">(</span>parseInt<span class="token punctuation">.</span>prop<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 正确</span>
+<span class="token comment">// 上面三行语句都可以正确执行，因为首先它们都是赋值语句，而不是声明语句；其次它们的圆括号都不属于模式的一部分。第一行语句中，模式是取数组的第一个成员，跟圆括号无关；第二行语句中，模式是p，而不是d；第三行语句与第一行语句的性质一致。</span>
+</code></pre></div><h2 id="用途"><a href="#用途" aria-hidden="true" class="header-anchor">#</a> 用途</h2> <p>变量的解构赋值用途很多。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//（1）交换变量的值</span>
+
+<span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> y <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>y<span class="token punctuation">,</span> x<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码交换变量x和y的值，这样的写法不仅简洁，而且易读，语义非常清晰。</span>
+
+<span class="token comment">// （2）从函数返回多个值</span>
+
+<span class="token comment">// 函数只能返回一个值，如果要返回多个值，只能将它们放在数组或对象里返回。有了解构赋值，取出这些值就非常方便。</span>
+
+<span class="token comment">// 返回一个数组</span>
+
+<span class="token keyword">function</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 返回一个对象</span>
+
+<span class="token keyword">function</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    foo<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    bar<span class="token punctuation">:</span> <span class="token number">2</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span> foo<span class="token punctuation">,</span> bar <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// （3）函数参数的定义</span>
+
+<span class="token comment">// 解构赋值可以方便地将一组参数与变量名对应起来。</span>
+
+<span class="token comment">// 参数是一组有次序的值</span>
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 参数是一组无次序的值</span>
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">{</span>z<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> x<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// （4）提取 JSON 数据</span>
+
+<span class="token comment">// 解构赋值对提取 JSON 对象中的数据，尤其有用。</span>
+
+<span class="token keyword">let</span> jsonData <span class="token operator">=</span> <span class="token punctuation">{</span>
+  id<span class="token punctuation">:</span> <span class="token number">42</span><span class="token punctuation">,</span>
+  status<span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span><span class="token punctuation">,</span>
+  data<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">867</span><span class="token punctuation">,</span> <span class="token number">5309</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">{</span> id<span class="token punctuation">,</span> status<span class="token punctuation">,</span> data<span class="token punctuation">:</span> number <span class="token punctuation">}</span> <span class="token operator">=</span> jsonData<span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> status<span class="token punctuation">,</span> number<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 42, &quot;OK&quot;, [867, 5309]</span>
+<span class="token comment">// 上面代码可以快速提取 JSON 数据的值。</span>
+
+<span class="token comment">// （5）函数参数的默认值</span>
+
+jQuery<span class="token punctuation">.</span><span class="token function-variable function">ajax</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  async <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">beforeSend</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  cache <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">complete</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  crossDomain <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  global <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token comment">// ... more config</span>
+<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ... do stuff</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// 指定参数的默认值，就避免了在函数体内部再写var foo = config.foo || 'default foo';这样的语句。</span>
+
+<span class="token comment">// （6）遍历 Map 结构</span>
+
+<span class="token comment">// 任何部署了 Iterator 接口的对象，都可以用for...of循环遍历。Map 结构原生支持 Iterator 接口，配合变量的解构赋值，获取键名和键值就非常方便。</span>
+
+<span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'first'</span><span class="token punctuation">,</span> <span class="token string">'hello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'second'</span><span class="token punctuation">,</span> <span class="token string">'world'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>key<span class="token punctuation">,</span> value<span class="token punctuation">]</span> <span class="token keyword">of</span> map<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key <span class="token operator">+</span> <span class="token string">&quot; is &quot;</span> <span class="token operator">+</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// first is hello</span>
+<span class="token comment">// second is world</span>
+<span class="token comment">// 如果只想获取键名，或者只想获取键值，可以写成下面这样。</span>
+
+<span class="token comment">// 获取键名</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token keyword">of</span> map<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 获取键值</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span><span class="token punctuation">,</span>value<span class="token punctuation">]</span> <span class="token keyword">of</span> map<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//（7）输入模块的指定方法</span>
+
+<span class="token comment">// 加载模块时，往往需要指定输入哪些方法。解构赋值使得输入语句非常清晰。</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">{</span> SourceMapConsumer<span class="token punctuation">,</span> SourceNode <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;source-map&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/knowledge/assets/js/app.a23dccfb.js" defer></script><script src="/knowledge/assets/js/42.00442ca7.js" defer></script>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 # gulp
 > https://www.gulpjs.com.cn/docs/api/
 ## Buffer.from(buffer)
-buffer <Buffer> | <Uint8Array> 要拷贝数据的 Buffer 或 Uint8Array。
+buffer `<Buffer>` | `<Uint8Array>` 要拷贝数据的 Buffer 或 Uint8Array。
 
 拷贝 buffer 的数据到新建的 Buffer 实例。
 

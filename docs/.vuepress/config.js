@@ -142,7 +142,7 @@ module.exports = {
         'js实现二代身份证号码验证详解'
       ],
       '/es6/': [
-        'let,const',
+        'let和const',
         '变量的解构赋值',
         '字符串的扩展',
         '字符串的新增方法',
@@ -150,6 +150,11 @@ module.exports = {
         '数值的扩展',
         '函数的扩展',
         '对象的扩展',
+        '对象的新增方法',
+        'symbol',
+        'set和map数据结构',
+        'proxy',
+        'reflect',
       ],
       '/bgoodparts/': [
         'string',

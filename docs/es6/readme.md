@@ -177,4 +177,28 @@ let arr1 = [0, 1, 2];
 let arr2 = [3, 4, 5];
 arr1.push(...arr2);
 ```
+
+## 如果想完整克隆一个对象，还拷贝对象原型的属性，可以采用下面的写法。
+
+```js
+// 写法一
+const clone1 = {
+  __proto__: Object.getPrototypeOf(obj),
+  ...obj
+};
+
+// 写法二
+const clone2 = Object.assign(
+  Object.create(Object.getPrototypeOf(obj)),
+  obj
+);
+
+// 写法三
+const clone3 = Object.create(
+  Object.getPrototypeOf(obj),
+  Object.getOwnPropertyDescriptors(obj)
+)
+
+```
+上面代码中，写法一的__proto__属性在非浏览器的环境不一定部署，因此推荐使用写法二和写法三。
 > http://es6.ruanyifeng.com/#docs/regex

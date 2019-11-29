@@ -104,6 +104,7 @@ module.exports = {
         'layout',
       ],
       '/tool/': [
+        'vscode',
         'git',
         'yarn',
         'npm',
@@ -155,6 +156,12 @@ module.exports = {
         'set和map数据结构',
         'proxy',
         'reflect',
+        'Promise对象',
+        'Iterator和for...of循环',
+        'Generator函数的语法',
+        'Generator函数的异步应用',
+        'Async',
+        'Class的基本语法',
       ],
       '/bgoodparts/': [
         'string',

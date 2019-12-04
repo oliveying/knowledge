@@ -263,4 +263,24 @@ for(let x of iterTree(tree)) {
 
 [...iterTree(tree)] // ["a", "b", "c", "d", "e"]
 ```
+## 严格模式主要有以下限制。
+
+* 变量必须声明后再使用
+* 函数的参数不能有同名属性，否则报错
+* 不能使用with语句
+* 不能对只读属性赋值，否则报错
+* 不能使用前缀 0 表示八进制数，否则报错
+* 不能删除不可删除的属性，否则报错
+* 不能删除变量delete prop，会报错，只能删除属性delete global[prop]
+* eval不会在它的外层作用域引入变量
+* eval和arguments不能被重新赋值
+* arguments不会自动反映函数参数的变化
+* 不能使用arguments.callee
+* 不能使用arguments.caller
+* 禁止this指向全局对象
+* 不能使用fn.caller和fn.arguments获取函数调用的堆栈
+* 增加了保留字（比如protected、static和interface）
+## defer与async的区别
+* defer要等到整个页面在内存中正常渲染结束（DOM 结构完全生成，以及其他脚本执行完成），才会执行；async一旦下载完，渲染引擎就会中断渲染，执行这个脚本以后，再继续渲染。一句话，defer是“渲染完再执行”，async是“下载完就执行”。另外，如果有多个defer脚本，会按照它们在页面出现的顺序加载，而多个async脚本是不能保证加载顺序的。
+
 > http://es6.ruanyifeng.com/#README

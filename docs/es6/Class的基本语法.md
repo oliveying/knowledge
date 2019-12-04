@@ -398,9 +398,9 @@ class Logger {
 const logger = new Logger();
 const { printName } = logger;
 printName(); // TypeError: Cannot read property 'print' of undefined
-上面代码中，printName方法中的this，默认指向Logger类的实例。但是，如果将这个方法提取出来单独使用，this会指向该方法运行时所在的环境（由于 class 内部是严格模式，所以 this 实际指向的是undefined），从而导致找不到print方法而报错。
+// 上面代码中，printName方法中的this，默认指向Logger类的实例。但是，如果将这个方法提取出来单独使用，this会指向该方法运行时所在的环境（由于 class 内部是严格模式，所以 this 实际指向的是undefined），从而导致找不到print方法而报错。
 
-一个比较简单的解决方法是，在构造方法中绑定this，这样就不会找不到print方法了。
+// 一个比较简单的解决方法是，在构造方法中绑定this，这样就不会找不到print方法了。
 
 class Logger {
   constructor() {
@@ -409,7 +409,7 @@ class Logger {
 
   // ...
 }
-另一种解决方法是使用箭头函数。
+// 另一种解决方法是使用箭头函数。
 
 class Obj {
   constructor() {
@@ -419,9 +419,9 @@ class Obj {
 
 const myObj = new Obj();
 myObj.getThis() === myObj // true
-箭头函数内部的this总是指向定义时所在的对象。上面代码中，箭头函数位于构造函数内部，它的定义生效的时候，是在构造函数执行的时候。这时，箭头函数所在的运行环境，肯定是实例对象，所以this会总是指向实例对象。
+// 箭头函数内部的this总是指向定义时所在的对象。上面代码中，箭头函数位于构造函数内部，它的定义生效的时候，是在构造函数执行的时候。这时，箭头函数所在的运行环境，肯定是实例对象，所以this会总是指向实例对象。
 
-还有一种解决方法是使用Proxy，获取方法的时候，自动绑定this。
+// 还有一种解决方法是使用Proxy，获取方法的时候，自动绑定this。
 
 function selfish (target) {
   const cache = new WeakMap();
@@ -442,9 +442,10 @@ function selfish (target) {
 }
 
 const logger = selfish(new Logger());
-静态方法
+```
+## 静态方法
 类相当于实例的原型，所有在类中定义的方法，都会被实例继承。如果在一个方法前，加上static关键字，就表示该方法不会被实例继承，而是直接通过类来调用，这就称为“静态方法”。
-
+```js
 class Foo {
   static classMethod() {
     return 'hello';
@@ -456,9 +457,9 @@ Foo.classMethod() // 'hello'
 var foo = new Foo();
 foo.classMethod()
 // TypeError: foo.classMethod is not a function
-上面代码中，Foo类的classMethod方法前有static关键字，表明该方法是一个静态方法，可以直接在Foo类上调用（Foo.classMethod()），而不是在Foo类的实例上调用。如果在实例上调用静态方法，会抛出一个错误，表示不存在该方法。
+// 上面代码中，Foo类的classMethod方法前有static关键字，表明该方法是一个静态方法，可以直接在Foo类上调用（Foo.classMethod()），而不是在Foo类的实例上调用。如果在实例上调用静态方法，会抛出一个错误，表示不存在该方法。
 
-注意，如果静态方法包含this关键字，这个this指的是类，而不是实例。
+// 注意，如果静态方法包含this关键字，这个this指的是类，而不是实例。
 
 class Foo {
   static bar() {
@@ -473,9 +474,9 @@ class Foo {
 }
 
 Foo.bar() // hello
-上面代码中，静态方法bar调用了this.baz，这里的this指的是Foo类，而不是Foo的实例，等同于调用Foo.baz。另外，从这个例子还可以看出，静态方法可以与非静态方法重名。
+// 上面代码中，静态方法bar调用了this.baz，这里的this指的是Foo类，而不是Foo的实例，等同于调用Foo.baz。另外，从这个例子还可以看出，静态方法可以与非静态方法重名。
 
-父类的静态方法，可以被子类继承。
+// 父类的静态方法，可以被子类继承。
 
 class Foo {
   static classMethod() {
@@ -487,9 +488,9 @@ class Bar extends Foo {
 }
 
 Bar.classMethod() // 'hello'
-上面代码中，父类Foo有一个静态方法，子类Bar可以调用这个方法。
+// 上面代码中，父类Foo有一个静态方法，子类Bar可以调用这个方法。
 
-静态方法也是可以从super对象上调用的。
+// 静态方法也是可以从super对象上调用的。
 
 class Foo {
   static classMethod() {
@@ -504,9 +505,10 @@ class Bar extends Foo {
 }
 
 Bar.classMethod() // "hello, too"
-实例属性的新写法
+```
+## 实例属性的新写法
 实例属性除了定义在constructor()方法里面的this上面，也可以定义在类的最顶层。
-
+```js
 class IncreasingCounter {
   constructor() {
     this._count = 0;
@@ -519,7 +521,7 @@ class IncreasingCounter {
     this._count++;
   }
 }
-上面代码中，实例属性this._count定义在constructor()方法里面。另一种写法是，这个属性也可以定义在类的最顶层，其他都不变。
+// 上面代码中，实例属性this._count定义在constructor()方法里面。另一种写法是，这个属性也可以定义在类的最顶层，其他都不变。
 
 class IncreasingCounter {
   _count = 0;
@@ -531,9 +533,9 @@ class IncreasingCounter {
     this._count++;
   }
 }
-上面代码中，实例属性_count与取值函数value()和increment()方法，处于同一个层级。这时，不需要在实例属性前面加上this。
+// 上面代码中，实例属性_count与取值函数value()和increment()方法，处于同一个层级。这时，不需要在实例属性前面加上this。
 
-这种新写法的好处是，所有实例对象自身的属性都定义在类的头部，看上去比较整齐，一眼就能看出这个类有哪些实例属性。
+// 这种新写法的好处是，所有实例对象自身的属性都定义在类的头部，看上去比较整齐，一眼就能看出这个类有哪些实例属性。
 
 class foo {
   bar = 'hello';
@@ -543,19 +545,19 @@ class foo {
     // ...
   }
 }
-上面的代码，一眼就能看出，foo类有两个实例属性，一目了然。另外，写起来也比较简洁。
-
-静态属性
+// 上面的代码，一眼就能看出，foo类有两个实例属性，一目了然。另外，写起来也比较简洁。
+```
+## 静态属性
 静态属性指的是 Class 本身的属性，即Class.propName，而不是定义在实例对象（this）上的属性。
-
+```js
 class Foo {
 }
 
 Foo.prop = 1;
 Foo.prop // 1
-上面的写法为Foo类定义了一个静态属性prop。
+// 上面的写法为Foo类定义了一个静态属性prop。
 
-目前，只有这种写法可行，因为 ES6 明确规定，Class 内部只有静态方法，没有静态属性。现在有一个提案提供了类的静态属性，写法是在实例属性的前面，加上static关键字。
+// 目前，只有这种写法可行，因为 ES6 明确规定，Class 内部只有静态方法，没有静态属性。现在有一个提案提供了类的静态属性，写法是在实例属性的前面，加上static关键字。
 
 class MyClass {
   static myStaticProp = 42;
@@ -564,7 +566,7 @@ class MyClass {
     console.log(MyClass.myStaticProp); // 42
   }
 }
-这个新写法大大方便了静态属性的表达。
+// 这个新写法大大方便了静态属性的表达。
 
 // 老写法
 class Foo {
@@ -576,13 +578,14 @@ Foo.prop = 1;
 class Foo {
   static prop = 1;
 }
+```
 上面代码中，老写法的静态属性定义在类的外部。整个类生成以后，再生成静态属性。这样让人很容易忽略这个静态属性，也不符合相关代码应该放在一起的代码组织原则。另外，新写法是显式声明（declarative），而不是赋值处理，语义更好。
 
-私有方法和私有属性
-现有的解决方案
+## 私有方法和私有属性
+### 现有的解决方案
 私有方法和私有属性，是只能在类的内部访问的方法和属性，外部不能访问。这是常见需求，有利于代码的封装，但 ES6 不提供，只能通过变通方法模拟实现。
-
-一种做法是在命名上加以区别。
+```js
+// 一种做法是在命名上加以区别。
 
 class Widget {
 
@@ -598,9 +601,9 @@ class Widget {
 
   // ...
 }
-上面代码中，_bar方法前面的下划线，表示这是一个只限于内部使用的私有方法。但是，这种命名是不保险的，在类的外部，还是可以调用到这个方法。
+// 上面代码中，_bar方法前面的下划线，表示这是一个只限于内部使用的私有方法。但是，这种命名是不保险的，在类的外部，还是可以调用到这个方法。
 
-另一种方法就是索性将私有方法移出模块，因为模块内部的所有方法都是对外可见的。
+// 另一种方法就是索性将私有方法移出模块，因为模块内部的所有方法都是对外可见的。
 
 class Widget {
   foo (baz) {
@@ -613,9 +616,9 @@ class Widget {
 function bar(baz) {
   return this.snaf = baz;
 }
-上面代码中，foo是公开方法，内部调用了bar.call(this, baz)。这使得bar实际上成为了当前模块的私有方法。
+// 上面代码中，foo是公开方法，内部调用了bar.call(this, baz)。这使得bar实际上成为了当前模块的私有方法。
 
-还有一种方法是利用Symbol值的唯一性，将私有方法的名字命名为一个Symbol值。
+// 还有一种方法是利用Symbol值的唯一性，将私有方法的名字命名为一个Symbol值。
 
 const bar = Symbol('bar');
 const snaf = Symbol('snaf');
@@ -634,17 +637,17 @@ export default class myClass{
 
   // ...
 };
-上面代码中，bar和snaf都是Symbol值，一般情况下无法获取到它们，因此达到了私有方法和私有属性的效果。但是也不是绝对不行，Reflect.ownKeys()依然可以拿到它们。
+// 上面代码中，bar和snaf都是Symbol值，一般情况下无法获取到它们，因此达到了私有方法和私有属性的效果。但是也不是绝对不行，Reflect.ownKeys()依然可以拿到它们。
 
 const inst = new myClass();
 
 Reflect.ownKeys(myClass.prototype)
 // [ 'constructor', 'foo', Symbol(bar) ]
-上面代码中，Symbol 值的属性名依然可以从类的外部拿到。
-
-私有属性的提案
+// 上面代码中，Symbol 值的属性名依然可以从类的外部拿到。
+```
+### 私有属性的提案
 目前，有一个提案，为class加了私有属性。方法是在属性名之前，使用#表示。
-
+```js
 class IncreasingCounter {
   #count = 0;
   get value() {
@@ -655,14 +658,14 @@ class IncreasingCounter {
     this.#count++;
   }
 }
-上面代码中，#count就是私有属性，只能在类的内部使用（this.#count）。如果在类的外部使用，就会报错。
+// 上面代码中，#count就是私有属性，只能在类的内部使用（this.#count）。如果在类的外部使用，就会报错。
 
 const counter = new IncreasingCounter();
 counter.#count // 报错
 counter.#count = 42 // 报错
-上面代码在类的外部，读取私有属性，就会报错。
+// 上面代码在类的外部，读取私有属性，就会报错。
 
-下面是另一个例子。
+// 下面是另一个例子。
 
 class Point {
   #x;
@@ -679,11 +682,11 @@ class Point {
     this.#x = +value;
   }
 }
-上面代码中，#x就是私有属性，在Point类之外是读取不到这个属性的。由于井号#是属性名的一部分，使用时必须带有#一起使用，所以#x和x是两个不同的属性。
+// 上面代码中，#x就是私有属性，在Point类之外是读取不到这个属性的。由于井号#是属性名的一部分，使用时必须带有#一起使用，所以#x和x是两个不同的属性。
 
-之所以要引入一个新的前缀#表示私有属性，而没有采用private关键字，是因为 JavaScript 是一门动态语言，没有类型声明，使用独立的符号似乎是唯一的比较方便可靠的方法，能够准确地区分一种属性是否为私有属性。另外，Ruby 语言使用@表示私有属性，ES6 没有用这个符号而使用#，是因为@已经被留给了 Decorator。
+// 之所以要引入一个新的前缀#表示私有属性，而没有采用private关键字，是因为 JavaScript 是一门动态语言，没有类型声明，使用独立的符号似乎是唯一的比较方便可靠的方法，能够准确地区分一种属性是否为私有属性。另外，Ruby 语言使用@表示私有属性，ES6 没有用这个符号而使用#，是因为@已经被留给了 Decorator。
 
-这种写法不仅可以写私有属性，还可以用来写私有方法。
+// 这种写法不仅可以写私有属性，还可以用来写私有方法。
 
 class Foo {
   #a;
@@ -699,9 +702,9 @@ class Foo {
     console.log(this.#sum());
   }
 }
-上面代码中，#sum()就是一个私有方法。
+// 上面代码中，#sum()就是一个私有方法。
 
-另外，私有属性也可以设置 getter 和 setter 方法。
+// 另外，私有属性也可以设置 getter 和 setter 方法。
 
 class Counter {
   #xValue = 0;
@@ -716,9 +719,9 @@ class Counter {
     this.#xValue = value;
   }
 }
-上面代码中，#x是一个私有属性，它的读写都通过get #x()和set #x()来完成。
+// 上面代码中，#x是一个私有属性，它的读写都通过get #x()和set #x()来完成。
 
-私有属性不限于从this引用，只要是在类的内部，实例也可以引用私有属性。
+// 私有属性不限于从this引用，只要是在类的内部，实例也可以引用私有属性。
 
 class Foo {
   #privateValue = 42;
@@ -728,9 +731,9 @@ class Foo {
 }
 
 Foo.getPrivateValue(new Foo()); // 42
-上面代码允许从实例foo上面引用私有属性。
+// 上面代码允许从实例foo上面引用私有属性。
 
-私有属性和私有方法前面，也可以加上static关键字，表示这是一个静态的私有属性或私有方法。
+// 私有属性和私有方法前面，也可以加上static关键字，表示这是一个静态的私有属性或私有方法。
 
 class FakeMath {
   static PI = 22 / 7;
@@ -752,11 +755,11 @@ FakeMath.random()
 // 4
 FakeMath.#totallyRandomNumber // 报错
 FakeMath.#computeRandomNumber() // 报错
-上面代码中，#totallyRandomNumber是私有属性，#computeRandomNumber()是私有方法，只能在FakeMath这个类的内部调用，外部调用就会报错。
-
-new.target 属性
+// 上面代码中，#totallyRandomNumber是私有属性，#computeRandomNumber()是私有方法，只能在FakeMath这个类的内部调用，外部调用就会报错。
+```
+## new.target 属性
 new是从构造函数生成实例对象的命令。ES6 为new命令引入了一个new.target属性，该属性一般用在构造函数之中，返回new命令作用于的那个构造函数。如果构造函数不是通过new命令或Reflect.construct()调用的，new.target会返回undefined，因此这个属性可以用来确定构造函数是怎么调用的。
-
+```js
 function Person(name) {
   if (new.target !== undefined) {
     this.name = name;
@@ -776,9 +779,9 @@ function Person(name) {
 
 var person = new Person('张三'); // 正确
 var notAPerson = Person.call(person, '张三');  // 报错
-上面代码确保构造函数只能通过new命令调用。
+// 上面代码确保构造函数只能通过new命令调用。
 
-Class 内部调用new.target，返回当前 Class。
+// Class 内部调用new.target，返回当前 Class。
 
 class Rectangle {
   constructor(length, width) {
@@ -789,7 +792,7 @@ class Rectangle {
 }
 
 var obj = new Rectangle(3, 4); // 输出 true
-需要注意的是，子类继承父类时，new.target会返回子类。
+// 需要注意的是，子类继承父类时，new.target会返回子类。
 
 class Rectangle {
   constructor(length, width) {
@@ -805,9 +808,9 @@ class Square extends Rectangle {
 }
 
 var obj = new Square(3); // 输出 false
-上面代码中，new.target会返回子类。
+// 上面代码中，new.target会返回子类。
 
-利用这个特点，可以写出不能独立使用、必须继承后才能使用的类。
+// 利用这个特点，可以写出不能独立使用、必须继承后才能使用的类。
 
 class Shape {
   constructor() {
@@ -826,7 +829,7 @@ class Rectangle extends Shape {
 
 var x = new Shape();  // 报错
 var y = new Rectangle(3, 4);  // 正确
-上面代码中，Shape类不能被实例化，只能用于继承。
+// 上面代码中，Shape类不能被实例化，只能用于继承。
 
-注意，在函数外部，使用new.target会报错。
+// 注意，在函数外部，使用new.target会报错。
 ```

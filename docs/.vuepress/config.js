@@ -162,6 +162,12 @@ module.exports = {
         'Generator函数的异步应用',
         'Async',
         'Class的基本语法',
+        'Class的继承',
+        'Module的语法',
+        'Module 的加载实现',
+        '编程风格',
+        '读懂ECMAScript规格',
+        '异步遍历器',
       ],
       '/bgoodparts/': [
         'string',

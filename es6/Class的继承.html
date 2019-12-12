@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Class的继承 | oliveying</title>
+    <meta name="description" content="前端知识，对前端遇到的问题进行总结">
+    <link rel="icon" href="/knowledge/img/favicon.ico">
+    
+    <link rel="preload" href="/knowledge/assets/css/0.styles.9483da07.css" as="style"><link rel="preload" href="/knowledge/assets/js/app.6b8c50a4.js" as="script"><link rel="preload" href="/knowledge/assets/js/42.0e2d8e8f.js" as="script"><link rel="prefetch" href="/knowledge/assets/js/10.70044694.js"><link rel="prefetch" href="/knowledge/assets/js/100.ce1ec06e.js"><link rel="prefetch" href="/knowledge/assets/js/101.1b356b1b.js"><link rel="prefetch" href="/knowledge/assets/js/102.56629871.js"><link rel="prefetch" href="/knowledge/assets/js/103.017e7abb.js"><link rel="prefetch" href="/knowledge/assets/js/104.19f27283.js"><link rel="prefetch" href="/knowledge/assets/js/105.dde49e62.js"><link rel="prefetch" href="/knowledge/assets/js/106.f797b976.js"><link rel="prefetch" href="/knowledge/assets/js/107.8e75ef20.js"><link rel="prefetch" href="/knowledge/assets/js/108.d63a0ccb.js"><link rel="prefetch" href="/knowledge/assets/js/109.ceeba412.js"><link rel="prefetch" href="/knowledge/assets/js/11.f0c921ad.js"><link rel="prefetch" href="/knowledge/assets/js/110.869ec6ad.js"><link rel="prefetch" href="/knowledge/assets/js/111.a5387d1a.js"><link rel="prefetch" href="/knowledge/assets/js/112.c356938c.js"><link rel="prefetch" href="/knowledge/assets/js/113.5793caa0.js"><link rel="prefetch" href="/knowledge/assets/js/114.64b53bc6.js"><link rel="prefetch" href="/knowledge/assets/js/115.582b0209.js"><link rel="prefetch" href="/knowledge/assets/js/116.525adb48.js"><link rel="prefetch" href="/knowledge/assets/js/117.070e97a2.js"><link rel="prefetch" href="/knowledge/assets/js/118.53601d39.js"><link rel="prefetch" href="/knowledge/assets/js/119.0fb32545.js"><link rel="prefetch" href="/knowledge/assets/js/12.7dc035bb.js"><link rel="prefetch" href="/knowledge/assets/js/120.6a8189a1.js"><link rel="prefetch" href="/knowledge/assets/js/121.3caca251.js"><link rel="prefetch" href="/knowledge/assets/js/122.ae30542b.js"><link rel="prefetch" href="/knowledge/assets/js/123.58f1cf99.js"><link rel="prefetch" href="/knowledge/assets/js/124.4093e75c.js"><link rel="prefetch" href="/knowledge/assets/js/125.735907a7.js"><link rel="prefetch" href="/knowledge/assets/js/126.0c52da75.js"><link rel="prefetch" href="/knowledge/assets/js/127.520770af.js"><link rel="prefetch" href="/knowledge/assets/js/128.e421e5af.js"><link rel="prefetch" href="/knowledge/assets/js/129.e2fd0219.js"><link rel="prefetch" href="/knowledge/assets/js/13.8f9554df.js"><link rel="prefetch" href="/knowledge/assets/js/130.e153f313.js"><link rel="prefetch" href="/knowledge/assets/js/131.78c458bd.js"><link rel="prefetch" href="/knowledge/assets/js/132.469bf9e2.js"><link rel="prefetch" href="/knowledge/assets/js/14.9f1e3212.js"><link rel="prefetch" href="/knowledge/assets/js/15.d017b868.js"><link rel="prefetch" href="/knowledge/assets/js/16.be14cf9d.js"><link rel="prefetch" href="/knowledge/assets/js/17.0b33ffcf.js"><link rel="prefetch" href="/knowledge/assets/js/18.7089bd18.js"><link rel="prefetch" href="/knowledge/assets/js/19.b9f75216.js"><link rel="prefetch" href="/knowledge/assets/js/2.a715562b.js"><link rel="prefetch" href="/knowledge/assets/js/20.e73644d1.js"><link rel="prefetch" href="/knowledge/assets/js/21.ef9bb754.js"><link rel="prefetch" href="/knowledge/assets/js/22.0131c6b2.js"><link rel="prefetch" href="/knowledge/assets/js/23.21c7f876.js"><link rel="prefetch" href="/knowledge/assets/js/24.9554ca26.js"><link rel="prefetch" href="/knowledge/assets/js/25.e416f915.js"><link rel="prefetch" href="/knowledge/assets/js/26.1a68f25c.js"><link rel="prefetch" href="/knowledge/assets/js/27.905910d2.js"><link rel="prefetch" href="/knowledge/assets/js/28.03a2414e.js"><link rel="prefetch" href="/knowledge/assets/js/29.a64c39e2.js"><link rel="prefetch" href="/knowledge/assets/js/3.28c0e5cf.js"><link rel="prefetch" href="/knowledge/assets/js/30.c97df268.js"><link rel="prefetch" href="/knowledge/assets/js/31.e732d793.js"><link rel="prefetch" href="/knowledge/assets/js/32.81c1bc4c.js"><link rel="prefetch" href="/knowledge/assets/js/33.140a1e10.js"><link rel="prefetch" href="/knowledge/assets/js/34.5cc379b8.js"><link rel="prefetch" href="/knowledge/assets/js/35.dacd0d08.js"><link rel="prefetch" href="/knowledge/assets/js/36.e4a81806.js"><link rel="prefetch" href="/knowledge/assets/js/37.8c6a711e.js"><link rel="prefetch" href="/knowledge/assets/js/38.da0c529f.js"><link rel="prefetch" href="/knowledge/assets/js/39.77a30030.js"><link rel="prefetch" href="/knowledge/assets/js/4.267da4da.js"><link rel="prefetch" href="/knowledge/assets/js/40.608ab53e.js"><link rel="prefetch" href="/knowledge/assets/js/41.9e7f1a02.js"><link rel="prefetch" href="/knowledge/assets/js/43.69036c21.js"><link rel="prefetch" href="/knowledge/assets/js/44.8b2437be.js"><link rel="prefetch" href="/knowledge/assets/js/45.50a8c8ce.js"><link rel="prefetch" href="/knowledge/assets/js/46.ec2369ba.js"><link rel="prefetch" href="/knowledge/assets/js/47.f9cc542f.js"><link rel="prefetch" href="/knowledge/assets/js/48.2861393b.js"><link rel="prefetch" href="/knowledge/assets/js/49.ec2464b8.js"><link rel="prefetch" href="/knowledge/assets/js/5.3f47705a.js"><link rel="prefetch" href="/knowledge/assets/js/50.b9a1c993.js"><link rel="prefetch" href="/knowledge/assets/js/51.f6879ccb.js"><link rel="prefetch" href="/knowledge/assets/js/52.a8ea679e.js"><link rel="prefetch" href="/knowledge/assets/js/53.4de07d8a.js"><link rel="prefetch" href="/knowledge/assets/js/54.0de4dc40.js"><link rel="prefetch" href="/knowledge/assets/js/55.1fce1d16.js"><link rel="prefetch" href="/knowledge/assets/js/56.07bfd456.js"><link rel="prefetch" href="/knowledge/assets/js/57.8ac8bc45.js"><link rel="prefetch" href="/knowledge/assets/js/58.33067bcc.js"><link rel="prefetch" href="/knowledge/assets/js/59.192e5c75.js"><link rel="prefetch" href="/knowledge/assets/js/6.cf68b14c.js"><link rel="prefetch" href="/knowledge/assets/js/60.e88e2876.js"><link rel="prefetch" href="/knowledge/assets/js/61.b564cf77.js"><link rel="prefetch" href="/knowledge/assets/js/62.450aa5bd.js"><link rel="prefetch" href="/knowledge/assets/js/63.1a5ef49d.js"><link rel="prefetch" href="/knowledge/assets/js/64.d804cbda.js"><link rel="prefetch" href="/knowledge/assets/js/65.9bdadf6e.js"><link rel="prefetch" href="/knowledge/assets/js/66.3f5a4fdc.js"><link rel="prefetch" href="/knowledge/assets/js/67.4b2d96fe.js"><link rel="prefetch" href="/knowledge/assets/js/68.555308c5.js"><link rel="prefetch" href="/knowledge/assets/js/69.5ffcdf3e.js"><link rel="prefetch" href="/knowledge/assets/js/7.91b7d7b0.js"><link rel="prefetch" href="/knowledge/assets/js/70.d7c0cbbd.js"><link rel="prefetch" href="/knowledge/assets/js/71.83e50a88.js"><link rel="prefetch" href="/knowledge/assets/js/72.f7590ed5.js"><link rel="prefetch" href="/knowledge/assets/js/73.921714c3.js"><link rel="prefetch" href="/knowledge/assets/js/74.09f17f09.js"><link rel="prefetch" href="/knowledge/assets/js/75.a5e45340.js"><link rel="prefetch" href="/knowledge/assets/js/76.42f3c4f0.js"><link rel="prefetch" href="/knowledge/assets/js/77.a15b2ad1.js"><link rel="prefetch" href="/knowledge/assets/js/78.f5849729.js"><link rel="prefetch" href="/knowledge/assets/js/79.6a8de54a.js"><link rel="prefetch" href="/knowledge/assets/js/8.2a16dcaf.js"><link rel="prefetch" href="/knowledge/assets/js/80.5acb61e9.js"><link rel="prefetch" href="/knowledge/assets/js/81.db605926.js"><link rel="prefetch" href="/knowledge/assets/js/82.601bb7f9.js"><link rel="prefetch" href="/knowledge/assets/js/83.dd2514dc.js"><link rel="prefetch" href="/knowledge/assets/js/84.4efc456b.js"><link rel="prefetch" href="/knowledge/assets/js/85.26252c60.js"><link rel="prefetch" href="/knowledge/assets/js/86.9e8c0d50.js"><link rel="prefetch" href="/knowledge/assets/js/87.6ba4a232.js"><link rel="prefetch" href="/knowledge/assets/js/88.0a1825c9.js"><link rel="prefetch" href="/knowledge/assets/js/89.5414ac53.js"><link rel="prefetch" href="/knowledge/assets/js/9.8d4e0472.js"><link rel="prefetch" href="/knowledge/assets/js/90.252e3cad.js"><link rel="prefetch" href="/knowledge/assets/js/91.ba29666c.js"><link rel="prefetch" href="/knowledge/assets/js/92.d1949744.js"><link rel="prefetch" href="/knowledge/assets/js/93.5a00c9e4.js"><link rel="prefetch" href="/knowledge/assets/js/94.7c8c7227.js"><link rel="prefetch" href="/knowledge/assets/js/95.5e6d8bdd.js"><link rel="prefetch" href="/knowledge/assets/js/96.946527b2.js"><link rel="prefetch" href="/knowledge/assets/js/97.9ac7c0b3.js"><link rel="prefetch" href="/knowledge/assets/js/98.c05051bb.js"><link rel="prefetch" href="/knowledge/assets/js/99.0a787bfd.js">
+    <link rel="stylesheet" href="/knowledge/assets/css/0.styles.9483da07.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/knowledge/" class="home-link router-link-active"><!----> <span class="site-name">oliveying</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/knowledge/" class="nav-link">Home</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">book</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/bgoodparts/" class="nav-link">语言精粹</a></li><li class="dropdown-item"><!----> <a href="/knowledge/http/" class="nav-link">图解http</a></li><li class="dropdown-item"><!----> <a href="/knowledge/es6/" class="nav-link router-link-active">es6</a></li><li class="dropdown-item"><!----> <a href="/knowledge/javascript/" class="nav-link">javascript教程</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端技术</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/html/" class="nav-link">html</a></li><li class="dropdown-item"><!----> <a href="/knowledge/css/" class="nav-link">css</a></li><li class="dropdown-item"><!----> <a href="/knowledge/js/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/knowledge/h5/" class="nav-link">h5最新用法</a></li><li class="dropdown-item"><!----> <a href="/knowledge/node/" class="nav-link">node</a></li><li class="dropdown-item"><!----> <a href="/knowledge/brower/" class="nav-link">浏览器特性</a></li><li class="dropdown-item"><!----> <a href="/knowledge/d3/" class="nav-link">d3</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">总结</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/summary/" class="nav-link">总结</a></li><li class="dropdown-item"><!----> <a href="/knowledge/interview/" class="nav-link">面试</a></li><li class="dropdown-item"><!----> <a href="/knowledge/problem/" class="nav-link">problem</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">扩展</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/start/" class="nav-link">启动</a></li><li class="dropdown-item"><!----> <a href="/knowledge/tool/" class="nav-link">工具用法</a></li><li class="dropdown-item"><!----> <a href="/knowledge/markdown/" class="nav-link">markDown</a></li><li class="dropdown-item"><!----> <a href="/knowledge/linux/" class="nav-link">linux</a></li><li class="dropdown-item"><!----> <a href="/knowledge/mac/" class="nav-link">mac</a></li><li class="dropdown-item"><!----> <a href="/knowledge/develop/" class="nav-link">提升</a></li></ul></div></div> <a href="https://github.com/oliveying/knowledge" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/knowledge/" class="nav-link">Home</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">book</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/bgoodparts/" class="nav-link">语言精粹</a></li><li class="dropdown-item"><!----> <a href="/knowledge/http/" class="nav-link">图解http</a></li><li class="dropdown-item"><!----> <a href="/knowledge/es6/" class="nav-link router-link-active">es6</a></li><li class="dropdown-item"><!----> <a href="/knowledge/javascript/" class="nav-link">javascript教程</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端技术</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/html/" class="nav-link">html</a></li><li class="dropdown-item"><!----> <a href="/knowledge/css/" class="nav-link">css</a></li><li class="dropdown-item"><!----> <a href="/knowledge/js/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/knowledge/h5/" class="nav-link">h5最新用法</a></li><li class="dropdown-item"><!----> <a href="/knowledge/node/" class="nav-link">node</a></li><li class="dropdown-item"><!----> <a href="/knowledge/brower/" class="nav-link">浏览器特性</a></li><li class="dropdown-item"><!----> <a href="/knowledge/d3/" class="nav-link">d3</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">总结</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/summary/" class="nav-link">总结</a></li><li class="dropdown-item"><!----> <a href="/knowledge/interview/" class="nav-link">面试</a></li><li class="dropdown-item"><!----> <a href="/knowledge/problem/" class="nav-link">problem</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">扩展</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/start/" class="nav-link">启动</a></li><li class="dropdown-item"><!----> <a href="/knowledge/tool/" class="nav-link">工具用法</a></li><li class="dropdown-item"><!----> <a href="/knowledge/markdown/" class="nav-link">markDown</a></li><li class="dropdown-item"><!----> <a href="/knowledge/linux/" class="nav-link">linux</a></li><li class="dropdown-item"><!----> <a href="/knowledge/mac/" class="nav-link">mac</a></li><li class="dropdown-item"><!----> <a href="/knowledge/develop/" class="nav-link">提升</a></li></ul></div></div> <a href="https://github.com/oliveying/knowledge" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/knowledge/es6/let和const.html" class="sidebar-link">es6 let const</a></li><li><a href="/knowledge/es6/变量的解构赋值.html" class="sidebar-link">变量的解构赋值</a></li><li><a href="/knowledge/es6/字符串的扩展.html" class="sidebar-link">字符串的扩展</a></li><li><a href="/knowledge/es6/字符串的新增方法.html" class="sidebar-link">String.fromCodePoint()</a></li><li><a href="/knowledge/es6/正则的扩展.html" class="sidebar-link">正则的扩展</a></li><li><a href="/knowledge/es6/数值的扩展.html" class="sidebar-link">数值的扩展</a></li><li><a href="/knowledge/es6/函数的扩展.html" class="sidebar-link">函数的扩展</a></li><li><a href="/knowledge/es6/对象的扩展.html" class="sidebar-link">对象的扩展</a></li><li><a href="/knowledge/es6/对象的新增方法.html" class="sidebar-link">对象的新增方法</a></li><li><a href="/knowledge/es6/symbol.html" class="sidebar-link">Symbol</a></li><li><a href="/knowledge/es6/set和map数据结构.html" class="sidebar-link">set 和 map 数据结构</a></li><li><a href="/knowledge/es6/proxy.html" class="sidebar-link">Proxy</a></li><li><a href="/knowledge/es6/reflect.html" class="sidebar-link">reflect</a></li><li><a href="/knowledge/es6/Promise对象.html" class="sidebar-link">Promise</a></li><li><a href="/knowledge/es6/Iterator和for...of循环.html" class="sidebar-link">Iterator和for...of循环</a></li><li><a href="/knowledge/es6/Generator函数的语法.html" class="sidebar-link">Generator函数的语法</a></li><li><a href="/knowledge/es6/Generator函数的异步应用.html" class="sidebar-link">Generator函数的异步应用</a></li><li><a href="/knowledge/es6/Async.html" class="sidebar-link">Async</a></li><li><a href="/knowledge/es6/Class的基本语法.html" class="sidebar-link">Class的基本语法</a></li><li><a href="/knowledge/es6/Class的继承.html" class="active sidebar-link">Class的继承</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/knowledge/es6/Class的继承.html#简介-§-⇧" class="sidebar-link">简介 § ⇧</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/Class的继承.html#object-getprototypeof" class="sidebar-link">Object.getPrototypeOf()</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/Class的继承.html#super-关键字" class="sidebar-link">super 关键字</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/Class的继承.html#类的-prototype-属性和-proto-属性" class="sidebar-link">类的 prototype 属性和_proto_属性</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/Class的继承.html#实例的-proto-属性" class="sidebar-link">实例的 _proto_ 属性</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/Class的继承.html#原生构造函数的继承" class="sidebar-link">原生构造函数的继承</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/Class的继承.html#mixin-模式的实现" class="sidebar-link">Mixin 模式的实现</a></li></ul></li><li><a href="/knowledge/es6/Module的语法.html" class="sidebar-link">Module的语法</a></li><li><a href="/knowledge/es6/Module 的加载实现.html" class="sidebar-link">Module 的加载实现</a></li><li><a href="/knowledge/es6/编程风格.html" class="sidebar-link">编程风格</a></li><li><a href="/knowledge/es6/读懂ECMAScript规格.html" class="sidebar-link">读懂ECMAScript规格</a></li><li><a href="/knowledge/es6/异步遍历器.html" class="sidebar-link">异步遍历器</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="class的继承"><a href="#class的继承" aria-hidden="true" class="header-anchor">#</a> Class的继承</h1> <h2 id="简介-§-⇧"><a href="#简介-§-⇧" aria-hidden="true" class="header-anchor">#</a> 简介 § ⇧</h2> <p>Class 可以通过extends关键字实现继承，这比 ES5 的通过修改原型链实现继承，要清晰和方便很多。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">Point</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ColorPoint</span> <span class="token keyword">extends</span> <span class="token class-name">Point</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 上面代码定义了一个ColorPoint类，该类通过extends关键字，继承了Point类的所有属性和方法。但是由于没有部署任何代码，所以这两个类完全一样，等于复制了一个Point类。下面，我们在ColorPoint内部加上代码。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ColorPoint</span> <span class="token keyword">extends</span> <span class="token class-name">Point</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> color</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 调用父类的constructor(x, y)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> color<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 调用父类的toString()</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 上面代码中，constructor方法和toString方法之中，都出现了super关键字，它在这里表示父类的构造函数，用来新建父类的this对象。</span>
+
+<span class="token comment">// 子类必须在constructor方法中调用super方法，否则新建实例时会报错。这是因为子类自己的this对象，必须先通过父类的构造函数完成塑造，得到与父类同样的实例属性和方法，然后再对其进行加工，加上子类自己的实例属性和方法。如果不调用super方法，子类就得不到this对象。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Point</span> <span class="token punctuation">{</span> <span class="token comment">/* ... */</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ColorPoint</span> <span class="token keyword">extends</span> <span class="token class-name">Point</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> cp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ColorPoint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ReferenceError</span>
+<span class="token comment">// 上面代码中，ColorPoint继承了父类Point，但是它的构造函数没有调用super方法，导致新建实例时报错。</span>
+
+<span class="token comment">// ES5 的继承，实质是先创造子类的实例对象this，然后再将父类的方法添加到this上面（Parent.apply(this)）。ES6 的继承机制完全不同，实质是先将父类实例对象的属性和方法，加到this上面（所以必须先调用super方法），然后再用子类的构造函数修改this。</span>
+
+<span class="token comment">// 如果子类没有定义constructor方法，这个方法会被默认添加，代码如下。也就是说，不管有没有显式定义，任何一个子类都有constructor方法。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ColorPoint</span> <span class="token keyword">extends</span> <span class="token class-name">Point</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 等同于</span>
+<span class="token keyword">class</span> <span class="token class-name">ColorPoint</span> <span class="token keyword">extends</span> <span class="token class-name">Point</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 另一个需要注意的地方是，在子类的构造函数中，只有调用super之后，才可以使用this关键字，否则会报错。这是因为子类实例的构建，基于父类实例，只有super方法才能调用父类实例。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Point</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> x<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> y<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ColorPoint</span> <span class="token keyword">extends</span> <span class="token class-name">Point</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> color</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> color<span class="token punctuation">;</span> <span class="token comment">// ReferenceError</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> color<span class="token punctuation">;</span> <span class="token comment">// 正确</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 上面代码中，子类的constructor方法没有调用super之前，就使用this关键字，结果报错，而放在super方法之后就是正确的。</span>
+
+<span class="token comment">// 下面是生成子类实例的代码。</span>
+
+<span class="token keyword">let</span> cp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ColorPoint</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token string">'green'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+cp <span class="token keyword">instanceof</span> <span class="token class-name">ColorPoint</span> <span class="token comment">// true</span>
+cp <span class="token keyword">instanceof</span> <span class="token class-name">Point</span> <span class="token comment">// true</span>
+<span class="token comment">// 上面代码中，实例对象cp同时是ColorPoint和Point两个类的实例，这与 ES5 的行为完全一致。</span>
+
+<span class="token comment">// 最后，父类的静态方法，也会被子类继承。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello world'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token constant">B</span><span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">// hello world</span>
+<span class="token comment">// 上面代码中，hello()是A类的静态方法，B继承A，也继承了A的静态方法。</span>
+</code></pre></div><h2 id="object-getprototypeof"><a href="#object-getprototypeof" aria-hidden="true" class="header-anchor">#</a> Object.getPrototypeOf()</h2> <p>Object.getPrototypeOf方法可以用来从子类上获取父类。</p> <div class="language-js extra-class"><pre class="language-js"><code>Object<span class="token punctuation">.</span><span class="token function">getPrototypeOf</span><span class="token punctuation">(</span>ColorPoint<span class="token punctuation">)</span> <span class="token operator">===</span> Point
+<span class="token comment">// true</span>
+<span class="token comment">// 因此，可以使用这个方法判断，一个类是否继承了另一个类。</span>
+</code></pre></div><h2 id="super-关键字"><a href="#super-关键字" aria-hidden="true" class="header-anchor">#</a> super 关键字</h2> <p>super这个关键字，既可以当作函数使用，也可以当作对象使用。在这两种情况下，它的用法完全不同。</p> <p>第一种情况，super作为函数调用时，代表父类的构造函数。ES6 要求，子类的构造函数必须执行一次super函数。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 上面代码中，子类B的构造函数之中的super()，代表调用父类的构造函数。这是必须的，否则 JavaScript 引擎会报错。</span>
+
+<span class="token comment">// 注意，super虽然代表了父类A的构造函数，但是返回的是子类B的实例，即super内部的this指的是B的实例，因此super()在这里相当于A.prototype.constructor.call(this)。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">new</span><span class="token punctuation">.</span>target<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// A</span>
+<span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// B</span>
+<span class="token comment">// 上面代码中，new.target指向当前正在执行的函数。可以看到，在super()执行时，它指向的是子类B的构造函数，而不是父类A的构造函数。也就是说，super()内部的this指向的是B。</span>
+
+<span class="token comment">// 作为函数时，super()只能用在子类的构造函数之中，用在其他地方就会报错。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token function">m</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 报错</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 上面代码中，super()用在B类的m方法之中，就会造成语法错误。</span>
+
+<span class="token comment">// 第二种情况，super作为对象时，在普通方法中，指向父类的原型对象；在静态方法中，指向父类。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token function">p</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token number">2</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">p</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码中，子类B当中的super.p()，就是将super当作一个对象使用。这时，super在普通方法之中，指向A.prototype，所以super.p()就相当于A.prototype.p()。</span>
+
+<span class="token comment">// 这里需要注意，由于super指向父类的原型对象，所以定义在父类实例上的方法或属性，是无法通过super调用的。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>p <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token keyword">get</span> <span class="token function">m</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span>p<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+b<span class="token punctuation">.</span>m <span class="token comment">// undefined</span>
+<span class="token comment">// 上面代码中，p是父类A实例的属性，super.p就引用不到它。</span>
+
+<span class="token comment">// 如果属性定义在父类的原型对象上，super就可以取到。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token class-name">A</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">super</span><span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token comment">// 2</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码中，属性x是定义在A.prototype上面的，所以super.x可以取到它的值。</span>
+
+<span class="token comment">// ES6 规定，在子类普通方法中通过super调用父类的方法时，方法内部的this指向当前的子类实例。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">m</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+b<span class="token punctuation">.</span><span class="token function">m</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 2</span>
+<span class="token comment">// 上面代码中，super.print()虽然调用的是A.prototype.print()，但是A.prototype.print()内部的this指向子类B的实例，导致输出的是2，而不是1。也就是说，实际上执行的是super.print.call(this)。</span>
+
+<span class="token comment">// 由于this指向子类实例，所以如果通过super对某个属性赋值，这时super就是this，赋值的属性会变成子类实例的属性。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">super</span><span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">super</span><span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 3</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码中，super.x赋值为3，这时等同于对this.x赋值为3。而当读取super.x的时候，读的是A.prototype.x，所以返回undefined。</span>
+
+<span class="token comment">// 如果super作为对象，用在静态方法之中，这时super将指向父类，而不是父类的原型对象。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Parent</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'static'</span><span class="token punctuation">,</span> msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'instance'</span><span class="token punctuation">,</span> msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Child</span> <span class="token keyword">extends</span> <span class="token class-name">Parent</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">myMethod</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">myMethod</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+Child<span class="token punctuation">.</span><span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// static 1</span>
+
+<span class="token keyword">var</span> child <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Child</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+child<span class="token punctuation">.</span><span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// instance 2</span>
+<span class="token comment">// 上面代码中，super在静态方法之中指向父类，在普通方法之中指向父类的原型对象。</span>
+
+<span class="token comment">// 另外，在子类的静态方法中通过super调用父类的方法时，方法内部的this指向当前的子类，而不是子类的实例。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">static</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">static</span> <span class="token function">m</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token constant">B</span><span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token constant">B</span><span class="token punctuation">.</span><span class="token function">m</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 3</span>
+<span class="token comment">// 上面代码中，静态方法B.m里面，super.print指向父类的静态方法。这个方法里面的this指向的是B，而不是B的实例。</span>
+
+<span class="token comment">// 注意，使用super的时候，必须显式指定是作为函数、还是作为对象使用，否则会报错。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">super</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 报错</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 上面代码中，console.log(super)当中的super，无法看出是作为函数使用，还是作为对象使用，所以 JavaScript 引擎解析代码的时候就会报错。这时，如果能清晰地表明super的数据类型，就不会报错。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">instanceof</span> <span class="token class-name">B</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码中，super.valueOf()表明super是一个对象，因此就不会报错。同时，由于super使得this指向B的实例，所以super.valueOf()返回的是一个B的实例。</span>
+
+<span class="token comment">// 最后，由于对象总是继承其他对象的，所以可以在任意一个对象中，使用super关键字。</span>
+
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">&quot;MyObject: &quot;</span> <span class="token operator">+</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+obj<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// MyObject: [object Object]</span>
+</code></pre></div><h2 id="类的-prototype-属性和-proto-属性"><a href="#类的-prototype-属性和-proto-属性" aria-hidden="true" class="header-anchor">#</a> 类的 prototype 属性和__proto__属性</h2> <p>大多数浏览器的 ES5 实现之中，每一个对象都有__proto__属性，指向对应的构造函数的prototype属性。Class 作为构造函数的语法糖，同时有prototype属性和__proto__属性，因此同时存在两条继承链。</p> <p>（1）子类的__proto__属性，表示构造函数的继承，总是指向父类。</p> <p>（2）子类prototype属性的__proto__属性，表示方法的继承，总是指向父类的prototype属性。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token constant">B</span><span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> <span class="token constant">A</span> <span class="token comment">// true</span>
+<span class="token class-name">B</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> <span class="token class-name">A</span><span class="token punctuation">.</span>prototype <span class="token comment">// true</span>
+<span class="token comment">// 上面代码中，子类B的__proto__属性指向父类A，子类B的prototype属性的__proto__属性指向父类A的prototype属性。</span>
+
+<span class="token comment">// 这样的结果是因为，类的继承是按照下面的模式实现的。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// B 的实例继承 A 的实例</span>
+Object<span class="token punctuation">.</span><span class="token function">setPrototypeOf</span><span class="token punctuation">(</span><span class="token class-name">B</span><span class="token punctuation">.</span>prototype<span class="token punctuation">,</span> <span class="token class-name">A</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// B 继承 A 的静态属性</span>
+Object<span class="token punctuation">.</span><span class="token function">setPrototypeOf</span><span class="token punctuation">(</span><span class="token constant">B</span><span class="token punctuation">,</span> <span class="token constant">A</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 《对象的扩展》一章给出过Object.setPrototypeOf方法的实现。</span>
+
+Object<span class="token punctuation">.</span><span class="token function-variable function">setPrototypeOf</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">obj<span class="token punctuation">,</span> proto</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  obj<span class="token punctuation">.</span>__proto__ <span class="token operator">=</span> proto<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> obj<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 因此，就得到了上面的结果。</span>
+
+Object<span class="token punctuation">.</span><span class="token function">setPrototypeOf</span><span class="token punctuation">(</span><span class="token class-name">B</span><span class="token punctuation">.</span>prototype<span class="token punctuation">,</span> <span class="token class-name">A</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 等同于</span>
+<span class="token class-name">B</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>__proto__ <span class="token operator">=</span> <span class="token class-name">A</span><span class="token punctuation">.</span>prototype<span class="token punctuation">;</span>
+
+Object<span class="token punctuation">.</span><span class="token function">setPrototypeOf</span><span class="token punctuation">(</span><span class="token constant">B</span><span class="token punctuation">,</span> <span class="token constant">A</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 等同于</span>
+<span class="token constant">B</span><span class="token punctuation">.</span>__proto__ <span class="token operator">=</span> <span class="token constant">A</span><span class="token punctuation">;</span>
+<span class="token comment">// 这两条继承链，可以这样理解：作为一个对象，子类（B）的原型（__proto__属性）是父类（A）；作为一个构造函数，子类（B）的原型对象（prototype属性）是父类的原型对象（prototype属性）的实例。</span>
+
+<span class="token class-name">B</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token class-name">A</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 等同于</span>
+<span class="token class-name">B</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>__proto__ <span class="token operator">=</span> <span class="token class-name">A</span><span class="token punctuation">.</span>prototype<span class="token punctuation">;</span>
+<span class="token comment">// extends关键字后面可以跟多种类型的值。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 上面代码的A，只要是一个有prototype属性的函数，就能被B继承。由于函数都有prototype属性（除了Function.prototype函数），因此A可以是任意函数。</span>
+
+<span class="token comment">// 下面，讨论两种情况。第一种，子类继承Object类。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token keyword">extends</span> <span class="token class-name">Object</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token constant">A</span><span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> Object <span class="token comment">// true</span>
+<span class="token class-name">A</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype <span class="token comment">// true</span>
+<span class="token comment">// 这种情况下，A其实就是构造函数Object的复制，A的实例就是Object的实例。</span>
+
+<span class="token comment">// 第二种情况，不存在任何继承。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token constant">A</span><span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> <span class="token class-name">Function</span><span class="token punctuation">.</span>prototype <span class="token comment">// true</span>
+<span class="token class-name">A</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype <span class="token comment">// true</span>
+<span class="token comment">// 这种情况下，A作为一个基类（即不存在任何继承），就是一个普通函数，所以直接继承Function.prototype。但是，A调用后返回一个空对象（即Object实例），所以A.prototype.__proto__指向构造函数（Object）的prototype属性。</span>
+</code></pre></div><h2 id="实例的-proto-属性"><a href="#实例的-proto-属性" aria-hidden="true" class="header-anchor">#</a> 实例的 <strong>proto</strong> 属性</h2> <p>子类实例的__proto__属性的__proto__属性，指向父类实例的__proto__属性。也就是说，子类的原型的原型，是父类的原型。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> p1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Point</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> p2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ColorPoint</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'red'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+p2<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> p1<span class="token punctuation">.</span>__proto__ <span class="token comment">// false</span>
+p2<span class="token punctuation">.</span>__proto__<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> p1<span class="token punctuation">.</span>__proto__ <span class="token comment">// true</span>
+<span class="token comment">// 上面代码中，ColorPoint继承了Point，导致前者原型的原型是后者的原型。</span>
+
+<span class="token comment">// 因此，通过子类实例的__proto__.__proto__属性，可以修改父类实例的行为。</span>
+
+p2<span class="token punctuation">.</span>__proto__<span class="token punctuation">.</span>__proto__<span class="token punctuation">.</span><span class="token function-variable function">printName</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Ha'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+p1<span class="token punctuation">.</span><span class="token function">printName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// &quot;Ha&quot;</span>
+<span class="token comment">// 上面代码在ColorPoint的实例p2上向Point类添加方法，结果影响到了Point的实例p1。</span>
+</code></pre></div><h2 id="原生构造函数的继承"><a href="#原生构造函数的继承" aria-hidden="true" class="header-anchor">#</a> 原生构造函数的继承</h2> <p>原生构造函数是指语言内置的构造函数，通常用来生成数据结构。ECMAScript 的原生构造函数大致有下面这些。</p> <ul><li>Boolean()</li> <li>Number()</li> <li>String()</li> <li>Array()</li> <li>Date()</li> <li>Function()</li> <li>RegExp()</li> <li>Error()</li> <li>Object()
+以前，这些原生构造函数是无法继承的，比如，不能自己定义一个Array的子类。</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">MyArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">Array</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">MyArray</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token class-name">Array</span><span class="token punctuation">.</span>prototype<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  constructor<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    value<span class="token punctuation">:</span> MyArray<span class="token punctuation">,</span>
+    writable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    configurable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    enumerable<span class="token punctuation">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码定义了一个继承 Array 的MyArray类。但是，这个类的行为与Array完全不一致。</span>
+
+<span class="token keyword">var</span> colors <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+colors<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&quot;red&quot;</span><span class="token punctuation">;</span>
+colors<span class="token punctuation">.</span>length  <span class="token comment">// 0</span>
+
+colors<span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+colors<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>  <span class="token comment">// &quot;red&quot;</span>
+<span class="token comment">// 之所以会发生这种情况，是因为子类无法获得原生构造函数的内部属性，通过Array.apply()或者分配给原型对象都不行。原生构造函数会忽略apply方法传入的this，也就是说，原生构造函数的this无法绑定，导致拿不到内部属性。</span>
+
+<span class="token comment">// ES5 是先新建子类的实例对象this，再将父类的属性添加到子类上，由于父类的内部属性无法获取，导致无法继承原生的构造函数。比如，Array构造函数有一个内部属性[[DefineOwnProperty]]，用来定义新属性时，更新length属性，这个内部属性无法在子类获取，导致子类的length属性行为不正常。</span>
+
+<span class="token comment">// 下面的例子中，我们想让一个普通对象继承Error对象。</span>
+
+<span class="token keyword">var</span> e <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+Object<span class="token punctuation">.</span><span class="token function">getOwnPropertyNames</span><span class="token punctuation">(</span><span class="token function">Error</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">// [ 'stack' ]</span>
+
+Object<span class="token punctuation">.</span><span class="token function">getOwnPropertyNames</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+<span class="token comment">// []</span>
+<span class="token comment">// 上面代码中，我们想通过Error.call(e)这种写法，让普通对象e具有Error对象的实例属性。但是，Error.call()完全忽略传入的第一个参数，而是返回一个新对象，e本身没有任何变化。这证明了Error.call(e)这种写法，无法继承原生构造函数。</span>
+
+<span class="token comment">// ES6 允许继承原生构造函数定义子类，因为 ES6 是先新建父类的实例对象this，然后再用子类的构造函数修饰this，使得父类的所有行为都可以继承。下面是一个继承Array的例子。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyArray</span> <span class="token keyword">extends</span> <span class="token class-name">Array</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span>
+arr<span class="token punctuation">.</span>length <span class="token comment">// 1</span>
+
+arr<span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token comment">// undefined</span>
+<span class="token comment">// 上面代码定义了一个MyArray类，继承了Array构造函数，因此就可以从MyArray生成数组的实例。这意味着，ES6 可以自定义原生数据结构（比如Array、String等）的子类，这是 ES5 无法做到的。</span>
+
+<span class="token comment">// 上面这个例子也说明，extends关键字不仅可以用来继承类，还可以用来继承原生的构造函数。因此可以在原生数据结构的基础上，定义自己的数据结构。下面就是定义了一个带版本功能的数组。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">VersionedArray</span> <span class="token keyword">extends</span> <span class="token class-name">Array</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>history <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>history<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">revert</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token punctuation">,</span> <span class="token operator">...</span>this<span class="token punctuation">.</span>history<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>history<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VersionedArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+x<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+x<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+x <span class="token comment">// [1, 2]</span>
+x<span class="token punctuation">.</span>history <span class="token comment">// [[]]</span>
+
+x<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+x<span class="token punctuation">.</span>history <span class="token comment">// [[], [1, 2]]</span>
+
+x<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+x <span class="token comment">// [1, 2, 3]</span>
+x<span class="token punctuation">.</span>history <span class="token comment">// [[], [1, 2]]</span>
+
+x<span class="token punctuation">.</span><span class="token function">revert</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+x <span class="token comment">// [1, 2]</span>
+<span class="token comment">// 上面代码中，VersionedArray会通过commit方法，将自己的当前状态生成一个版本快照，存入history属性。revert方法用来将数组重置为最新一次保存的版本。除此之外，VersionedArray依然是一个普通数组，所有原生的数组方法都可以在它上面调用。</span>
+
+<span class="token comment">// 下面是一个自定义Error子类的例子，可以用来定制报错时的行为。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ExtendableError</span> <span class="token keyword">extends</span> <span class="token class-name">Error</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">message</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>message <span class="token operator">=</span> message<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>stack <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>stack<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>constructor<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyError</span> <span class="token keyword">extends</span> <span class="token class-name">ExtendableError</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">m</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> myerror <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyError</span><span class="token punctuation">(</span><span class="token string">'ll'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+myerror<span class="token punctuation">.</span>message <span class="token comment">// &quot;ll&quot;</span>
+myerror <span class="token keyword">instanceof</span> <span class="token class-name">Error</span> <span class="token comment">// true</span>
+myerror<span class="token punctuation">.</span>name <span class="token comment">// &quot;MyError&quot;</span>
+myerror<span class="token punctuation">.</span>stack
+<span class="token comment">// Error</span>
+<span class="token comment">//     at MyError.ExtendableError</span>
+<span class="token comment">//     ...</span>
+<span class="token comment">// 注意，继承Object的子类，有一个行为差异。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">NewObj</span> <span class="token keyword">extends</span> <span class="token class-name">Object</span><span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token operator">...</span>arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> o <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">NewObj</span><span class="token punctuation">(</span><span class="token punctuation">{</span>attr<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+o<span class="token punctuation">.</span>attr <span class="token operator">===</span> <span class="token boolean">true</span>  <span class="token comment">// false</span>
+<span class="token comment">// 上面代码中，NewObj继承了Object，但是无法通过super方法向父类Object传参。这是因为 ES6 改变了Object构造函数的行为，一旦发现Object方法不是通过new Object()这种形式调用，ES6 规定Object构造函数会忽略参数。</span>
+</code></pre></div><h2 id="mixin-模式的实现"><a href="#mixin-模式的实现" aria-hidden="true" class="header-anchor">#</a> Mixin 模式的实现</h2> <p>Mixin 指的是多个对象合成一个新的对象，新对象具有各个组成成员的接口。它的最简单实现如下。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token punctuation">{</span>
+  a<span class="token punctuation">:</span> <span class="token string">'a'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token punctuation">{</span>
+  b<span class="token punctuation">:</span> <span class="token string">'b'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> c <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token operator">...</span>a<span class="token punctuation">,</span> <span class="token operator">...</span>b<span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// {a: 'a', b: 'b'}</span>
+<span class="token comment">// 上面代码中，c对象是a对象和b对象的合成，具有两者的接口。</span>
+
+<span class="token comment">// 下面是一个更完备的实现，将多个类的接口“混入”（mix in）另一个类。</span>
+
+<span class="token keyword">function</span> <span class="token function">mix</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>mixins</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">class</span> <span class="token class-name">Mix</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> mixin <span class="token keyword">of</span> mixins<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">copyProperties</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">mixin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 拷贝实例属性</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> mixin <span class="token keyword">of</span> mixins<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">copyProperties</span><span class="token punctuation">(</span>Mix<span class="token punctuation">,</span> mixin<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 拷贝静态属性</span>
+    <span class="token function">copyProperties</span><span class="token punctuation">(</span><span class="token class-name">Mix</span><span class="token punctuation">.</span>prototype<span class="token punctuation">,</span> mixin<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 拷贝原型属性</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> Mix<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">copyProperties</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> source</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">of</span> Reflect<span class="token punctuation">.</span><span class="token function">ownKeys</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> key <span class="token operator">!==</span> <span class="token string">'constructor'</span>
+      <span class="token operator">&amp;&amp;</span> key <span class="token operator">!==</span> <span class="token string">'prototype'</span>
+      <span class="token operator">&amp;&amp;</span> key <span class="token operator">!==</span> <span class="token string">'name'</span>
+    <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> desc <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">getOwnPropertyDescriptor</span><span class="token punctuation">(</span>source<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> desc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 上面代码的mix函数，可以将多个对象合成为一个类。使用的时候，只要继承这个类即可。</span>
+
+<span class="token keyword">class</span> <span class="token class-name">DistributedEdit</span> <span class="token keyword">extends</span> <span class="token class-name">mix</span><span class="token punctuation">(</span>Loggable<span class="token punctuation">,</span> Serializable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span></code></pre></div></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/knowledge/assets/js/app.6b8c50a4.js" defer></script><script src="/knowledge/assets/js/42.0e2d8e8f.js" defer></script>
+  </body>
+</html>

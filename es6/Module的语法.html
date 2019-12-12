@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Module的语法 | oliveying</title>
+    <meta name="description" content="前端知识，对前端遇到的问题进行总结">
+    <link rel="icon" href="/knowledge/img/favicon.ico">
+    
+    <link rel="preload" href="/knowledge/assets/css/0.styles.9483da07.css" as="style"><link rel="preload" href="/knowledge/assets/js/app.6b8c50a4.js" as="script"><link rel="preload" href="/knowledge/assets/js/47.f9cc542f.js" as="script"><link rel="prefetch" href="/knowledge/assets/js/10.70044694.js"><link rel="prefetch" href="/knowledge/assets/js/100.ce1ec06e.js"><link rel="prefetch" href="/knowledge/assets/js/101.1b356b1b.js"><link rel="prefetch" href="/knowledge/assets/js/102.56629871.js"><link rel="prefetch" href="/knowledge/assets/js/103.017e7abb.js"><link rel="prefetch" href="/knowledge/assets/js/104.19f27283.js"><link rel="prefetch" href="/knowledge/assets/js/105.dde49e62.js"><link rel="prefetch" href="/knowledge/assets/js/106.f797b976.js"><link rel="prefetch" href="/knowledge/assets/js/107.8e75ef20.js"><link rel="prefetch" href="/knowledge/assets/js/108.d63a0ccb.js"><link rel="prefetch" href="/knowledge/assets/js/109.ceeba412.js"><link rel="prefetch" href="/knowledge/assets/js/11.f0c921ad.js"><link rel="prefetch" href="/knowledge/assets/js/110.869ec6ad.js"><link rel="prefetch" href="/knowledge/assets/js/111.a5387d1a.js"><link rel="prefetch" href="/knowledge/assets/js/112.c356938c.js"><link rel="prefetch" href="/knowledge/assets/js/113.5793caa0.js"><link rel="prefetch" href="/knowledge/assets/js/114.64b53bc6.js"><link rel="prefetch" href="/knowledge/assets/js/115.582b0209.js"><link rel="prefetch" href="/knowledge/assets/js/116.525adb48.js"><link rel="prefetch" href="/knowledge/assets/js/117.070e97a2.js"><link rel="prefetch" href="/knowledge/assets/js/118.53601d39.js"><link rel="prefetch" href="/knowledge/assets/js/119.0fb32545.js"><link rel="prefetch" href="/knowledge/assets/js/12.7dc035bb.js"><link rel="prefetch" href="/knowledge/assets/js/120.6a8189a1.js"><link rel="prefetch" href="/knowledge/assets/js/121.3caca251.js"><link rel="prefetch" href="/knowledge/assets/js/122.ae30542b.js"><link rel="prefetch" href="/knowledge/assets/js/123.58f1cf99.js"><link rel="prefetch" href="/knowledge/assets/js/124.4093e75c.js"><link rel="prefetch" href="/knowledge/assets/js/125.735907a7.js"><link rel="prefetch" href="/knowledge/assets/js/126.0c52da75.js"><link rel="prefetch" href="/knowledge/assets/js/127.520770af.js"><link rel="prefetch" href="/knowledge/assets/js/128.e421e5af.js"><link rel="prefetch" href="/knowledge/assets/js/129.e2fd0219.js"><link rel="prefetch" href="/knowledge/assets/js/13.8f9554df.js"><link rel="prefetch" href="/knowledge/assets/js/130.e153f313.js"><link rel="prefetch" href="/knowledge/assets/js/131.78c458bd.js"><link rel="prefetch" href="/knowledge/assets/js/132.469bf9e2.js"><link rel="prefetch" href="/knowledge/assets/js/14.9f1e3212.js"><link rel="prefetch" href="/knowledge/assets/js/15.d017b868.js"><link rel="prefetch" href="/knowledge/assets/js/16.be14cf9d.js"><link rel="prefetch" href="/knowledge/assets/js/17.0b33ffcf.js"><link rel="prefetch" href="/knowledge/assets/js/18.7089bd18.js"><link rel="prefetch" href="/knowledge/assets/js/19.b9f75216.js"><link rel="prefetch" href="/knowledge/assets/js/2.a715562b.js"><link rel="prefetch" href="/knowledge/assets/js/20.e73644d1.js"><link rel="prefetch" href="/knowledge/assets/js/21.ef9bb754.js"><link rel="prefetch" href="/knowledge/assets/js/22.0131c6b2.js"><link rel="prefetch" href="/knowledge/assets/js/23.21c7f876.js"><link rel="prefetch" href="/knowledge/assets/js/24.9554ca26.js"><link rel="prefetch" href="/knowledge/assets/js/25.e416f915.js"><link rel="prefetch" href="/knowledge/assets/js/26.1a68f25c.js"><link rel="prefetch" href="/knowledge/assets/js/27.905910d2.js"><link rel="prefetch" href="/knowledge/assets/js/28.03a2414e.js"><link rel="prefetch" href="/knowledge/assets/js/29.a64c39e2.js"><link rel="prefetch" href="/knowledge/assets/js/3.28c0e5cf.js"><link rel="prefetch" href="/knowledge/assets/js/30.c97df268.js"><link rel="prefetch" href="/knowledge/assets/js/31.e732d793.js"><link rel="prefetch" href="/knowledge/assets/js/32.81c1bc4c.js"><link rel="prefetch" href="/knowledge/assets/js/33.140a1e10.js"><link rel="prefetch" href="/knowledge/assets/js/34.5cc379b8.js"><link rel="prefetch" href="/knowledge/assets/js/35.dacd0d08.js"><link rel="prefetch" href="/knowledge/assets/js/36.e4a81806.js"><link rel="prefetch" href="/knowledge/assets/js/37.8c6a711e.js"><link rel="prefetch" href="/knowledge/assets/js/38.da0c529f.js"><link rel="prefetch" href="/knowledge/assets/js/39.77a30030.js"><link rel="prefetch" href="/knowledge/assets/js/4.267da4da.js"><link rel="prefetch" href="/knowledge/assets/js/40.608ab53e.js"><link rel="prefetch" href="/knowledge/assets/js/41.9e7f1a02.js"><link rel="prefetch" href="/knowledge/assets/js/42.0e2d8e8f.js"><link rel="prefetch" href="/knowledge/assets/js/43.69036c21.js"><link rel="prefetch" href="/knowledge/assets/js/44.8b2437be.js"><link rel="prefetch" href="/knowledge/assets/js/45.50a8c8ce.js"><link rel="prefetch" href="/knowledge/assets/js/46.ec2369ba.js"><link rel="prefetch" href="/knowledge/assets/js/48.2861393b.js"><link rel="prefetch" href="/knowledge/assets/js/49.ec2464b8.js"><link rel="prefetch" href="/knowledge/assets/js/5.3f47705a.js"><link rel="prefetch" href="/knowledge/assets/js/50.b9a1c993.js"><link rel="prefetch" href="/knowledge/assets/js/51.f6879ccb.js"><link rel="prefetch" href="/knowledge/assets/js/52.a8ea679e.js"><link rel="prefetch" href="/knowledge/assets/js/53.4de07d8a.js"><link rel="prefetch" href="/knowledge/assets/js/54.0de4dc40.js"><link rel="prefetch" href="/knowledge/assets/js/55.1fce1d16.js"><link rel="prefetch" href="/knowledge/assets/js/56.07bfd456.js"><link rel="prefetch" href="/knowledge/assets/js/57.8ac8bc45.js"><link rel="prefetch" href="/knowledge/assets/js/58.33067bcc.js"><link rel="prefetch" href="/knowledge/assets/js/59.192e5c75.js"><link rel="prefetch" href="/knowledge/assets/js/6.cf68b14c.js"><link rel="prefetch" href="/knowledge/assets/js/60.e88e2876.js"><link rel="prefetch" href="/knowledge/assets/js/61.b564cf77.js"><link rel="prefetch" href="/knowledge/assets/js/62.450aa5bd.js"><link rel="prefetch" href="/knowledge/assets/js/63.1a5ef49d.js"><link rel="prefetch" href="/knowledge/assets/js/64.d804cbda.js"><link rel="prefetch" href="/knowledge/assets/js/65.9bdadf6e.js"><link rel="prefetch" href="/knowledge/assets/js/66.3f5a4fdc.js"><link rel="prefetch" href="/knowledge/assets/js/67.4b2d96fe.js"><link rel="prefetch" href="/knowledge/assets/js/68.555308c5.js"><link rel="prefetch" href="/knowledge/assets/js/69.5ffcdf3e.js"><link rel="prefetch" href="/knowledge/assets/js/7.91b7d7b0.js"><link rel="prefetch" href="/knowledge/assets/js/70.d7c0cbbd.js"><link rel="prefetch" href="/knowledge/assets/js/71.83e50a88.js"><link rel="prefetch" href="/knowledge/assets/js/72.f7590ed5.js"><link rel="prefetch" href="/knowledge/assets/js/73.921714c3.js"><link rel="prefetch" href="/knowledge/assets/js/74.09f17f09.js"><link rel="prefetch" href="/knowledge/assets/js/75.a5e45340.js"><link rel="prefetch" href="/knowledge/assets/js/76.42f3c4f0.js"><link rel="prefetch" href="/knowledge/assets/js/77.a15b2ad1.js"><link rel="prefetch" href="/knowledge/assets/js/78.f5849729.js"><link rel="prefetch" href="/knowledge/assets/js/79.6a8de54a.js"><link rel="prefetch" href="/knowledge/assets/js/8.2a16dcaf.js"><link rel="prefetch" href="/knowledge/assets/js/80.5acb61e9.js"><link rel="prefetch" href="/knowledge/assets/js/81.db605926.js"><link rel="prefetch" href="/knowledge/assets/js/82.601bb7f9.js"><link rel="prefetch" href="/knowledge/assets/js/83.dd2514dc.js"><link rel="prefetch" href="/knowledge/assets/js/84.4efc456b.js"><link rel="prefetch" href="/knowledge/assets/js/85.26252c60.js"><link rel="prefetch" href="/knowledge/assets/js/86.9e8c0d50.js"><link rel="prefetch" href="/knowledge/assets/js/87.6ba4a232.js"><link rel="prefetch" href="/knowledge/assets/js/88.0a1825c9.js"><link rel="prefetch" href="/knowledge/assets/js/89.5414ac53.js"><link rel="prefetch" href="/knowledge/assets/js/9.8d4e0472.js"><link rel="prefetch" href="/knowledge/assets/js/90.252e3cad.js"><link rel="prefetch" href="/knowledge/assets/js/91.ba29666c.js"><link rel="prefetch" href="/knowledge/assets/js/92.d1949744.js"><link rel="prefetch" href="/knowledge/assets/js/93.5a00c9e4.js"><link rel="prefetch" href="/knowledge/assets/js/94.7c8c7227.js"><link rel="prefetch" href="/knowledge/assets/js/95.5e6d8bdd.js"><link rel="prefetch" href="/knowledge/assets/js/96.946527b2.js"><link rel="prefetch" href="/knowledge/assets/js/97.9ac7c0b3.js"><link rel="prefetch" href="/knowledge/assets/js/98.c05051bb.js"><link rel="prefetch" href="/knowledge/assets/js/99.0a787bfd.js">
+    <link rel="stylesheet" href="/knowledge/assets/css/0.styles.9483da07.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/knowledge/" class="home-link router-link-active"><!----> <span class="site-name">oliveying</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/knowledge/" class="nav-link">Home</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">book</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/bgoodparts/" class="nav-link">语言精粹</a></li><li class="dropdown-item"><!----> <a href="/knowledge/http/" class="nav-link">图解http</a></li><li class="dropdown-item"><!----> <a href="/knowledge/es6/" class="nav-link router-link-active">es6</a></li><li class="dropdown-item"><!----> <a href="/knowledge/javascript/" class="nav-link">javascript教程</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端技术</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/html/" class="nav-link">html</a></li><li class="dropdown-item"><!----> <a href="/knowledge/css/" class="nav-link">css</a></li><li class="dropdown-item"><!----> <a href="/knowledge/js/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/knowledge/h5/" class="nav-link">h5最新用法</a></li><li class="dropdown-item"><!----> <a href="/knowledge/node/" class="nav-link">node</a></li><li class="dropdown-item"><!----> <a href="/knowledge/brower/" class="nav-link">浏览器特性</a></li><li class="dropdown-item"><!----> <a href="/knowledge/d3/" class="nav-link">d3</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">总结</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/summary/" class="nav-link">总结</a></li><li class="dropdown-item"><!----> <a href="/knowledge/interview/" class="nav-link">面试</a></li><li class="dropdown-item"><!----> <a href="/knowledge/problem/" class="nav-link">problem</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">扩展</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/start/" class="nav-link">启动</a></li><li class="dropdown-item"><!----> <a href="/knowledge/tool/" class="nav-link">工具用法</a></li><li class="dropdown-item"><!----> <a href="/knowledge/markdown/" class="nav-link">markDown</a></li><li class="dropdown-item"><!----> <a href="/knowledge/linux/" class="nav-link">linux</a></li><li class="dropdown-item"><!----> <a href="/knowledge/mac/" class="nav-link">mac</a></li><li class="dropdown-item"><!----> <a href="/knowledge/develop/" class="nav-link">提升</a></li></ul></div></div> <a href="https://github.com/oliveying/knowledge" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/knowledge/" class="nav-link">Home</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">book</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/bgoodparts/" class="nav-link">语言精粹</a></li><li class="dropdown-item"><!----> <a href="/knowledge/http/" class="nav-link">图解http</a></li><li class="dropdown-item"><!----> <a href="/knowledge/es6/" class="nav-link router-link-active">es6</a></li><li class="dropdown-item"><!----> <a href="/knowledge/javascript/" class="nav-link">javascript教程</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端技术</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/html/" class="nav-link">html</a></li><li class="dropdown-item"><!----> <a href="/knowledge/css/" class="nav-link">css</a></li><li class="dropdown-item"><!----> <a href="/knowledge/js/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/knowledge/h5/" class="nav-link">h5最新用法</a></li><li class="dropdown-item"><!----> <a href="/knowledge/node/" class="nav-link">node</a></li><li class="dropdown-item"><!----> <a href="/knowledge/brower/" class="nav-link">浏览器特性</a></li><li class="dropdown-item"><!----> <a href="/knowledge/d3/" class="nav-link">d3</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">总结</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/summary/" class="nav-link">总结</a></li><li class="dropdown-item"><!----> <a href="/knowledge/interview/" class="nav-link">面试</a></li><li class="dropdown-item"><!----> <a href="/knowledge/problem/" class="nav-link">problem</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">扩展</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/knowledge/start/" class="nav-link">启动</a></li><li class="dropdown-item"><!----> <a href="/knowledge/tool/" class="nav-link">工具用法</a></li><li class="dropdown-item"><!----> <a href="/knowledge/markdown/" class="nav-link">markDown</a></li><li class="dropdown-item"><!----> <a href="/knowledge/linux/" class="nav-link">linux</a></li><li class="dropdown-item"><!----> <a href="/knowledge/mac/" class="nav-link">mac</a></li><li class="dropdown-item"><!----> <a href="/knowledge/develop/" class="nav-link">提升</a></li></ul></div></div> <a href="https://github.com/oliveying/knowledge" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/knowledge/es6/let和const.html" class="sidebar-link">es6 let const</a></li><li><a href="/knowledge/es6/变量的解构赋值.html" class="sidebar-link">变量的解构赋值</a></li><li><a href="/knowledge/es6/字符串的扩展.html" class="sidebar-link">字符串的扩展</a></li><li><a href="/knowledge/es6/字符串的新增方法.html" class="sidebar-link">String.fromCodePoint()</a></li><li><a href="/knowledge/es6/正则的扩展.html" class="sidebar-link">正则的扩展</a></li><li><a href="/knowledge/es6/数值的扩展.html" class="sidebar-link">数值的扩展</a></li><li><a href="/knowledge/es6/函数的扩展.html" class="sidebar-link">函数的扩展</a></li><li><a href="/knowledge/es6/对象的扩展.html" class="sidebar-link">对象的扩展</a></li><li><a href="/knowledge/es6/对象的新增方法.html" class="sidebar-link">对象的新增方法</a></li><li><a href="/knowledge/es6/symbol.html" class="sidebar-link">Symbol</a></li><li><a href="/knowledge/es6/set和map数据结构.html" class="sidebar-link">set 和 map 数据结构</a></li><li><a href="/knowledge/es6/proxy.html" class="sidebar-link">Proxy</a></li><li><a href="/knowledge/es6/reflect.html" class="sidebar-link">reflect</a></li><li><a href="/knowledge/es6/Promise对象.html" class="sidebar-link">Promise</a></li><li><a href="/knowledge/es6/Iterator和for...of循环.html" class="sidebar-link">Iterator和for...of循环</a></li><li><a href="/knowledge/es6/Generator函数的语法.html" class="sidebar-link">Generator函数的语法</a></li><li><a href="/knowledge/es6/Generator函数的异步应用.html" class="sidebar-link">Generator函数的异步应用</a></li><li><a href="/knowledge/es6/Async.html" class="sidebar-link">Async</a></li><li><a href="/knowledge/es6/Class的基本语法.html" class="sidebar-link">Class的基本语法</a></li><li><a href="/knowledge/es6/Class的继承.html" class="sidebar-link">Class的继承</a></li><li><a href="/knowledge/es6/Module的语法.html" class="active sidebar-link">Module的语法</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/knowledge/es6/Module的语法.html#概述" class="sidebar-link">概述</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/Module的语法.html#严格模式" class="sidebar-link">严格模式</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/Module的语法.html#export-命令" class="sidebar-link">export 命令</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/Module的语法.html#import-命令" class="sidebar-link">import 命令</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/Module的语法.html#模块的整体加载" class="sidebar-link">模块的整体加载</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/Module的语法.html#export-default-命令" class="sidebar-link">export default 命令</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/Module的语法.html#export-与-import-的复合写法" class="sidebar-link">export 与 import 的复合写法</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/Module的语法.html#模块的继承" class="sidebar-link">模块的继承</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/Module的语法.html#跨模块常量" class="sidebar-link">跨模块常量</a></li><li class="sidebar-sub-header"><a href="/knowledge/es6/Module的语法.html#import" class="sidebar-link">import()</a></li></ul></li><li><a href="/knowledge/es6/Module 的加载实现.html" class="sidebar-link">Module 的加载实现</a></li><li><a href="/knowledge/es6/编程风格.html" class="sidebar-link">编程风格</a></li><li><a href="/knowledge/es6/读懂ECMAScript规格.html" class="sidebar-link">读懂ECMAScript规格</a></li><li><a href="/knowledge/es6/异步遍历器.html" class="sidebar-link">异步遍历器</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="module的语法"><a href="#module的语法" aria-hidden="true" class="header-anchor">#</a> Module的语法</h1> <h2 id="概述"><a href="#概述" aria-hidden="true" class="header-anchor">#</a> 概述</h2> <p>历史上，JavaScript 一直没有模块（module）体系，无法将一个大程序拆分成互相依赖的小文件，再用简单的方法拼装起来。其他语言都有这项功能，比如 Ruby 的require、Python 的import，甚至就连 CSS 都有@import，但是 JavaScript 任何这方面的支持都没有，这对开发大型的、复杂的项目形成了巨大障碍。</p> <p>在 ES6 之前，社区制定了一些模块加载方案，最主要的有 CommonJS 和 AMD 两种。前者用于服务器，后者用于浏览器。ES6 在语言标准的层面上，实现了模块功能，而且实现得相当简单，完全可以取代 CommonJS 和 AMD 规范，成为浏览器和服务器通用的模块解决方案。</p> <p>ES6 模块的设计思想是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS 和 AMD 模块，都只能在运行时确定这些东西。比如，CommonJS 模块就是对象，输入时必须查找对象属性。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// CommonJS模块</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span> stat<span class="token punctuation">,</span> exists<span class="token punctuation">,</span> readFile <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 等同于</span>
+<span class="token keyword">let</span> _fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> stat <span class="token operator">=</span> _fs<span class="token punctuation">.</span>stat<span class="token punctuation">;</span>
+<span class="token keyword">let</span> exists <span class="token operator">=</span> _fs<span class="token punctuation">.</span>exists<span class="token punctuation">;</span>
+<span class="token keyword">let</span> readfile <span class="token operator">=</span> _fs<span class="token punctuation">.</span>readfile<span class="token punctuation">;</span>
+<span class="token comment">// 上面代码的实质是整体加载fs模块（即加载fs的所有方法），生成一个对象（_fs），然后再从这个对象上面读取 3 个方法。这种加载称为“运行时加载”，因为只有运行时才能得到这个对象，导致完全没办法在编译时做“静态优化”。</span>
+
+<span class="token comment">// ES6 模块不是对象，而是通过export命令显式指定输出的代码，再通过import命令输入。</span>
+
+<span class="token comment">// ES6模块</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> stat<span class="token punctuation">,</span> exists<span class="token punctuation">,</span> readFile <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'fs'</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码的实质是从fs模块加载 3 个方法，其他方法不加载。这种加载称为“编译时加载”或者静态加载，即 ES6 可以在编译时就完成模块加载，效率要比 CommonJS 模块的加载方式高。当然，这也导致了没法引用 ES6 模块本身，因为它不是对象。</span>
+</code></pre></div><p>由于 ES6 模块是编译时加载，使得静态分析成为可能。有了它，就能进一步拓宽 JavaScript 的语法，比如引入宏（macro）和类型检验（type system）这些只能靠静态分析实现的功能。</p> <p>除了静态加载带来的各种好处，ES6 模块还有以下好处。</p> <ul><li>不再需要UMD模块格式了，将来服务器和浏览器都会支持 ES6 模块格式。目前，通过各种工具库，其实已经做到了这一点。</li> <li>将来浏览器的新 API 就能用模块格式提供，不再必须做成全局变量或者navigator对象的属性。</li> <li>不再需要对象作为命名空间（比如Math对象），未来这些功能可以通过模块提供。
+本章介绍 ES6 模块的语法，下一章介绍如何在浏览器和 Node 之中，加载 ES6 模块。</li></ul> <h2 id="严格模式"><a href="#严格模式" aria-hidden="true" class="header-anchor">#</a> 严格模式</h2> <p>ES6 的模块自动采用严格模式，不管你有没有在模块头部加上&quot;use strict&quot;;。</p> <p>严格模式主要有以下限制。</p> <ul><li>变量必须声明后再使用</li> <li>函数的参数不能有同名属性，否则报错</li> <li>不能使用with语句</li> <li>不能对只读属性赋值，否则报错</li> <li>不能使用前缀 0 表示八进制数，否则报错</li> <li>不能删除不可删除的属性，否则报错</li> <li>不能删除变量delete prop，会报错，只能删除属性delete global[prop]</li> <li>eval不会在它的外层作用域引入变量</li> <li>eval和arguments不能被重新赋值</li> <li>arguments不会自动反映函数参数的变化</li> <li>不能使用arguments.callee</li> <li>不能使用arguments.caller</li> <li>禁止this指向全局对象</li> <li>不能使用fn.caller和fn.arguments获取函数调用的堆栈</li> <li>增加了保留字（比如protected、static和interface）
+上面这些限制，模块都必须遵守。由于严格模式是 ES5 引入的，不属于 ES6，所以请参阅相关 ES5 书籍，本书不再详细介绍了。</li></ul> <p>其中，尤其需要注意this的限制。ES6 模块之中，顶层的this指向undefined，即不应该在顶层代码使用this。</p> <h2 id="export-命令"><a href="#export-命令" aria-hidden="true" class="header-anchor">#</a> export 命令</h2> <p>模块功能主要由两个命令构成：export和import。export命令用于规定模块的对外接口，import命令用于输入其他模块提供的功能。</p> <p>一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。如果你希望外部能够读取模块内部的某个变量，就必须使用export关键字输出该变量。下面是一个 JS 文件，里面使用export命令输出变量。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// profile.js</span>
+<span class="token keyword">export</span> <span class="token keyword">var</span> firstName <span class="token operator">=</span> <span class="token string">'Michael'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">var</span> lastName <span class="token operator">=</span> <span class="token string">'Jackson'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">var</span> year <span class="token operator">=</span> <span class="token number">1958</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码是profile.js文件，保存了用户信息。ES6 将其视为一个模块，里面用export命令对外部输出了三个变量。</span>
+
+<span class="token comment">// export的写法，除了像上面这样，还有另外一种。</span>
+
+<span class="token comment">// profile.js</span>
+<span class="token keyword">var</span> firstName <span class="token operator">=</span> <span class="token string">'Michael'</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> lastName <span class="token operator">=</span> <span class="token string">'Jackson'</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> year <span class="token operator">=</span> <span class="token number">1958</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token punctuation">{</span> firstName<span class="token punctuation">,</span> lastName<span class="token punctuation">,</span> year <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码在export命令后面，使用大括号指定所要输出的一组变量。它与前一种写法（直接放置在var语句前）是等价的，但是应该优先考虑使用这种写法。因为这样就可以在脚本尾部，一眼看清楚输出了哪些变量。</span>
+
+<span class="token comment">// export命令除了输出变量，还可以输出函数或类（class）。</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">multiply</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> x <span class="token operator">*</span> y<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+上面代码对外输出一个函数multiply。
+
+通常情况下，<span class="token keyword">export</span>输出的变量就是本来的名字，但是可以使用<span class="token keyword">as</span>关键字重命名。
+
+<span class="token keyword">function</span> <span class="token function">v1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">v2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token punctuation">{</span>
+  v1 <span class="token keyword">as</span> streamV1<span class="token punctuation">,</span>
+  v2 <span class="token keyword">as</span> streamV2<span class="token punctuation">,</span>
+  v2 <span class="token keyword">as</span> streamLatestVersion
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码使用as关键字，重命名了函数v1和v2的对外接口。重命名后，v2可以用不同的名字输出两次。</span>
+
+<span class="token comment">// 需要特别注意的是，export命令规定的是对外的接口，必须与模块内部的变量建立一一对应关系。</span>
+
+<span class="token comment">// 报错</span>
+<span class="token keyword">export</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 报错</span>
+<span class="token keyword">var</span> m <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> m<span class="token punctuation">;</span>
+<span class="token comment">// 上面两种写法都会报错，因为没有提供对外的接口。第一种写法直接输出 1，第二种写法通过变量m，还是直接输出 1。1只是一个值，不是接口。正确的写法是下面这样。</span>
+
+<span class="token comment">// 写法一</span>
+<span class="token keyword">export</span> <span class="token keyword">var</span> m <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 写法二</span>
+<span class="token keyword">var</span> m <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span>m<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 写法三</span>
+<span class="token keyword">var</span> n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span>n <span class="token keyword">as</span> m<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面三种写法都是正确的，规定了对外的接口m。其他脚本可以通过这个接口，取到值1。它们的实质是，在接口名与模块内部变量之间，建立了一一对应的关系。</span>
+
+<span class="token comment">// 同样的，function和class的输出，也必须遵守这样的写法。</span>
+
+<span class="token comment">// 报错</span>
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">export</span> f<span class="token punctuation">;</span>
+
+<span class="token comment">// 正确</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 正确</span>
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span>f<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// 另外，export语句输出的接口，与其对应的值是动态绑定关系，即通过该接口，可以取到模块内部实时的值。</span>
+
+<span class="token keyword">export</span> <span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token string">'bar'</span><span class="token punctuation">;</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> foo <span class="token operator">=</span> <span class="token string">'baz'</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码输出变量foo，值为bar，500 毫秒之后变成baz。</span>
+
+<span class="token comment">// 这一点与 CommonJS 规范完全不同。CommonJS 模块输出的是值的缓存，不存在动态更新，详见下文《Module 的加载实现》一节。</span>
+
+<span class="token comment">// 最后，export命令可以出现在模块的任何位置，只要处于模块顶层就可以。如果处于块级作用域内，就会报错，下一节的import命令也是如此。这是因为处于条件代码块之中，就没法做静态优化了，违背了 ES6 模块的设计初衷。</span>
+
+<span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token string">'bar'</span> <span class="token comment">// SyntaxError</span>
+<span class="token punctuation">}</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// 上面代码中，export语句放在函数之中，结果报错。</span>
+</code></pre></div><h2 id="import-命令"><a href="#import-命令" aria-hidden="true" class="header-anchor">#</a> import 命令</h2> <p>使用export命令定义了模块的对外接口以后，其他 JS 文件就可以通过import命令加载这个模块。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// main.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> firstName<span class="token punctuation">,</span> lastName<span class="token punctuation">,</span> year <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./profile.js'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">setName</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  element<span class="token punctuation">.</span>textContent <span class="token operator">=</span> firstName <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> lastName<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 上面代码的import命令，用于加载profile.js文件，并从中输入变量。import命令接受一对大括号，里面指定要从其他模块导入的变量名。大括号里面的变量名，必须与被导入模块（profile.js）对外接口的名称相同。</span>
+
+<span class="token comment">// 如果想为输入的变量重新取一个名字，import命令要使用as关键字，将输入的变量重命名。</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> lastName <span class="token keyword">as</span> surname <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./profile.js'</span><span class="token punctuation">;</span>
+<span class="token comment">// import命令输入的变量都是只读的，因为它的本质是输入接口。也就是说，不允许在加载模块的脚本里面，改写接口。</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span>a<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./xxx.js'</span>
+
+a <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// Syntax Error : 'a' is read-only;</span>
+<span class="token comment">// 上面代码中，脚本加载了变量a，对其重新赋值就会报错，因为a是一个只读的接口。但是，如果a是一个对象，改写a的属性是允许的。</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span>a<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./xxx.js'</span>
+
+a<span class="token punctuation">.</span>foo <span class="token operator">=</span> <span class="token string">'hello'</span><span class="token punctuation">;</span> <span class="token comment">// 合法操作</span>
+<span class="token comment">// 上面代码中，a的属性可以成功改写，并且其他模块也可以读到改写后的值。不过，这种写法很难查错，建议凡是输入的变量，都当作完全只读，不要轻易改变它的属性。</span>
+
+<span class="token comment">// import后面的from指定模块文件的位置，可以是相对路径，也可以是绝对路径，.js后缀可以省略。如果只是模块名，不带有路径，那么必须有配置文件，告诉 JavaScript 引擎该模块的位置。</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span>myMethod<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'util'</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码中，util是模块文件名，由于不带有路径，必须通过配置，告诉引擎怎么取到这个模块。</span>
+
+<span class="token comment">// 注意，import命令具有提升效果，会提升到整个模块的头部，首先执行。</span>
+
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> foo <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'my_module'</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面的代码不会报错，因为import的执行早于foo的调用。这种行为的本质是，import命令是编译阶段执行的，在代码运行之前。</span>
+
+<span class="token comment">// 由于import是静态执行，所以不能使用表达式和变量，这些只有在运行时才能得到结果的语法结构。</span>
+
+<span class="token comment">// 报错</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token string">'f'</span> <span class="token operator">+</span> <span class="token string">'oo'</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'my_module'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 报错</span>
+<span class="token keyword">let</span> module <span class="token operator">=</span> <span class="token string">'my_module'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> foo <span class="token punctuation">}</span> <span class="token keyword">from</span> module<span class="token punctuation">;</span>
+
+<span class="token comment">// 报错</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">import</span> <span class="token punctuation">{</span> foo <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'module1'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token keyword">import</span> <span class="token punctuation">{</span> foo <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'module2'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 上面三种写法都会报错，因为它们用到了表达式、变量和if结构。在静态分析阶段，这些语法都是没法得到值的。</span>
+
+<span class="token comment">// 最后，import语句会执行所加载的模块，因此可以有下面的写法。</span>
+
+<span class="token keyword">import</span> <span class="token string">'lodash'</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码仅仅执行lodash模块，但是不输入任何值。</span>
+
+<span class="token comment">// 如果多次重复执行同一句import语句，那么只会执行一次，而不会执行多次。</span>
+
+<span class="token keyword">import</span> <span class="token string">'lodash'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'lodash'</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码加载了两次lodash，但是只会执行一次。</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> foo <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'my_module'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> bar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'my_module'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 等同于</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> foo<span class="token punctuation">,</span> bar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'my_module'</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码中，虽然foo和bar在两个语句中加载，但是它们对应的是同一个my_module实例。也就是说，import语句是 Singleton 模式。</span>
+
+<span class="token comment">// 目前阶段，通过 Babel 转码，CommonJS 模块的require命令和 ES6 模块的import命令，可以写在同一个模块里面，但是最好不要这样做。因为import在静态解析阶段执行，所以它是一个模块之中最早执行的。下面的代码可能不会得到预期结果。</span>
+
+<span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'core-js/modules/es6.symbol'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'core-js/modules/es6.promise'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'React'</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="模块的整体加载"><a href="#模块的整体加载" aria-hidden="true" class="header-anchor">#</a> 模块的整体加载</h2> <p>除了指定加载某个输出值，还可以使用整体加载，即用星号（*）指定一个对象，所有输出值都加载在这个对象上面。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 下面是一个circle.js文件，它输出两个方法area和circumference。</span>
+
+<span class="token comment">// circle.js</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">area</span><span class="token punctuation">(</span><span class="token parameter">radius</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span> <span class="token operator">*</span> radius <span class="token operator">*</span> radius<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">circumference</span><span class="token punctuation">(</span><span class="token parameter">radius</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token number">2</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span> <span class="token operator">*</span> radius<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 现在，加载这个模块。</span>
+
+<span class="token comment">// main.js</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> area<span class="token punctuation">,</span> circumference <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./circle'</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'圆面积：'</span> <span class="token operator">+</span> <span class="token function">area</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'圆周长：'</span> <span class="token operator">+</span> <span class="token function">circumference</span><span class="token punctuation">(</span><span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面写法是逐一指定要加载的方法，整体加载的写法如下。</span>
+
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> circle <span class="token keyword">from</span> <span class="token string">'./circle'</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'圆面积：'</span> <span class="token operator">+</span> circle<span class="token punctuation">.</span><span class="token function">area</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'圆周长：'</span> <span class="token operator">+</span> circle<span class="token punctuation">.</span><span class="token function">circumference</span><span class="token punctuation">(</span><span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 注意，模块整体加载所在的那个对象（上例是circle），应该是可以静态分析的，所以不允许运行时改变。下面的写法都是不允许的。</span>
+
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> circle <span class="token keyword">from</span> <span class="token string">'./circle'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 下面两行都是不允许的</span>
+circle<span class="token punctuation">.</span>foo <span class="token operator">=</span> <span class="token string">'hello'</span><span class="token punctuation">;</span>
+circle<span class="token punctuation">.</span><span class="token function-variable function">area</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="export-default-命令"><a href="#export-default-命令" aria-hidden="true" class="header-anchor">#</a> export default 命令</h2> <p>从前面的例子可以看出，使用import命令的时候，用户需要知道所要加载的变量名或函数名，否则无法加载。但是，用户肯定希望快速上手，未必愿意阅读文档，去了解模块有哪些属性和方法。</p> <p>为了给用户提供方便，让他们不用阅读文档就能加载模块，就要用到export default命令，为模块指定默认输出。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// export-default.js</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 上面代码是一个模块文件export-default.js，它的默认输出是一个函数。</span>
+
+<span class="token comment">// 其他模块加载该模块时，import命令可以为该匿名函数指定任意名字。</span>
+
+<span class="token comment">// import-default.js</span>
+<span class="token keyword">import</span> customName <span class="token keyword">from</span> <span class="token string">'./export-default'</span><span class="token punctuation">;</span>
+<span class="token function">customName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 'foo'</span>
+<span class="token comment">// 上面代码的import命令，可以用任意名称指向export-default.js输出的方法，这时就不需要知道原模块输出的函数名。需要注意的是，这时import命令后面，不使用大括号。</span>
+
+<span class="token comment">// export default命令用在非匿名函数前，也是可以的。</span>
+
+<span class="token comment">// export-default.js</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 或者写成</span>
+
+<span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> foo<span class="token punctuation">;</span>
+<span class="token comment">// 上面代码中，foo函数的函数名foo，在模块外部是无效的。加载的时候，视同匿名函数加载。</span>
+
+<span class="token comment">// 下面比较一下默认输出和正常输出。</span>
+
+<span class="token comment">// 第一组</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">crc32</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 输出</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">import</span> crc32 <span class="token keyword">from</span> <span class="token string">'crc32'</span><span class="token punctuation">;</span> <span class="token comment">// 输入</span>
+
+<span class="token comment">// 第二组</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">crc32</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 输出</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span>crc32<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'crc32'</span><span class="token punctuation">;</span> <span class="token comment">// 输入</span>
+<span class="token comment">// 上面代码的两组写法，第一组是使用export default时，对应的import语句不需要使用大括号；第二组是不使用export default时，对应的import语句需要使用大括号。</span>
+
+<span class="token comment">// export default命令用于指定模块的默认输出。显然，一个模块只能有一个默认输出，因此export default命令只能使用一次。所以，import命令后面才不用加大括号，因为只可能唯一对应export default命令。</span>
+
+<span class="token comment">// 本质上，export default就是输出一个叫做default的变量或方法，然后系统允许你为它取任意名字。所以，下面的写法是有效的。</span>
+
+<span class="token comment">// modules.js</span>
+<span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> x <span class="token operator">*</span> y<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span>add <span class="token keyword">as</span> <span class="token keyword">default</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// 等同于</span>
+<span class="token comment">// export default add;</span>
+
+<span class="token comment">// app.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token keyword">default</span> <span class="token keyword">as</span> foo <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'modules'</span><span class="token punctuation">;</span>
+<span class="token comment">// 等同于</span>
+<span class="token comment">// import foo from 'modules';</span>
+<span class="token comment">// 正是因为export default命令其实只是输出一个叫做default的变量，所以它后面不能跟变量声明语句。</span>
+
+<span class="token comment">// 正确</span>
+<span class="token keyword">export</span> <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 正确</span>
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> a<span class="token punctuation">;</span>
+
+<span class="token comment">// 错误</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码中，export default a的含义是将变量a的值赋给变量default。所以，最后一种写法会报错。</span>
+
+<span class="token comment">// 同样地，因为export default命令的本质是将后面的值，赋给default变量，所以可以直接将一个值写在export default之后。</span>
+
+<span class="token comment">// 正确</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token number">42</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 报错</span>
+<span class="token keyword">export</span> <span class="token number">42</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码中，后一句报错是因为没有指定对外的接口，而前一句指定对外接口为default。</span>
+
+<span class="token comment">// 有了export default命令，输入模块时就非常直观了，以输入 lodash 模块为例。</span>
+
+<span class="token keyword">import</span> _ <span class="token keyword">from</span> <span class="token string">'lodash'</span><span class="token punctuation">;</span>
+<span class="token comment">// 如果想在一条import语句中，同时输入默认方法和其他接口，可以写成下面这样。</span>
+
+<span class="token keyword">import</span> _<span class="token punctuation">,</span> <span class="token punctuation">{</span> each<span class="token punctuation">,</span> forEach <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'lodash'</span><span class="token punctuation">;</span>
+<span class="token comment">// 对应上面代码的export语句如下。</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ···</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">each</span><span class="token punctuation">(</span><span class="token parameter">obj<span class="token punctuation">,</span> iterator<span class="token punctuation">,</span> context</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ···</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token punctuation">{</span> each <span class="token keyword">as</span> forEach <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码的最后一行的意思是，暴露出forEach接口，默认指向each接口，即forEach和each指向同一个方法。</span>
+
+<span class="token comment">// export default也可以用来输出类。</span>
+
+<span class="token comment">// MyClass.js</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span>
+
+<span class="token comment">// main.js</span>
+<span class="token keyword">import</span> MyClass <span class="token keyword">from</span> <span class="token string">'MyClass'</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> o <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="export-与-import-的复合写法"><a href="#export-与-import-的复合写法" aria-hidden="true" class="header-anchor">#</a> export 与 import 的复合写法</h2> <p>如果在一个模块之中，先输入后输出同一个模块，import语句可以与export语句写在一起。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token punctuation">{</span> foo<span class="token punctuation">,</span> bar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'my_module'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 可以简单理解为</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> foo<span class="token punctuation">,</span> bar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'my_module'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span> foo<span class="token punctuation">,</span> bar <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码中，export和import语句可以结合在一起，写成一行。但需要注意的是，写成一行以后，foo和bar实际上并没有被导入当前模块，只是相当于对外转发了这两个接口，导致当前模块不能直接使用foo和bar。</span>
+
+<span class="token comment">// 模块的接口改名和整体输出，也可以采用这种写法。</span>
+
+<span class="token comment">// 接口改名</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span> foo <span class="token keyword">as</span> myFoo <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'my_module'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 整体输出</span>
+<span class="token keyword">export</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token string">'my_module'</span><span class="token punctuation">;</span>
+<span class="token comment">// 默认接口的写法如下。</span>
+
+<span class="token keyword">export</span> <span class="token punctuation">{</span> <span class="token keyword">default</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'foo'</span><span class="token punctuation">;</span>
+<span class="token comment">// 具名接口改为默认接口的写法如下。</span>
+
+<span class="token keyword">export</span> <span class="token punctuation">{</span> es6 <span class="token keyword">as</span> <span class="token keyword">default</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./someModule'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 等同于</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> es6 <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./someModule'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> es6<span class="token punctuation">;</span>
+<span class="token comment">// 同样地，默认接口也可以改名为具名接口。</span>
+
+<span class="token keyword">export</span> <span class="token punctuation">{</span> <span class="token keyword">default</span> <span class="token keyword">as</span> es6 <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./someModule'</span><span class="token punctuation">;</span>
+<span class="token comment">// 下面三种import语句，没有对应的复合写法。</span>
+
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> someIdentifier <span class="token keyword">from</span> <span class="token string">&quot;someModule&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> someIdentifier <span class="token keyword">from</span> <span class="token string">&quot;someModule&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> someIdentifier<span class="token punctuation">,</span> <span class="token punctuation">{</span> namedIdentifier <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;someModule&quot;</span><span class="token punctuation">;</span>
+<span class="token comment">// 为了做到形式的对称，现在有提案，提出补上这三种复合写法。</span>
+
+<span class="token keyword">export</span> <span class="token operator">*</span> <span class="token keyword">as</span> someIdentifier <span class="token keyword">from</span> <span class="token string">&quot;someModule&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> someIdentifier <span class="token keyword">from</span> <span class="token string">&quot;someModule&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> someIdentifier<span class="token punctuation">,</span> <span class="token punctuation">{</span> namedIdentifier <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;someModule&quot;</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="模块的继承"><a href="#模块的继承" aria-hidden="true" class="header-anchor">#</a> 模块的继承</h2> <p>模块之间也可以继承。</p> <p>假设有一个circleplus模块，继承了circle模块。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// circleplus.js</span>
+
+<span class="token keyword">export</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token string">'circle'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">var</span> e <span class="token operator">=</span> <span class="token number">2.71828182846</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">exp</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 上面代码中的export *，表示再输出circle模块的所有属性和方法。注意，export *命令会忽略circle模块的default方法。然后，上面代码又输出了自定义的e变量和默认方法。</span>
+
+<span class="token comment">// 这时，也可以将circle的属性或方法，改名后再输出。</span>
+
+<span class="token comment">// circleplus.js</span>
+
+<span class="token keyword">export</span> <span class="token punctuation">{</span> area <span class="token keyword">as</span> circleArea <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'circle'</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码表示，只输出circle模块的area方法，且将其改名为circleArea。</span>
+
+<span class="token comment">// 加载上面模块的写法如下。</span>
+
+<span class="token comment">// main.js</span>
+
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> math <span class="token keyword">from</span> <span class="token string">'circleplus'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> exp <span class="token keyword">from</span> <span class="token string">'circleplus'</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">exp</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码中的import exp表示，将circleplus模块的默认方法加载为exp方法。</span>
+</code></pre></div><h2 id="跨模块常量"><a href="#跨模块常量" aria-hidden="true" class="header-anchor">#</a> 跨模块常量</h2> <p>本书介绍const命令的时候说过，const声明的常量只在当前代码块有效。如果想设置跨模块的常量（即跨多个文件），或者说一个值要被多个模块共享，可以采用下面的写法。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// constants.js 模块</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">A</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">B</span> <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">C</span> <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+
+<span class="token comment">// test1.js 模块</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> constants <span class="token keyword">from</span> <span class="token string">'./constants'</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>constants<span class="token punctuation">.</span><span class="token constant">A</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>constants<span class="token punctuation">.</span><span class="token constant">B</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 3</span>
+
+<span class="token comment">// test2.js 模块</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span><span class="token constant">A</span><span class="token punctuation">,</span> <span class="token constant">B</span><span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./constants'</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token constant">A</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token constant">B</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 3</span>
+<span class="token comment">// 如果要使用的常量非常多，可以建一个专门的constants目录，将各种常量写在不同的文件里面，保存在该目录下。</span>
+
+<span class="token comment">// constants/db.js</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> db <span class="token operator">=</span> <span class="token punctuation">{</span>
+  url<span class="token punctuation">:</span> <span class="token string">'http://my.couchdbserver.local:5984'</span><span class="token punctuation">,</span>
+  admin_username<span class="token punctuation">:</span> <span class="token string">'admin'</span><span class="token punctuation">,</span>
+  admin_password<span class="token punctuation">:</span> <span class="token string">'admin password'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// constants/user.js</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> users <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'root'</span><span class="token punctuation">,</span> <span class="token string">'admin'</span><span class="token punctuation">,</span> <span class="token string">'staff'</span><span class="token punctuation">,</span> <span class="token string">'ceo'</span><span class="token punctuation">,</span> <span class="token string">'chief'</span><span class="token punctuation">,</span> <span class="token string">'moderator'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+然后，将这些文件输出的常量，合并在index<span class="token punctuation">.</span>js里面。
+
+<span class="token comment">// constants/index.js</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span>db<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./db'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span>users<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./users'</span><span class="token punctuation">;</span>
+<span class="token comment">// 使用的时候，直接加载index.js就可以了。</span>
+
+<span class="token comment">// script.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>db<span class="token punctuation">,</span> users<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./constants/index'</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="import"><a href="#import" aria-hidden="true" class="header-anchor">#</a> import()</h2> <h3 id="简介"><a href="#简介" aria-hidden="true" class="header-anchor">#</a> 简介</h3> <p>前面介绍过，import命令会被 JavaScript 引擎静态分析，先于模块内的其他语句执行（import命令叫做“连接” binding 其实更合适）。所以，下面的代码会报错。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 报错</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">import</span> MyModual <span class="token keyword">from</span> <span class="token string">'./myModual'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 上面代码中，引擎处理import语句是在编译时，这时不会去分析或执行if语句，所以import语句放在if代码块之中毫无意义，因此会报句法错误，而不是执行时错误。也就是说，import和export命令只能在模块的顶层，不能在代码块之中（比如，在if代码块之中，或在函数之中）。</span>
+
+<span class="token comment">// 这样的设计，固然有利于编译器提高效率，但也导致无法在运行时加载模块。在语法上，条件加载就不可能实现。如果import命令要取代 Node 的require方法，这就形成了一个障碍。因为require是运行时加载模块，import命令无法取代require的动态加载功能。</span>
+
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token string">'./'</span> <span class="token operator">+</span> fileName<span class="token punctuation">;</span>
+<span class="token keyword">const</span> myModual <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面的语句就是动态加载，require到底加载哪一个模块，只有运行时才知道。import命令做不到这一点。</span>
+
+<span class="token comment">// 因此，有一个提案，建议引入import()函数，完成动态加载。</span>
+</code></pre></div><h3 id="import-specifier"><a href="#import-specifier" aria-hidden="true" class="header-anchor">#</a> import(specifier)</h3> <p>上面代码中，import函数的参数specifier，指定所要加载的模块的位置。import命令能够接受什么参数，import()函数就能接受什么参数，两者区别主要是后者为动态加载。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// import()返回一个 Promise 对象。下面是一个例子。</span>
+
+<span class="token keyword">const</span> main <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'main'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">./section-modules/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>someVariable<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.js</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">module</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    module<span class="token punctuation">.</span><span class="token function">loadPageInto</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    main<span class="token punctuation">.</span>textContent <span class="token operator">=</span> err<span class="token punctuation">.</span>message<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>import()函数可以用在任何地方，不仅仅是模块，非模块的脚本也可以使用。它是运行时执行，也就是说，什么时候运行到这一句，就会加载指定的模块。另外，import()函数与所加载的模块没有静态连接关系，这点也是与import语句不相同。import()类似于 Node 的require方法，区别主要是前者是异步加载，后者是同步加载。</p> <h3 id="适用场合"><a href="#适用场合" aria-hidden="true" class="header-anchor">#</a> 适用场合</h3> <p>下面是import()的一些适用场合。</p> <p>（1）按需加载。</p> <p>import()可以在需要的时候，再加载某个模块。</p> <div class="language-js extra-class"><pre class="language-js"><code>button<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token parameter">event</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./dialogBox.js'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">dialogBox</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    dialogBox<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">error</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">/* Error handling */</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码中，import()方法放在click事件的监听函数之中，只有用户点击了按钮，才会加载这个模块。</span>
+</code></pre></div><p>（2）条件加载</p> <p>import()可以放在if代码块，根据不同的情况，加载不同的模块。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">if</span> <span class="token punctuation">(</span>condition<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'moduleA'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'moduleB'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>上面代码中，如果满足条件，就加载模块 A，否则加载模块 B。</p> <p>（3）动态的模块路径</p> <p>import()允许模块路径动态生成。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span><span class="token punctuation">(</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>上面代码中，根据函数f的返回结果，加载不同的模块。</p> <h3 id="注意点"><a href="#注意点" aria-hidden="true" class="header-anchor">#</a> 注意点</h3> <p>import()加载模块成功以后，这个模块会作为一个对象，当作then方法的参数。因此，可以使用对象解构赋值的语法，获取输出接口。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./myModule.js'</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>export1<span class="token punctuation">,</span> export2<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...·</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面代码中，export1和export2都是myModule.js的输出接口，可以解构获得。</span>
+
+<span class="token comment">// 如果模块有default输出接口，可以用参数直接获得。</span>
+
+<span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./myModule.js'</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">myModule</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>myModule<span class="token punctuation">.</span>default<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 上面的代码也可以使用具名输入的形式。</span>
+
+<span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./myModule.js'</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span><span class="token keyword">default</span><span class="token punctuation">:</span> theDefault<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>theDefault<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 如果想同时加载多个模块，可以采用下面的写法。</span>
+
+Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+  <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./module1.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./module2.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./module3.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">[</span>module1<span class="token punctuation">,</span> module2<span class="token punctuation">,</span> module3<span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+   ···
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// import()也可以用在 async 函数之中。</span>
+
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> myModule <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./myModule.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span>export1<span class="token punctuation">,</span> export2<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./myModule.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>module1<span class="token punctuation">,</span> module2<span class="token punctuation">,</span> module3<span class="token punctuation">]</span> <span class="token operator">=</span>
+    <span class="token keyword">await</span> Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+      <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./module1.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./module2.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./module3.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/knowledge/assets/js/app.6b8c50a4.js" defer></script><script src="/knowledge/assets/js/47.f9cc542f.js" defer></script>
+  </body>
+</html>

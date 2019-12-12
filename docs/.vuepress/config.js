@@ -31,7 +31,8 @@ module.exports = {
       items: [
         {text: '语言精粹', link: '/bgoodparts/'},
         {text: '图解http', link: '/http/'},
-        {text: 'es6', link: '/es6/'}
+        {text: 'es6', link: '/es6/'},
+        {text: 'javascript教程', link: '/javascript/'}
       ]},
       {
         text: '前端技术',
@@ -94,6 +95,7 @@ module.exports = {
       '/interview/': [
         'interview',
         '防抖和节流',
+        '概念总结',
         '懒加载',
       ],
       '/css/': [
@@ -120,7 +122,8 @@ module.exports = {
       '/node/': [
         'crypto',
         'node截屏',
-        'nodeapi'
+        'nodeapi',
+        '处理提交的表单域'
       ],
       '/problem/': [
         '缩写',
@@ -169,6 +172,10 @@ module.exports = {
         '读懂ECMAScript规格',
         '异步遍历器',
       ],
+      '/javascript/': [
+        '面向对象编程',
+        '浏览器模型'
+      ],
       '/bgoodparts/': [
         'string',
         'object',
@@ -193,6 +200,7 @@ module.exports = {
         'rsync',
         'rsync命令',
         'Linux下的tar压缩解压缩命令详解',
+        'curl用法指南',
       ],
       '/develop/': [
         'wx',

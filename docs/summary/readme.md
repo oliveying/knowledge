@@ -23,6 +23,12 @@
 [前端进阶](https://www.jianshu.com/p/cd3fee40ef59)
 
 [前端资料](https://leohxj.gitbooks.io/front-end-database/html-and-css-basic/common-tag.html)
+
+[gulp介绍](http://cw.hubwiz.com/card/c/562089cb1bc20c980538e25b/1/1/2/)
+
+[webpack入门](http://cw.hubwiz.com/card/c/5670d0a77e7d40946afc5e65/1/1/1/)
+
+[设计模式](http://cw.hubwiz.com/card/c/5710cb2e08ce8b3d3a1430f1/1/1/1/)
 ## 别人的知识
 [VUE总结](https://mp.weixin.qq.com/s/Y90d1ePdibO1T3T3d3ynvg)
 

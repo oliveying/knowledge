@@ -6,6 +6,39 @@ npm config set registry=https://registry.npm.taobao.org
 ```bash
 npm config set registry=http://registry.npmjs.org
 ```
+## 安装node
+```bash
+# 1
+ sudo yum -y install wget
+#------出错解决
+# yum 安装出错--"Couldn't resolve host 'mirrors.aliyun.com'"
+
+# 修改dns
+vi /etc/sysconfig/network-scripts/ifcfg-eth0
+
+DNS1=8.8.8.8
+DNS2=8.8.4.4
+
+# 重启network 服务
+service network restart
+# 安装成功
+#-----------出错解决end
+# 2. 下载nodejs二进制包
+sudo wget https://nodejs.org/dist/v10.14.2/node-v10.14.2-linux-x64.tar.xz
+# 3. 解压
+sudo tar -xvJf node-v10.14.2-linux-x64.tar.xz
+
+# 4. 移动
+sudo mv node-v10.14.2-linux-x64 /usr/local/nodejs
+
+# 5. 刷新权限
+source /etc/profile
+
+# 6. 测试是否安装成功
+node  -v
+# 或者
+npm -v
+```
 
 ## 安装cnpm
 
@@ -36,7 +69,26 @@ npm install -g n # 安装n
 sudo n 10.13.0 # 切换版本
 
 ```
+* 如果node升级有问题，可以使用tnvm 此为淘宝node管理器
 
+```bash
+# 1. 先安装tvm
+wget -O- https://raw.githubusercontent.com/aliyun-node/tnvm/master/install.sh | bash
+# 等待完成后，输入
+export METHOD=script
+# 添加环境变量，在输入
+source .bashrc
+# 2. 安装Nodejs
+# 先查看服务器上有哪些版本的nodejs可以安装，输入
+
+tnvm ls-remote node
+# 然后选择一个版本进行安装
+tnvm install node-v7.0.0
+# 等待安装完成。通过命令
+tnvm use node-v7.0.0
+# 将node切换为7.0.0的版本，输入
+node -v
+```
 ## 当清node_modules 出现某一些包错误时候，查不到原因时候，可以适当的清除缓存试试。删掉重新安装
 
 ```bash

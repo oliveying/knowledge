@@ -258,6 +258,27 @@ languageRegex.test(americanSpelling); // true
 ```js
 val.replace(/^(.{3})(.{4})(.*)$/g, '$1 $2 $3').substr(0, 13)
 ```
+## 去除空格
+```js
+if (!String.prototype.trim) {
+      String.prototype.trim = function () {
+        return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+      };
+    }
+// \s：空格
 
+// \uFEFF：字节次序标记字符（Byte Order Mark），也就是BOM,它是es5新增的空白符
+
+// \xA0：禁止自动换行空白符，相当于html中的&nbsp;
+
+// input校验 
+ if (input) {
+      input = input.trim();
+      if (input.indexOf('.') == 0)
+        input = input.replace('.', '');
+      return input.replace(/#/gi, '').replace(/\!/gi, '').replace(/\\/gi, '')
+        .replace(/\%/gi, '').replace(/\=/gi, '')
+        .replace(/\;/gi, '').replace(/\?/gi, '');
+```
 ## 登录流程
 打开页面，

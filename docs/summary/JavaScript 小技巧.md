@@ -224,3 +224,12 @@ console.log(JSON.stringify({ alpha: 'A', beta: 'B' }, null, '\t'));
 //     "beta": B
 // }'
 ```
+
+## js生成uuid
+安装uuid
+```js
+npm i uuid
+
+const uuid = require('uuid/v1');
+
+```

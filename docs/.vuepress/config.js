@@ -79,7 +79,9 @@ module.exports = {
         'js兼容ie',
         '存储的几种方式',
         'Navigator对象、Screen对象',
-        '操作符'
+        '操作符',
+        '上下滚动',
+        '左右滚动'
       ],
       '/test_tool/': [
         'mobile',
@@ -123,7 +125,9 @@ module.exports = {
         'crypto',
         'node截屏',
         'nodeapi',
-        '处理提交的表单域'
+        '处理提交的表单域',
+        'node-request模块',
+        'ali-oss模块'
       ],
       '/problem/': [
         '缩写',
@@ -204,7 +208,11 @@ module.exports = {
       ],
       '/develop/': [
         'wx',
-        '反爬'
+        '反爬',
+        'egg',
+        'require',
+        'xml',
+        'pm2'
       ]
     }
   },

@@ -18,6 +18,12 @@
 ## 网站
 [阮一峰javascript 书](https://wangdoc.com/javascript/index.html)
 
+[JavaScript 标准参考教程](http://javascript.ruanyifeng.com/)
+
+[阮一峰 flex](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
+
+[学习Javascript闭包（Closure）](http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html)
+
 [gulp资料大全](https://segmentfault.com/a/1190000004915222)
 
 [前端进阶](https://www.jianshu.com/p/cd3fee40ef59)

@@ -132,6 +132,7 @@ module.exports = {
       '/problem/': [
         '缩写',
         'vue',
+        'python'
       ],
       '/html/': [
         'html规范',
@@ -212,7 +213,8 @@ module.exports = {
         'egg',
         'require',
         'xml',
-        'pm2'
+        'pm2',
+        'tongji'
       ]
     }
   },

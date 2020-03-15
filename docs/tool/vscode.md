@@ -16,3 +16,7 @@ iTerm2终端使用Zsh，并且配置Zsh主题，该主题主题需要安装字�
 
 > 字体下载链接 https://www.cnblogs.com/HelloDeveloper/articles/11387637.html
 > 字体库 https://github.com/powerline/fonts
+
+## vscode格式化快捷键
+
+shift+option+f

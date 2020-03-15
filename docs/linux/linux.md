@@ -274,3 +274,5 @@ root 16278 15362 0 14:13 pts/4 00:00:00 grep www.ibm.com
 从上例中可以看出，新提交的进程的父ID（PPID）为1（init 进程的 PID），并不是当前终端的进程 ID。因此并不属于当前终端的子进程，从而也就不会受到当前终端的 HUP 信号的影响了。
 
 
+## top 查看cpu占用率
+## ps -aux | grep 端口号  === netstat  -nlpt |grep 39788

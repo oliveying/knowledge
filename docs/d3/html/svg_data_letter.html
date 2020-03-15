@@ -1,0 +1,103 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #container {
+      width: 500px;
+      height: 250px;
+      background: #ddd;
+    }
+
+    path {
+      fill: none;
+      stroke: #0084ff;
+      stroke-width: 2px;
+    }
+
+    .domain,
+    .tick line {
+      stroke: gray;
+      stroke-width: 1px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container"></div>
+
+  <script src="./js/d3.v3.js" charset="utf-8"></script>
+  <script>
+    // 启动服务
+    // python -m SimpleHTTPServer 8888 &
+    d3.csv('./data.csv', type, function (data) {
+      console.log(data)
+      // var data = [1, 4, 5, 2, 9, 13, 5, 8, 2, 9],
+        var width = 1000,
+        height = 500,
+        margin = {top: 30, right:30, bottom: 30, left: 30},
+        svg_width = width + margin.left + margin.right,
+        svg_height = height + margin.top + margin.bottom;
+
+      var scale = d3.scale.linear()
+        .domain([0, d3.max(data, function (d) { return d.population;})])
+        .range([height, 0]);
+
+      var scale_x = d3.scale.ordinal()
+      .domain(data.map(function(d) {return d.population;}))
+      .rangeBands([0, width], 0.1);
+
+console.log(scale_x)
+      var svg = d3.select('#container')
+        .append('svg')
+        .attr('width', svg_width)
+        .attr('height', svg_height);
+
+      var chart = svg.append('g')
+      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+      var bar = chart.selectAll('g')
+        .data(data)
+        .enter()
+        .append('g')
+        .attr('transform', function (d, i) {
+          return "translate(" + scale_x(d.year) + ", 0)"
+        });
+
+      bar.append('rect')
+        .attr({
+          'y': function (d) {
+            return scale(d.population);
+          },
+          'width': scale_x.rangeBand(),
+          'height': function (d) {
+            return height - scale(d.population);
+          }
+        })
+        .style('fill', 'steelblue');
+
+      bar.append('text')
+        .text(function (d) {
+          return d.population;
+        })
+        .attr({
+          'x': scale_x.rangeBand() / 2,
+          'y': function (d) {
+            return scale(d.population)
+          },
+          'dy': 15,
+          'text-anchor': 'middle',
+        });
+    });
+
+    function type(d) {
+      d.population = +d.population;
+      return d;
+    }
+  </script>
+</body>
+
+</html>

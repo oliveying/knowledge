@@ -15,7 +15,7 @@
 不过addEventLister给出了第三个参数同时支持冒泡与捕获，下文将介绍
 
 ## 事件冒泡（dubbed  bubbling）
-ie 的事件流叫事件冒泡，也就是说事件的传播为：从事件开始的具体元素，一级级往上传播到较为不具体的节点。案例见[event_flow.html](./html/event_flow.html)
+ie 的事件流叫事件冒泡，也就是说事件的传播为：从事件开始的具体元素，一级级往上传播到较为不具体的节点。案例见[event_flow.html](https://github.com/oliveying/knowledge/tree/master/docs/js/html/event_flow.html)
 
 当我们点击P元素时，事件是这样传播的：
 
@@ -101,7 +101,7 @@ btn.addEventListener(eventType, function () {
 ```
 依次弹出的是：“事件冒泡”和“事件捕获”；到底有没有先后顺序呢？继续往下走
 
-这次是这样的写法：[demo](./html/event_flow2.html)
+这次是这样的写法：[demo](https://github.com/oliveying/knowledge/tree/master/docs/js/html/event_flow2.html)
 
 
 当点击“我是子元素” 时，弹出的顺序是：“父级捕获”--》“子级冒泡”--》“子集捕获”--》“父集冒泡”；

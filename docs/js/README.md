@@ -149,3 +149,65 @@ var actor = _new(Person, '张三', 28);
 * Function
 * Array
 * Global(Window)
+
+## window.onbeforeunload 是否确定退出页面
+
+```js
+window.onbeforeunload = function () {
+    // 条件
+    return "您确定要退出页面吗？";
+};
+```
+
+## 取消连续点击选中文字效果
+
+* 直接在元素中加user-select
+```css
+div{
+    -moz-user-select:none;/*火狐*/
+    -webkit-user-select:none;/*webkit浏览器*/
+    -ms-user-select:none;/*IE10*/
+    -khtml-user-select:none;/*早期浏览器*/
+      user-select:none;
+}
+
+```
+* 或者
+
+```js
+<section onselectstart="return false;">这又是一段文字</section>
+
+```
+
+## 正则中的输入限制验证
+
+```js
+ keywords.replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1'); // 默认这些特殊字符加\
+//  &lt; < 小于号  
+//  &gt; > 大于号  
+//  &amp; & 和  
+//  &apos; ' 单引号  
+//  &quot; " 双引号
+// 以上都需要替换
+
+var escapeRegex = function (str = '') {
+    return str.replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1');
+};
+
+var htmlEntities = function (str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+};
+```
+
+## 评论中添加表情思路
+* 先自定义表情包的图片路径及名称
+
+* 渲染之前
+通过后端传过来的字段比如“[苦笑]”， 对应自定义表情包中的“[苦笑]”名称及对应的图片，全局把名称替换为图片，并初始化图片大小样式等；
+
+* 评论时
+通过点击表情包，使用jquery.face.js插件
+
+```
+
+```

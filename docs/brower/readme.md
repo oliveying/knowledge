@@ -29,5 +29,9 @@ Finish 的时间比 Load 小，意味着页面请求量很少，如果页面�
 ## requests
 查看请求的总数量
 
+## google浏览器报错 net::ERR_CERT_DATE_INVALID
+
+原因，本地配置了线上的host，把host删除
+
 > https://blog.csdn.net/Walker_m/article/details/81741960
 > https://segmentfault.com/a/1190000008825390

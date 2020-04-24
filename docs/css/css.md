@@ -1,4 +1,9 @@
 # 经常遇到的css问题
+## 字体粗，想更细一点，设置font-weight不生效，字体抗锯齿渲染
+```css
+    -webkit-font-smoothing: antialiased;
+
+```
 ## 超过宽度，显示...
 * 超出一行，显示..., 需指定宽度
   ```css

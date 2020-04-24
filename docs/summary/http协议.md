@@ -198,7 +198,9 @@ HTTP1.1增加了OPTIONS, PUT, DELETE, TRACE, CONNECT这些Request方法.
 
 415——请求资源不支持请求项目格式
 
-416——请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-Range请求头字段
+416——请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-Range请求头字段 
+HTTP 416 错误 – 所请求的范围无法满足 (Requested Range not satisfiable)
+
 
 417——服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求长。
 

@@ -354,4 +354,9 @@ node r.js -o build.js
 
 ```
 
+## require 和define 的区别
+
+* require的依赖只要自身加载完成，就会调用
+* define定义的，所有依赖都加载完了才会被触发
+
 > https://www.cnblogs.com/snandy/archive/2012/05/22/2513652.html

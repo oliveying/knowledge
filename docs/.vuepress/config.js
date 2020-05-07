@@ -99,6 +99,7 @@ module.exports = {
         '防抖和节流',
         '概念总结',
         '懒加载',
+        '翻页'
       ],
       '/css/': [
         'css',
@@ -212,6 +213,7 @@ module.exports = {
         '反爬',
         'egg',
         'require',
+        'requireJs中文文档',
         'xml',
         'pm2',
         'tongji'

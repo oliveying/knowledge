@@ -55,3 +55,23 @@
 ---------------------
 
 https://blog.csdn.net/yangkai_hudong/article/details/47783487
+
+## 刷新配置的.bash_profile 
+```bash
+source ～/.bash_profile 为 source ～/.bash_profile
+
+# 验证“flutter/bin”是否已在PATH中：
+
+echo $PATH 
+```
+
+## 安装Xcode
+要为iOS开发Flutter应用程序，您需要Xcode 9.0或更高版本:
+
+安装Xcode 9.0或更新版本(通过链接下载或苹果应用商店).
+
+配置Xcode命令行工具以使用新安装的Xcode版本 `sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer` 对于大多数情况，当您想要使用最新版本的Xcode时，这是正确的路径。如果您需要使用不同的版本，请指定相应路径。
+
+确保Xcode许可协议是通过打开一次Xcode或通过命令sudo xcodebuild -license同意过了.
+
+使用Xcode，您可以在iOS设备或模拟器上运行Flutter应用程序。

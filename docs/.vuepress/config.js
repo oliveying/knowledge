@@ -99,7 +99,8 @@ module.exports = {
         '防抖和节流',
         '概念总结',
         '懒加载',
-        '翻页'
+        '翻页',
+        'promise、async、await、settimeout异步原理与执行顺序'
       ],
       '/css/': [
         'css',
@@ -128,7 +129,8 @@ module.exports = {
         'nodeapi',
         '处理提交的表单域',
         'node-request模块',
-        'ali-oss模块'
+        'ali-oss模块',
+        'node遍历文件夹并读取文件内容'
       ],
       '/problem/': [
         '缩写',
@@ -207,6 +209,7 @@ module.exports = {
         'rsync命令',
         'Linux下的tar压缩解压缩命令详解',
         'curl用法指南',
+        '安装flutter'
       ],
       '/develop/': [
         'wx',

@@ -80,6 +80,15 @@ try {
 
 ### try catch
 * try 语句执行一个代码块，并捕获该代码抛出的任何异常。catch 从句定义了一个新的变量，它将接收该异常对象。
+* [无 try catch 的情况下对数据取模1千万次耗时]
+
+使用 try catch 的使用无论是在 try 中的代码还是在 catch 中的代码性能消耗都是一样的。
+需要注意的性能消耗在于 try catch 中不要直接塞进去太多的代码（声明太多的变量），最好是把所有要执行的代码放在另一个 function 中，通过调用这个 function 来执行。
+针对第二点，可以查看 ECMA 中关于 try catch 的解释，在代码进入 try catch 的时候 js引擎会拷贝当前的词法环境，拷贝的其实就是当前 scope 下的所有的变量。
+* 建议
+在使用 try catch 的时候尽量把 try catch 放在一个相对干净的 scope 中，同时在 try catch 语句中也尽量保证足够少的变量，最好通过函数调用方式来 try catch。
+
+
 
 ### throw 语句中抛出一个异常。
 * 如果 throw 语句在一个 try 代码块中，那么控制权会跳到 catch 从句中。如果 throw 语句在函数中，则该函数调用被放弃，且控制器会跳到调用该函数的 try 语句的 catch 从句中。

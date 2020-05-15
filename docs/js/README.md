@@ -259,3 +259,41 @@ m : 执行多行匹配
 ```
 
 > https://blog.csdn.net/weixin_44296929/article/details/101207166
+
+## 解决调用构造函数时忘记加new 的问题
+```js
+// 1 使用instanceof
+function Fubar (foo, bar) {
+  if (this instanceof Fubar) {
+    this._foo = foo;
+    this._bar = bar;
+  } else {
+    return new Fubar(foo, bar);
+  }
+}
+// 2 使用
+function Fubar(foo, bar){
+  'use strict';
+  this._foo = foo;
+  this._bar = bar;
+}
+
+function Person(name) {
+  if (new.target !== undefined) {
+    this.name = name;
+  } else {
+    throw new Error('必须使用 new 命令生成实例');
+  }
+}
+
+// 另一种写法
+function Person(name) {
+  if (new.target === Person) {
+    this.name = name;
+  } else {
+    throw new Error('必须使用 new 命令生成实例');
+  }
+}
+```
+
+> https://wangdoc.com/javascript/oop/prototype.html

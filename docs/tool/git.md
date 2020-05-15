@@ -376,3 +376,12 @@ $ git remote set-branches origin 'remote_branch_name'
 $ git fetch --depth 1 origin remote_branch_name
 $ git checkout remote_branch_name
 ```
+
+## git 单独还原某个文件
+
+```bash
+git log 文件名字
+# 复制最新的hash
+
+git checkout ef056c983990640bfa6bc3f5026095f5577aa4ef 文件路径+文件名字
+```

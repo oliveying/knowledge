@@ -1,4 +1,7 @@
 # mac环境安装flutter配置
+资料
+> https://www.yuque.com/xytech/flutter/
+> https://book.flutterchina.club/chapter15/code_structure.html
 ## mac 配置环境变量
 
 
@@ -96,7 +99,7 @@ export PATH="/opt/STM/STLinux-2.3/devkit/sh4/bin:$PATH"
 
  
 
-想立即生效请运行：
+* 想立即生效请运行：
 ```bash
 #source /etc/profile
 ```

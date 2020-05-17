@@ -276,3 +276,10 @@ root 16278 15362 0 14:13 pts/4 00:00:00 grep www.ibm.com
 
 ## top 查看cpu占用率
 ## ps -aux | grep 端口号  === netstat  -nlpt |grep 39788
+
+## 查看文件的几种方式
+```
+cat
+less
+
+```

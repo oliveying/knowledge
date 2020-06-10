@@ -83,10 +83,6 @@ module.exports = {
         '上下滚动',
         '左右滚动'
       ],
-      '/test_tool/': [
-        'mobile',
-        'webstorm'
-      ],
       '/brower/': [
         '浏览器特性',
         '各种浏览器调试错误方法及错误处理机制',
@@ -112,11 +108,14 @@ module.exports = {
       '/tool/': [
         'vscode',
         'git',
+        
         'yarn',
         'npm',
         'gulp',
         'command',
         'ssh',
+        // 'mobile',
+        'webstorm'
       ],
       '/h5/': [
         'h5',

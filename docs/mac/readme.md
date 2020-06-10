@@ -5,6 +5,12 @@ kill 你的PID /# 释放进程
 lsof -i: 端口号 # 再次执行第一步，是否无进程占用
 
 ```
+## Mac查看进程是否被占用及释放
+```bash
+lsof -i tcp:8080 # 查看使用端口进程
+kill 你的PID /# 释放进程
+
+```
 
 ##  使用tree生成目录结构 [参考](https://blog.csdn.net/qq673318522/article/details/53713903)
 

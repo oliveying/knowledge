@@ -125,3 +125,45 @@ color：文本颜色
 一个inline-block里空，一个非空，会导致下面的情况；可以使用float就可以对齐，或者vertical-align:top/bottom
 
 * 原因：一个框框里面没有内联元素，基线就是容器的margin下边缘，也就是下边框下面的位置，第二个框框有字符，纯正内联元素，因此，第二个框框就是这些字符的基线
+
+
+## 左滑滚动，根据上放内容，实现下方类似滚动条发生变化
+```html
+<style>
+#test {
+  text-align: left;
+  display: inline-block;
+  width: 30px;
+  height: 3px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  font-size: 0;
+  
+}
+.line {
+    display: inline-block;
+    width: 15px;
+    height: 3px;
+    border-radius: 4px;
+    background: #0084ff;
+  }
+</style>
+<ul id="box">
+<li>hhh</li>
+<li>hhh</li>
+<li>hhh</li>
+<li>hhh</li>
+</ul>
+<div id="test">
+<span class="line"></span>
+</div>
+<script>
+// 思路 监听滚动事件
+
+$(window).scroll(function () {
+  
+  var scrollW = ($('#box').scrollLeft() + $(window).width())/$('#box')[0].scrollWidth;
+  $('#box .line').css('transform', 'translate(' + (scrollW * 30 - 15) + 'px)')
+})
+</script>
+```

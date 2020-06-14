@@ -61,6 +61,7 @@ module.exports = {
           {text: 'linux', link: '/linux/'},
           {text: 'mac', link: '/mac/'},
           {text: '提升', link: '/develop/'},
+          {text: 'redis', link: '/redis/'},
         ]
       },
     ],
@@ -130,6 +131,9 @@ module.exports = {
         'node-request模块',
         'ali-oss模块',
         'node遍历文件夹并读取文件内容'
+      ],
+      '/redis/': [
+        'egg-redis常用命令'
       ],
       '/problem/': [
         '缩写',

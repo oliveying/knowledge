@@ -385,3 +385,23 @@ git log 文件名字
 
 git checkout ef056c983990640bfa6bc3f5026095f5577aa4ef 文件路径+文件名字
 ```
+
+## git 重新建立tag，依赖他的分支会报错
+如：egg-test之前建立tag，egg-provider依赖egg-test，并且已经yarn install，如果删除egg-test的tag，重新建立一摸一样的tag，会报错
+```bash
+error Command failed.
+Exit code: 1
+Command: git
+Arguments: fetch --tags
+Directory: Caches/Yarn/v6/.tmp/87f8c5b7119a0a5dba86e8f9ed2ec2957ef
+Output:
+来自 git@git.olivying.com:sou/egg-test
+   12f9e8b..ba38141  dev        -> origin/dev
+ ! [已拒绝]          v1.0.0    -> v1.0.0 (会破坏现有的标签)
+```
+解决方法：
+```bash
+git fetch --tags
+# 或者
+
+```

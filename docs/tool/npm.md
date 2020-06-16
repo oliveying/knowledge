@@ -96,6 +96,12 @@ rm -rf node_modules
 npm cache clean
 npm install
 ```
+## n安装node新增版本10.15.0
+```bash
+sudo n 10.15.0
+```
+## n切换node版本
+* 使用`n`,有本地安装的node版本列表，上下箭头选中，之后按`enter`
 
 ## npm install 报错时 先降级node，再升级node版本就行
 

@@ -405,3 +405,13 @@ git fetch --tags
 # 或者
 
 ```
+
+## git常用缩写
+
+```bash
+git status --- gst
+git stash save --- gsta
+git stash apply --- gstaa
+
+git pull --- gl
+```

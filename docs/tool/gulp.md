@@ -337,6 +337,80 @@ Gulp 由许多小模块组成，这些模块被拉到一起以实现内聚性工
     "gulp-watch": "^5.0.1",
   },
 ```
+### 匹配符 *、**、！、{}
+```js
+gulp.src('./js/*.js')               // * 匹配js文件夹下所有.js格式的文件
+gulp.src('./js/**/*.js')            // ** 匹配js文件夹的0个或多个子文件夹
+gulp.src(['./js/*.js','!./js/index.js'])    // ! 匹配除了index.js之外的所有js文件
+gulp.src('./js/**/{main,common}.js')        // {} 匹配{}里的文件名
+
+```
+### gulp-load-plugins
+* 用法
+```js
+// 1. package.json包含一些依赖
+{
+    "dependencies": {
+        "gulp-sass": "*",
+        "gulp-concat": "*"
+    }
+}
+// 2. 在gulpfile文件中引入gulp-load-plugins
+const gulp = require("gulp");
+const gulpLoadplugins = require("gulp-load-plugins");//gulpLoadplugins是定义的变量名，可自行修改
+const $ = gulpLoadplugins({
+  pattern: ['gulp-*'] // 将会在package.json中搜索gulp-开头的，直接使用$.sass去调用就行
+});
+```
+
+* 默认配置项
+```js
+gulpLoadPlugins({
+    DEBUG: false, // 设置为true时，该插件会将信息记录到控制台。 对于错误报告和问题调试很有用
+    pattern: ['gulp-*', 'gulp.*', '@*/gulp{-,.}*'], // 将会去搜索的数据
+    overridePattern: true, // 如果为true，则覆盖内置模式。 否则，扩展内置模式匹配器列表。
+    config: 'package.json', // 定义从哪里搜索插件
+    scope: ['dependencies', 'devDependencies', 'peerDependencies'], //在被搜索的文件中要去查看哪些键值
+    replaceString: /^gulp(-|\.)/, // 将模块添加到上下文时要从模块名称中删除的内容，例如gulp-rename在使用是为$.rename()即可，无需前缀
+    camelize: true, //如果为true，则将带连字符的插件名称转换为驼峰式
+    lazy: true, // 插件是否应按需延迟加载
+    rename: {}, //重命名插件的映射
+    renameFn: function (name) { ... }, //处理插件重命名的功能（默认有效）
+    postRequireTransforms: {}, // see documentation below
+    maintainScope: true // 切换加载所有npm范围，如非作用域包
+});
+```
+> https://juejin.im/post/5d9ece67f265da5b926bc9c2
+
+### gulp-sass 用法
+
+```js
+const gulp = require('gulp');
+const gulpLoadplugins = require("gulp-load-plugins");//gulpLoadplugins是定义的变量名，可自行修改
+const $ = gulpLoadplugins({
+  pattern: ['gulp-*'] // 将会在package.json中搜索gulp-开头的，直接使用$.sass去调用就行
+});
+
+gulp.task('style', function() {
+  const options = {
+    outputStyle: 'compressed'
+  }
+  gulp.src('/dist/*.scss')
+  .pipe($.sass(options).on('error', sass.logError)
+})
+
+```
+* gulp-sass 设置不同样式风格的输出方法
+嵌套输出方式 nested
+
+展开输出方式 expanded 
+
+紧凑输出方式 compact 
+
+压缩输出方式 compressed
+
+
+> https://www.cnblogs.com/jiaoshou/p/5917361.html
 
 ### gulp-load-plugins
 * 它的作用是自动require你在package.json中的插件:
@@ -353,16 +427,132 @@ gulp.src('./**/*.js')
 ### gulp-autoprefixer
 * 根据设置浏览器版本自动处理浏览器前缀
 ```js
-gulp.src([
-    path.join(conf.paths.src, '/public/css_route/*.scss')
-  ])
-    .pipe($.sass(watchSassOptions)).on('error', conf.errorHandler('Sass'))
-    .pipe($.autoprefixer()).on('error', conf.errorHandler('Autoprefixer'))
-    .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(debug({ title: 'Build Scss File: ' }))
-    .pipe(gulp.dest(path.join(conf.paths.src, '/public/styles')))
+var autoprefixer = require('gulp-autoprefixer');
+
+gulp.src('./css/*.css')
+    .pipe(autoprefixer())           // 直接添加前缀
+    .pipe(gulp.dest('dist'))
+
+gulp.src('./css/*.css')
+    .pipe(autoprefixer({
+        browsers: ['last 2 versions'],      // 浏览器版本
+        cascade：true                       // 美化属性，默认true
+        add: true                           // 是否添加前缀，默认true
+        remove: true                        // 删除过时前缀，默认true
+        flexbox: true                       // 为flexbox属性添加前缀，默认true
+    }))
+    .pipe(gulp.dest('./dist'))
 ```
 
+
+### gulp-rev 项目部署缓存解决方案
+描述：给静态资源文件名添加hash值:main.css => main-d41d8cd98f.css
+```js
+const gulp = require('gulp');
+const rev = require('gulp-rev');
+
+exports.default = () => (
+	gulp.src('src/*.css')
+		.pipe(rev())
+		.pipe(gulp.dest('dist'))
+    .pipe(rev.mainfest('css-prod.json'))
+    .pipe(gulp.dest('/lib'));
+);
+
+```
+* API
+
+### gulp-rev-replace 重写被gulp-rev重命名的文件名。
+```js
+var rev = require('gulp-rev');
+var revReplace = require('gulp-rev-replace');
+var useref = require('gulp-useref');
+
+gulp.src('index.html')
+    .pipe(useref())                         // 替换HTML中引用的css和js
+    .pipe(rev())                            // 给css,js,html加上hash版本号
+    .pipe(revReplace())                     // 把引用的css和js替换成有版本号的名字
+    .pipe(gulp.dest('./dist'))
+```
+
+### gulp-babel 将ES6代码编译成ES5。
+```js
+var babel = require('gulp-babel');
+
+gulp.src('./js/index.js')
+    .pipe(babel({
+        presets: ['es2015']
+    }))
+    .pipe(gulp.dest('./dist'))
+```
+
+### gulp-uglify 压缩js文件大小。
+```js
+var uglify = require("gulp-uglify");
+
+gulp.src('./hello.js')
+    .pipe(uglify())                 // 直接压缩hello.js
+    .pipe(gulp.dest('./dist'))
+
+ gulp.src('./hello.js')
+    .pipe(uglify({
+        mangle: true,               // 是否修改变量名，默认为 true
+        compress: true,             // 是否完全压缩，默认为 true
+        preserveComments: 'all'     // 保留所有注释
+    }))
+    .pipe(gulp.dest('./dist'))
+
+```
+### gulp-filter  在虚拟文件流中过滤文件。
+```js
+var filter = require('gulp-filter');
+
+const f = filter(['**', '!*/index.js']);
+gulp.src('js/**/*.js')
+    .pipe(f)                        // 过滤掉index.js这个文件
+    .pipe(gulp.dest('dist'));
+
+const f1 = filter(['**', '!*/index.js'], {restore: true});
+gulp.src('js/**/*.js')
+    .pipe(f1)                       // 过滤掉index.js这个文件
+    .pipe(uglify())                 // 对其他文件进行压缩
+    .pipe(f1.restore)               // 返回到未过滤执行的所有文件
+    .pipe(gulp.dest('dist'));       // 再对所有文件操作，包括index.js
+```
+
+### gulp-concat  合并文件。
+```js
+var concat = require('gulp-concat');
+
+gulp.src('./js/*.js')
+    .pipe(concat('all.js'))         // 合并all.js文件
+    .pipe(gulp.dest('./dist'));
+
+gulp.src(['./js/demo1.js','./js/demo2.js','./js/demo2.js'])
+    .pipe(concat('all.js'))         // 按照[]里的顺序合并文件
+    .pipe(gulp.dest('./dist'));
+
+```
+
+### gulp-rename 重命名文件。
+```js
+var rename = require("gulp-rename");
+
+gulp.src('./hello.txt')
+  .pipe(rename('gb/goodbye.md'))    // 直接修改文件名和路径
+  .pipe(gulp.dest('./dist')); 
+
+gulp.src('./hello.txt')
+  .pipe(rename({
+    dirname: "text",                // 路径名
+    basename: "goodbye",            // 主文件名
+    prefix: "pre-",                 // 前缀
+    suffix: "-min",                 // 后缀
+    extname: ".html"                // 扩展名
+  }))
+  .pipe(gulp.dest('./dist'));
+
+```
 ### gulp-clean-css用于css文件压缩
 使用参数配置
 ```js
@@ -387,6 +577,11 @@ gulp.task('cssmin', [], function(cb) {
 
 ### del
 删除文件及文件夹
+```js
+var del = require('del');
+
+del('./dist');  
+```
 
 ## yargs
 这个插件严格来说并不是专门用于gulp，它是Node中处理命令行参数的通用解决方案，只要一句代码 var args = require('yargs').argv;就可以让命令行的参数都放在变量args上，可以根据参数判断是测试环境还是正式环境。

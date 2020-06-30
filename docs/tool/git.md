@@ -93,7 +93,11 @@ git config --global --unset user.email
 然后在不同的仓库下设置局部的用户名和邮箱
 比如在公司的repository下git config user.name "yourname" git config user.email "youremail" 在自己的github的仓库在执行刚刚的命令一遍即可。
 这样就可以在不同的仓库，已不同的账号登录。
+## 查看直接的全局配置
 
+```bash
+git config -l --global
+```
 
 ## 设置远程git的方法
 > auth 杜若

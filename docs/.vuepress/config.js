@@ -217,6 +217,7 @@ module.exports = {
       '/develop/': [
         'wx',
         '反爬',
+        '跨域资源共享 CORS 详解',
         'egg',
         'require',
         'requireJs中文文档',

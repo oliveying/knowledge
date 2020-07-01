@@ -39,5 +39,5 @@ OK, nginx就安装好了，可以在浏览器访问了，默认端口为8080，
 ```bash
 /usr/local/etc/nginx 
 # 或者
-etc/nginx
+/etc/nginx
 ```

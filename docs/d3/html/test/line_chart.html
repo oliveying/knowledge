@@ -1,0 +1,60 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    svg rect {
+      fill: #0084ff;
+    }
+    svg text {
+      fill: #333;
+      font: 12px sans-serif;
+      text-anchor: end;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="svgcontainer">
+
+  </div>
+  <script src="../js/d3.v3.js" charset="utf-8"></script>
+
+  <script>
+    var data = [20,10,15,18];
+    var width = 300;
+    var barheight = 30
+    var scaleBar = 10;
+
+    var svg = d3.select('#svgcontainer')
+    .append('svg')
+    .attr('width', width)
+    .attr('height', barheight * data.length);
+
+    var line = svg.selectAll('g')
+    .data(data)
+    .enter()
+    .append('g')
+    .attr('transform', function(d, i) {
+      return 'translate(0, ' + (barheight * i) + ')'
+    });
+
+    line.append('rect')
+    .attr('width', function(d) { return d*scaleBar})
+    .attr('height', barheight - 1);
+
+    line.append('text')
+    .attr('x', function(d) {return d*scaleBar})
+    .attr('y', barheight/2)
+    .attr('dy', '.38em')
+    .text(function(d, i) {return d})
+
+  </script>
+</body>
+
+</html>

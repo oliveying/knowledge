@@ -1,0 +1,59 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    .hhh {
+      color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container" class="test abc">hello world</div>
+  <div class="test">hello</div>
+  <ul class="list">
+    <li></li>
+    <li></li>
+  </ul>
+  <input type="button" onclick="remove()" value="删除">
+  <script src="../js/d3.v3.js" charset="utf-8"></script>
+
+  <script>
+    // d3.select('.test').classed('hhh').append('span').html('<span >from d3.js</span>').attr('style', "color: red")
+    // d3.selectAll('.test').attr('style', 'color: yellow')
+
+
+    // var data = [10, 20, 43, 30, 15];
+    // d3.select('.list').
+    // selectAll('li')
+    // .data(data)
+    // .text(function(d) {return 'This is pre-existing element and the value is ' + d})
+    // .enter()
+    // .append('li')
+    // .text(function(d) {return 'after' + d});
+
+    // function remove () {
+    //   console.log('dd')
+    //   d3.select('.list').selectAll('li').data([43, 15]).exit().remove();
+    // }
+
+
+    var data = [1, 2, 3];
+         var paragraph = d3.select("body")
+         .selectAll("li")
+         .data(data)
+         .text(function (d, i) {
+            console.log("d: " + d);
+            console.log("i: " + i);
+            console.log("this: " + this);
+            return "The index is " + i + " and the data is " + d;
+         });
+  </script>
+</body>
+
+</html>

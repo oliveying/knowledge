@@ -223,7 +223,8 @@ module.exports = {
         'requireJs中文文档',
         'xml',
         'pm2',
-        'tongji'
+        'tongji',
+        'seo'
       ]
     }
   },

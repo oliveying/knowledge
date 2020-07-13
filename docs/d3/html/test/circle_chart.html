@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    svg rect {
+      fill: #0084ff;
+    }
+    svg text {
+      fill: #333;
+      font: 12px sans-serif;
+      text-anchor: end;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="svgcontainer">
+
+  </div>
+  <script src="../js/d3.v3.js" charset="utf-8"></script>
+
+  <script>
+    var svg = d3.select('#svgcontainer').append('svg')
+    .attr('width', 1000)
+    .attr('height', 1000);
+
+    svg.append('circle')
+    .attr('cx', 12)
+    .attr('cy', 50)
+    .attr('r', 10)
+    .attr('fill', '#0084ff')
+
+
+  </script>
+</body>
+
+</html>

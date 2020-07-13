@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .out {
+            background: blue;
+            width: 600px;
+            height: 300px;
+            line-height: 300px;
+            text-align: center;
+        }
+ 
+ 
+        .in {
+            background: yellow;
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            vertical-align: middle;
+        } */
+
+        /* .out {
+            background: blue;
+            width: 600px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+        }
+ 
+ 
+        .in {
+            background: yellow;
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            align-self: center;
+        } */
+
+        .out {
+            background: blue;
+            width: 600px;
+            height: 300px;
+            display: block;
+            text-align: center;
+        }
+ 
+ 
+        .out::before {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+        }
+ 
+        .in {
+            background: yellow;
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="out">
+        <div class="in"></div>
+    </div>
+</body>
+</html>

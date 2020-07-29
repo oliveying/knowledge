@@ -11,7 +11,7 @@ echo 'hello world'
 ```
 将上面的代码保存为 test.sh, 并 cd 到相应目录：
 ```bash
-chomd +x ./test.sh # 使脚本具有执行权限 ,注意一定要写成./test.sh
+chmod +x ./test.sh # 使脚本具有执行权限 ,注意一定要写成./test.sh
  ./test.sh # 执行脚本
 ```
 

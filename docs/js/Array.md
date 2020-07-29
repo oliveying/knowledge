@@ -296,3 +296,66 @@ console.log(sum) //60
   reverse()---反转数组的元素顺序。
   sort()---对数组的元素进行排序。
   splice()---用于插入、删除或替换数组的元素
+
+## 冒泡排序
+
+```js
+function bubbleSort ( data ) {
+    var temp = 0;
+    for ( var i = data.length ; i > 0 ; i -- ){
+        for( var j = 0 ; j < i - 1 ; j++){
+           if( data[j] > data[j + 1] ){
+               temp = data[j];
+               data[j] = data [j+1];
+               data[j+1] = temp;
+           }
+        }
+    }
+    return data;
+}
+```
+
+## 选择排序
+
+首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置。
+
+再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。
+
+重复第二步，直到所有元素均排序完毕
+```js
+function selectionSort(arr) {
+    var len = arr.length;
+    var minIndex, temp;
+    for (var i = 0; i < len - 1; i++) {
+        minIndex = i;
+        for (var j = i + 1; j < len; j++) {
+            if (arr[j] < arr[minIndex]) {     // 寻找最小的数
+                minIndex = j;                 // 将最小数的索引保存
+            }
+        }
+        temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+    return arr;
+}
+```
+
+## 插入排序
+
+```js
+//插入排序
+function insertionSort( data ) {
+    var len = data.length;
+    for (var i = 1; i < len; i++) {
+        var key = data[i];
+        var j = i - 1;
+        while ( j >= 0 && data[j] > key) {
+            data[j + 1] = data[j];
+            j--;
+        }
+        data[j + 1] = key;
+    }
+    return data;
+}
+```

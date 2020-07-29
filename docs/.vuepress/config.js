@@ -97,7 +97,8 @@ module.exports = {
         '概念总结',
         '懒加载',
         '翻页',
-        'promise、async、await、settimeout异步原理与执行顺序'
+        'promise、async、await、settimeout异步原理与执行顺序',
+        '性能优化'
       ],
       '/css/': [
         'css',
@@ -212,7 +213,8 @@ module.exports = {
         'rsync命令',
         'Linux下的tar压缩解压缩命令详解',
         'curl用法指南',
-        '安装flutter'
+        '安装flutter',
+        'grep'
       ],
       '/develop/': [
         'wx',

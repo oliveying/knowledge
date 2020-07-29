@@ -196,19 +196,3 @@ function interval() {
   window.setTimeout("interval();", 1000);
 }
 ```
-
-## 输入URL到页面渲染
-
-* *DNS解析
-* TCP三次握手建立连接
-* 发送http请求
-* 服务端处理并响应数据
-* 浏览器响应、解析数据，并渲染页面
-
-## 浏览器解析渲染页面过程
-* 解析HTML，生成DOM树
-* 解析CSS，生成CSSOM树
-* 将DOM树和CSSOM树关联，生成渲染树(Render Tree)
-* 布局render树（Layout/reflow），负责各元素尺寸、位置的计算
-* 绘制render树（paint），绘制页面像素信息
-* 将像素发送给GPU，展示在页面上。(Display)

@@ -98,7 +98,8 @@ module.exports = {
         '懒加载',
         '翻页',
         'promise、async、await、settimeout异步原理与执行顺序',
-        '性能优化'
+        '性能优化',
+        'url到页面的渲染过程'
       ],
       '/css/': [
         'css',

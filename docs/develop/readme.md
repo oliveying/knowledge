@@ -12,7 +12,7 @@
 
 ### 强制查询特定主机名
 ```html
-<link rel="dns-prefetch" href="http://www.spreadfirefox.com/">
+<link rel="dns-prefetch" href="http://cdn.spreadfirefox.com/">
 ```
 
 ## web开发会话跟踪的方法
@@ -126,3 +126,19 @@ $(window).scroll(function(){
 ```html
   <meta name="referrer" content="no-referrer" />// 隐藏来源页地址
 ```
+
+## 浏览器获取地理位置
+`API: navigator.geolocation`
+* 获取的信息：
+
+注意:
+
+1. 出于安全考虑，当网页请求获取用户位置信息时，用户会被提示进行授权。注意不同浏览器在请求权限时有不同的策略和方式。Windows10在未开启定位的情况下无法获取位置
+
+2. 在 Firefox 24 和之前的浏览器中，API 被禁止，在FireFox25中已经被修复
+
+3. 默认情况下，`getCurrentPosition()` 会尽快返回一个低精度结果。
+
+4. 页面必须在https下，并且用户选择拒绝授权，之后会一直返回用户拒绝授权，在浏览器中，只能清除位置信息
+
+

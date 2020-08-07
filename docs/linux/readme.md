@@ -75,3 +75,9 @@ echo $PATH
 确保Xcode许可协议是通过打开一次Xcode或通过命令sudo xcodebuild -license同意过了.
 
 使用Xcode，您可以在iOS设备或模拟器上运行Flutter应用程序。
+
+## 软命令
+```bash
+ln -s progrem current
+```
+

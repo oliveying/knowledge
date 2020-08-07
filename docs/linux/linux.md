@@ -283,3 +283,18 @@ cat
 less
 
 ```
+
+## 1、nslookup作用
+nslookup用于查询DNS的记录，查询域名解析是否正常，在网络故障时用来诊断网络问题
+```bash
+nslookup 10.2.2.2
+# 返回
+nslookup http://oliveying.com
+Server:         10.2.1.0
+Address:        10.2.1.10#31
+
+Non-authoritative answer:
+Name:   http://oliveying.com
+Address: 10.2.2.2
+```
+请求一个域名的接口时，报错，链接为ip地址（此链接为nginx层反相代理），则有可能是nginx反响代理之后报错

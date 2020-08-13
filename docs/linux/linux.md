@@ -284,7 +284,7 @@ less
 
 ```
 
-## 1、nslookup作用
+## 1、nslookup作用 反向域名解析
 nslookup用于查询DNS的记录，查询域名解析是否正常，在网络故障时用来诊断网络问题
 ```bash
 nslookup 10.2.2.2

@@ -3,6 +3,14 @@
 > 译文：[https://juejin.im/post/5cc64083f265da038a1480bd?utm_medium=fe&utm_source=weixinqun](https://juejin.im/post/5cc64083f265da038a1480bd?utm_medium=fe&utm_source=weixinqun)
 > 原文：[https://dev.to/emmawedekind/regex-cheat-sheet-2j2a](https://dev.to/emmawedekind/regex-cheat-sheet-2j2a)
 
+* 强烈建议使用常量，如`/^a*b+/g$/` 来定义正则表达式，这样不仅语法简单，执行效率也更高。RegExp()有时还是很有用的，比如动态定义正则表达式值
+```js
+var name = 'kyle';
+var namePattern = new RegExp('\\b(?:)' + name + ')+\\b', 'ig');
+
+var matches = someText.match(namePattern);
+```
+
 * 正则表达式或“regex”用于匹配字符串的各个部分 下面是我创建正则表达式的备忘单。
 
 ## 匹配正则

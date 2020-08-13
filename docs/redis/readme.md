@@ -39,3 +39,4 @@ $ launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
 $ redis-cli ping
 ```
 
+## redis 插件， 可以先在github查找node redis相关

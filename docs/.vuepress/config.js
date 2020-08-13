@@ -228,7 +228,8 @@ module.exports = {
         'xml',
         'pm2',
         'tongji',
-        'seo'
+        'seo',
+        'json'
       ]
     }
   },

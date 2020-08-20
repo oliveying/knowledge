@@ -41,6 +41,8 @@ this.redis.hset(key, field, value)：向名称为key的hash中添加元素field<
 ## SET
 set(key, value)：给数据库中名称为key的string赋予值value
 
+## pttl
+pttl(key): 得到key的过期时间
 ## INCR
 incr(key)：名称为key的string增1操作
 

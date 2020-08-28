@@ -17,6 +17,33 @@ console.log(buf2.toString());
 // 打印: buffer
 ```
 
+## gulp-inject 利用注释来寻找插入的位置。获取源文件流，将每个文件转换为字符串，并将每个转换后的字符串注入目标流文件中的占位符
+> https://www.cnblogs.com/jiaoshou/p/12041606.html
+```bash
+npm install --save-dev gulp-inject
+
+```
+```html
+  <!-- inject:js -->
+  <!-- endinject -->
+
+```
+```js
+//  gulpfile.js文件
+var gulp = require('gulp');
+var inject = require('gulp-inject');
+
+gulp.task('index', function() {
+  var target = gulp.src('./src/index.html');
+    //不需要读取文件（这会加快速度），我们只需要查看它们的路径：
+
+  var sources = gulp.src(['./src/**/*.js', './src/**/*.css'], {read: false});
+
+  return target.pipe(inject(sources))
+    .pipe(gulp.dest('./src'));
+
+})
+```
 ## through2用法
 ```js
 gulp.task('rewrite', () => {

@@ -122,7 +122,7 @@ module.exports = {
       ],
       '/h5/': [
         'h5',
-        '处理移动端样式及内嵌app总结_20190920',
+        '处理移动端样式及内嵌app总结',
         '小程序',
         'h5和移动端通信方式'
       ],
@@ -211,6 +211,7 @@ module.exports = {
         'linux',
         'linux下的ps',
         'sh',
+        'shell命令',
         'rsync',
         'rsync命令',
         'Linux下的tar压缩解压缩命令详解',

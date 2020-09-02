@@ -99,7 +99,8 @@ module.exports = {
         '翻页',
         'promise、async、await、settimeout异步原理与执行顺序',
         '性能优化',
-        'url到页面的渲染过程'
+        'url到页面的渲染过程',
+        '容易出错问题总结'
       ],
       '/css/': [
         'css',

@@ -419,3 +419,52 @@ git stash apply --- gstaa
 
 git pull --- gl
 ```
+
+## git shortlog -s -n
+这个命令会返回这个 git repository 底下每个用户进行 commit 的次数，以及每次 commit 的注释。
+
+-s 参数省略每次 commit 的注释，仅仅返回一个简单的统计。
+
+-n 参数按照 commit 数量从多到少的顺利对用户进行排序
+
+## git clean -dfx
+用于强制清洗当前工作区不受git管理的文件或目录，帮助git将当前工作区干净的回退到指定commit version。
+
+## git 命令简写
+
+|简写|命令|
+|:---|:---|:---|
+|g|git|
+|gst| git status|
+|gd|git diff|
+|gl|git pull|
+|gup|git pull --rebase|
+|gp|git push|
+|gcmsg|git commit -m|
+|gco|git checkout|
+|gr|git remote|
+|grv| git remote -v|
+|grmv|git remote rename|
+|grset|git remote remove|
+|grset|git remote set-url|
+|grup|git remote update|
+|grbi|git rebase -i|
+|grbc|git rebase --continue|
+|grba|git rebase --abort|
+|gb|git branch|
+|gba|git branch -a|
+|gcount|git shortlog -sn 查看|
+|gcl|git config --list|
+|gcp|git cherry-pick|
+|glg|git log --stat --max-count=10|
+|glgg|git log --graph --decorate --all|
+|glgga|git log --graph --decorate --all|
+|glo|git log --oneline --decorate --color|
+|glog|git log --oneline --decorate --color --graph|
+|gss|git status -s|
+|ga|git add|
+|gm|git merge|
+|grh|git reset HEAD|
+|grhh|git reset HEAD --hard|
+|gclean|git reset --hard && git clean -dfx|
+|gsta	|git stash|

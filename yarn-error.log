@@ -1,30 +1,20 @@
 Arguments: 
-  /usr/local/bin/node /Users/apple/.yarn/bin/yarn.js add plantomjs --save-dev
+  /usr/local/bin/node /Users/apple/.yarn/bin/yarn.js install
 
 PATH: 
-  /Users/apple/.yarn/bin:/Users/apple/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+  /Users/apple/.yarn/bin:/Users/apple/.config/yarn/global/node_modules/.bin:/usr/apple/opt/opencv@2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/apple/.yarn/bin:/Users/apple/.config/yarn/global/node_modules/.bin:/usr/apple/opt/opencv@2/bin
 
 Yarn version: 
-  1.15.2
+  1.22.1
 
 Node version: 
-  8.9.4
+  8.16.0
 
 Platform: 
   darwin x64
 
 Trace: 
-  Error: https://registry.npm.taobao.org/plantomjs: Not found
-      at Request.params.callback [as _callback] (/Users/apple/.yarn/lib/cli.js:66058:18)
-      at Request.self.callback (/Users/apple/.yarn/lib/cli.js:129541:22)
-      at emitTwo (events.js:126:13)
-      at Request.emit (events.js:214:7)
-      at Request.<anonymous> (/Users/apple/.yarn/lib/cli.js:130513:10)
-      at emitOne (events.js:116:13)
-      at Request.emit (events.js:211:7)
-      at IncomingMessage.<anonymous> (/Users/apple/.yarn/lib/cli.js:130435:12)
-      at Object.onceWrapper (events.js:313:30)
-      at emitNone (events.js:111:20)
+  Error: EACCES: permission denied, mkdir '/Users/apple/Documents/work/guide/node_modules/@babel/core/node_modules/arr-diff'
 
 npm manifest: 
   {
@@ -58,6 +48,7 @@ npm manifest:
     },
     "devDependencies": {
       "@vuepress/plugin-google-analytics": "^1.0.0-alpha.0",
+      "async": "^3.2.0",
       "gh-pages": "^2.0.1"
     }
   }

@@ -22,3 +22,8 @@ mime.getExtension('text/plain');        // ⇨ 'txt' 查询文件护展名mime.g
 ![package](./images/package.png)
 
 2. Node 能把模块作为对象缓存起来。如果程序中的两个文件引入了相同的模块，第一个文件会把模块返回的数据存在程序的内存中。这样第二个文件就不会再去访问和计算模块的源文件了。实际上第二个引入有机会修改缓存的数据。这种“猴子布丁”（monkey patching）让一个模块可以改变另一个模块的行为，开发人员可以不用创建它的新版本。
+
+## node 查找模块的步骤
+
+![node 查找模块的步骤](./images/module.png)
+node.js实战 2.5

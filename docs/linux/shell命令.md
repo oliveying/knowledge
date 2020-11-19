@@ -227,3 +227,10 @@ abc:::def:::galsl djks
 
 [root@xuexi ~]# echo $var
 ```
+
+## 给文件夹下的sh权限
+
+```bash
+cd ~/bin # 进入bin目录下
+chmod -R 777 文件名/目录  # 可读可写可执行
+```

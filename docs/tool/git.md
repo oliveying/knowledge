@@ -20,9 +20,7 @@ ssh-keygen -t rsa -C "yourmail@gmail.com"
     这里不要一路回传，让你选择在哪里选择存放key的时候写个名字，比如 id_rsa_github，之后的两个可以回车。
 完成之后我们可以看到~/.ssh目录下多了两个文件
     ~/.ssh目录下的文件
-```bash
 ![step1](./step1.png)
-```
 
 
 * 生成第二个ssh key（这里我用于gitlab，用的是公司邮箱）
@@ -468,3 +466,10 @@ git pull --- gl
 |grhh|git reset HEAD --hard|
 |gclean|git reset --hard && git clean -dfx|
 |gsta	|git stash|
+
+## 放弃文件修改
+
+放弃所有文件修改
+`git checkout .`
+放弃单个文件修改
+`git checkout -- filepathname`

@@ -41,6 +41,7 @@ module.exports = {
           {text: 'html', link: '/html/'},
           {text: 'css', link: '/css/'},
           { text: 'javascript', link: '/js/' },
+          { text: 'javascriptHigh', link: '/jsHigh/' },
           {text: 'h5最新用法', link: '/h5/'},
           {text: 'node', link: '/node/'},
           {text: '浏览器特性', link: '/brower/'},
@@ -83,6 +84,9 @@ module.exports = {
         '操作符',
         '上下滚动',
         '左右滚动'
+      ],
+      'js': [
+        '基础字符',
       ],
       '/brower/': [
         '浏览器特性',
@@ -218,7 +222,8 @@ module.exports = {
         'Linux下的tar压缩解压缩命令详解',
         'curl用法指南',
         '安装flutter',
-        'grep'
+        'grep',
+        '编写脚本欢迎界面'
       ],
       '/develop/': [
         'wx',

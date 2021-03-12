@@ -40,4 +40,6 @@ OK, nginx就安装好了，可以在浏览器访问了，默认端口为8080，
 /usr/local/etc/nginx 
 # 或者
 /etc/nginx
+# 重启nginx
+brew services restart nginx
 ```

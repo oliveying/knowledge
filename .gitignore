@@ -10,3 +10,5 @@ dist/*
 
 exec/
 exec/*
+.history
+

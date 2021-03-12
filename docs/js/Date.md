@@ -96,6 +96,12 @@ function formatDate(time) {
     return str;
   },
 ```
+* 设置过期时间为第二天凌晨
+```js
+const expires = new Date(
+      +new Date() + 86400000 -
+      (new Date().getHours()*60*60 + new Date().getMinutes()*60 + new Date().getSeconds())*1000);
+```
 参考：[https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
 

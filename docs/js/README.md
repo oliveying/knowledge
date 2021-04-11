@@ -295,5 +295,21 @@ function Person(name) {
   }
 }
 ```
+## 清除前后空格，（兼容所有浏览器）
+```js
+String.prototype.trim = String.prototype.trim || function () {
+  return this.replace(/^\s+|\s+$/g, '');
+}
+```
+## 定义一个log方法，让他可以代替console.log
+```js
+function log() {
+  console.log.apply(console, arguments);
+}
+```
+## 为什么要使用事件委托
+避免内存泄漏（ie9一下）
+减少事件数量
+预测未来元素
 
 > https://wangdoc.com/javascript/oop/prototype.html

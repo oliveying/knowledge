@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /Users/apple/.yarn/bin/yarn.js install
+  /usr/local/bin/node /Users/apple/.yarn/bin/yarn.js add live-server -S
 
 PATH: 
   /Users/apple/.yarn/bin:/Users/apple/.config/yarn/global/node_modules/.bin:/usr/apple/opt/opencv@2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/apple/.yarn/bin:/Users/apple/.config/yarn/global/node_modules/.bin:/usr/apple/opt/opencv@2/bin
@@ -8,7 +8,7 @@ Yarn version:
   1.22.1
 
 Node version: 
-  8.16.0
+  10.19.0
 
 Platform: 
   darwin x64

@@ -25,6 +25,24 @@ overflow2 {
   -webkit-box-orient: vertical;
 }
 ```
+```scss
+@mixin multi-line-ellipsis($lineHeight:22px,$line:2) {
+
+  line-height: $lineHeight;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  line-clamp: $line;
+  -webkit-box-orient: vertical;
+  max-height: $line * $lineHeight;
+  display: inline-block \9
+;
+  display: -moz-inline-block;
+
+}
+
+```
 所遇问题
 > -webkit-box-orient: vertical 在使用 webpack 打包的时候这段代码会被删除掉，原因是 optimize-css-assets-webpack-plugin 这个插件的问题。
 

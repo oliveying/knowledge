@@ -237,7 +237,8 @@ module.exports = {
         'pm2',
         'tongji',
         'seo',
-        'json'
+        'json',
+        'videojs'
       ]
     }
   },

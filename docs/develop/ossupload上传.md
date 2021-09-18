@@ -202,4 +202,52 @@ const uploadBlob = function ($this, options, callback) {
     };
 ```
 
+## 获取file对象的URL
+```html
+<input id="upload_file" type="file" accept="image/*"  />
 
+```
+* 获取input选择图片地址，并创建Image对象
+
+
+```js
+
+//获取file对象URL 
+  $('#upload_file').change(function () {
+    var url， imgbase64;
+    
+	//获取file对象URL 
+    if (navigator.userAgent.indexOf("MSIE") >= 1) { // IE
+        url = document.getElementById('upload_file').value;
+    } else if (navigator.userAgent.indexOf("Firefox") > 0) { // Firefox
+        url = window.URL.createObjectURL(document.getElementById('upload_file').files.item(0));
+    } else if (navigator.userAgent.indexOf("Chrome") > 0) { // Chrome
+        url = window.URL.createObjectURL(document.getElementById('upload_file').files[0]);
+    }
+	
+	// 创建Image对象
+    var image = new Image();
+    image.src = url;
+    image.onload = function () {
+        imgbase64 = getBase64Image(image);
+    } 
+});
+
+```
+* 获取选择图片base64数据
+
+```js
+function getBase64Image(img) {
+    var canvas = document.createElement("canvas");
+    var width = img.naturalWidth || img.width;
+    var height = img.naturalHeight || img.height;
+    canvas.width = width;
+    canvas.height = height;
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0, width, height); // 绘制图像
+    
+    var ext = img.src.substring(img.src.lastIndexOf(".") + 1).toLowerCase(); // 图片格式
+    var dataURL = canvas.toDataURL("image/" + ext); // 包含图片展示的 data URI
+    return dataURL;
+}
+```

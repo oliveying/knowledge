@@ -238,7 +238,8 @@ module.exports = {
         'tongji',
         'seo',
         'json',
-        'videojs'
+        'videojs',
+        'js保存文件'
       ]
     }
   },

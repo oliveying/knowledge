@@ -92,3 +92,8 @@ Cookies.remove('name', { path: '' }) // removed!
 Cookies.remove('name', { path: '', domain: '.yourdomain.com' })
 # 删除一个不存在的Cookie既不会引发异常，也不会返回任何值。
 ```
+
+## videojs
+## base64 转码
+`https://github.com/dankogai/js-base64`
+

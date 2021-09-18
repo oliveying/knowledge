@@ -10,9 +10,9 @@
 
 "https://vjs.zencdn.net/7.15.4/video-js.min.css"
 ```
-* Video.js 是一个通用的在网页上嵌入视频播放器的 JS 库，Video.js 自动检测浏览器对 HTML5 的支持情况，如果不支持 HTML5 则自动使用 Flash 播放器。
 
-在页面中引用样式及js文件
+* Video.js 是一个通用的在网页上嵌入视频播放器的 JS 库，Video.js 自动检测浏览器对 HTML5 的支持情况，如果不支持 HTML5 则自动使用 Flash 播放器。
+### 在页面中引用样式及js文件
 ```html
 
 <link href="video-js.css" rel="stylesheet" type="text/css">
@@ -25,7 +25,7 @@
 
 ```
 
-* poster="**"播放初始图。可使用三种视频格式，根据所需要格式选择对应的。
+### poster="**"播放初始图。可使用三种视频格式，根据所需要格式选择对应的。
 ```js
 <video id="my-player" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
       poster="http://video-js.zencoder.com/oceans-clip.png"
@@ -39,7 +39,7 @@
 
 ```
 
-* 设置自动播放将下面代码加到html中代码后面
+### 设置自动播放将下面代码加到html中代码后面
 
 ```js
 var myPlayer = videojs('my-player');
@@ -143,7 +143,7 @@ var videoPlayer = videojs(
 
 ```
 
-* 动态切换视频
+### 动态切换视频
 ```js
 var data = {
     src: 'xxx.mp4',
@@ -160,7 +160,18 @@ var data = {
   // 销毁videojs
   //player.dispose();
 ```
-* 解决在iPhone中播放时自动全屏问题
+### 设置video播放语言中文
+```js
+videojs.addLanguage("zh-CN",{
+  Play: "播放",
+  Pause: "暂停",
+  "Current Time": "当前时间",
+}
+configVideo = {
+    language: "zh-CN",
+}
+```
+### 解决在iPhone中播放时自动全屏问题
 视频在微信点击播放时，会以模态框弹出再播放。
 
 解决办法就是在video标签中添加playsinline="true"属性。
@@ -186,17 +197,17 @@ var data = {
 
    触发事件this.trigger(‘dispose‘)
 
-* techCanOverridePoster 和source 平级  boolean
+### techCanOverridePoster 和source 平级  boolean
 
 使技术人员有可能覆盖玩家的海报并融入玩家的海报生命周期。当使用多个技术时，这可能很有用，每个技术都必须在播放新源时设置自己的海报
 
-* techOrder
+### techOrder
 
 输入：Array，默认值：[‘html5’]
 
 定义Video.js技术首选的顺序。默认情况下，这意味着Html5首选技术。其他注册的技术将在此技术之后按其注册顺序添加。
 
-* vtt.js
+### vtt.js
 
 类型： string
 
@@ -206,7 +217,7 @@ var data = {
 
 
 组件参数
-* children
+### children
 
 类型： Array|Object
 
@@ -233,7 +244,7 @@ videojs('my-player', {
   }
 });
 ```
- * ${componentName}
+ ### ${componentName}
 
 类型： Object
 
@@ -247,7 +258,7 @@ videojs('my-player', {
 ```
 技术选择
 
-* ${techName}
+### ${techName}
 
 类型： Object
 
@@ -255,7 +266,7 @@ Video.js回放技术（即“技术”）可以作为传递给该videojs功能�
 
 flash
 
-* swf
+### swf
 指定Video.js SWF文件在Flash技术位置的位置：
 ```js
 videojs('my-player', {
@@ -270,25 +281,25 @@ videojs.options.flash.swf = ‘//path/to/videojs.swf’
 ```
 html5
 
-* nativeControlsForTouch
+### nativeControlsForTouch
 
 类型： boolean
 
 只有技术支持Html5，此选项可以设置true为强制触摸设备的本机控件。
 
-* nativeAudioTracks
+### nativeAudioTracks
 
 类型： boolean
 
 可以设置为false禁用本机音轨支持。最常用于videojs-contrib-hls。
 
-* nativeTextTracks
+### nativeTextTracks
 
 类型： boolean
 
 可以设置为false强制模拟文本轨道而不是本机支持。该nativeCaptions选项也存在，但只是一个别名nativeTextTracks、
 
-* nativeVideoTracks
+### nativeVideoTracks
 
 类型： boolean
 

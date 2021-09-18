@@ -349,7 +349,7 @@ node r.js -o build.js
 ## html5shiv 让ie6-ie8支持h5标签
 ```html
 <!--[if lt IE 9]>
-<script src="https://cdn.tianyancha.com/js-cdn/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://github.com/aFarkas/html5shiv"></script>
 <![endif]-->
 
 ```

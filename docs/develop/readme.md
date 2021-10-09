@@ -142,3 +142,61 @@ $(window).scroll(function(){
 4. 页面必须在https下，并且用户选择拒绝授权，之后会一直返回用户拒绝授权，在浏览器中，只能清除位置信息
 
 
+## 复制剪切板
+https://zenorocha.github.io/clipboard.js
+
+* 点击复制
+
+```html
+<div class="copy-it"
+data-clipboard-action="copy"
+data-clipboard-target="#copyTag"></div>
+<input id="copyTag"/>
+```
+```js
+
+//  引入ClipboardJS
+function startCopy(text) {
+      $("#copyTag").val(text);
+      if (!ClipboardJS) return;
+      
+      const clipboard = new ClipboardJS(".copy-it");
+      clipboard.on("success", (e) => {
+        alert("复制成功");
+        e.clearSelection();
+        // 销毁
+        clipboard.destroy();
+      });
+
+      clipboard.on("error", (e) => {
+        // console.log("该系统暂不支持复制", 1500);
+        // console.error("Action:", e.action);
+        // console.error("Trigger:", e.trigger);
+      });
+    }
+```
+
+## git CR MR
+CR : code review
+MR: merge request
+
+## 迁移仓库代码
+1. 把git上的代码提交到远程分支上
+2. 在gitlab项目的分支上添加upstream分支指向原 git上仓库的地址 ：  git remote add upstream git@***.git
+3. 执行git fetch upstream 
+4. 最后 merge到gitlab上的分支上,test 为要合并的分支，git merge upstream/test 
+
+## vconsole
+手机上弹出报错信息只能alert， 不友好
+通过vConsole.js 重写console方法，实现了类似于微信小程序的移动端调试效果。
+```html
+<script src="https://cdn.bootcdn.net/ajax/libs/vConsole/3.9.0/vconsole.min.js"></script>
+<script>
+    // init vConsole
+    var vConsole = new VConsole();
+    console.log('Hello world');
+</script>
+
+```
+
+

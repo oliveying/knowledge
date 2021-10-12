@@ -198,5 +198,5 @@ MR: merge request
 </script>
 
 ```
-
-
+## 常见乱码背后的转码问题
+![常见乱码及原因]](./images/乱码.jpg);

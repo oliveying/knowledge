@@ -255,3 +255,64 @@ $ npx github:piuccio/cowsay hello
 ```
 注意，远程代码必须是一个模块，即必须包含package.json和入口脚本。
 > http://www.ruanyifeng.com/blog/2019/02/npx.html
+
+## npm 私服搭建及介绍
+npm私服必要性
+1. 如果公司处于隐私保护的需要，不想将自己封的包推到npm社区，但又急需要一套完整的包管理工具来管理越来越多的组件，模块，项目。对于前端，最熟悉的莫过于npm,bower等，但是bower的市场明显没有npm强大的，npm是前端包管理的不二选择 。
+2. 下过node库的人都懂，从npmjs上下载有多慢，所以大家会用cnpm从淘宝那下，但有比淘宝更快的方法是从局域网的私服下。
+3. 当我们搭好了这套私服管理工具之后有什么优势呢？
+
+私有包托管在我们的私服上，不对外。
+项目中使用的所有包可以缓存在我们的私服上，然后大家下包的时候走私服，不用走npmjs了。速度快上七八倍不在话下。
+对于下载和发布npm包都有了相应的权限管理。
+npm私服搭建过程
+1. 安装node环境
+
+2. 安装verdaccio 
+
+```code
+npm install -g verdaccio --unsafe-perm （加上–unsafe-perm的原因是防止报grywarn权限的错）
+```
+3. 修改配置文件，verdaccio所有配置文件都在这个文件中，配置文件中自带注释信息，配置文件目录 /root/.config/verdaccio/config.yaml（备注：verdaccio 的特点是，你在哪个目录运行，它的就会在对应的目录下创建自己的文件）
+4. 在配置文件最后添加监听端口 listen: 0.0.0.0:8080
+
+5. 启动verdaccio，命令如下：
+
+* verdaccio
+1. pm2守护verdaccio进程
+
+利用第一种方法虽然可以正常启动和使用verdaccio，但不建议用这种方式启动verdaccio，我们可以用pm2来使用pm2对verdaccio进程进行托管启动。
+安装pm2并使用pm2启动verdaccio，使用pm2托管的进程可以保证进程永远是活着的，尝试通过kill -9去杀verdaccio的进程发现杀了之后又自动启起来。推荐使用此种方式启动verdaccio
+
+#### 安装pm2
+```bash
+npm install -g pm2 --unsafe-perm
+```
+#### 使用pm2启动verdaccio
+
+```bash
+pm2 start verdaccio
+```
+#### 查看pm2 守护下的进程verdaccio的实时日志
+
+```bash
+pm2 show verdaccio
+# 实时查看该路径下的日志命令
+tail -f /home/admin/.pm2/logs/verdaccio-out-0.log
+```
+7. 添加用户
+```bash
+npm adduser --registry http://192.168.XX.XX:8080       ### 后面是我们的私服地址
+```
+类似如下：
+```bash
+Username: lk
+Password:
+Email: (this IS public) lk@qq.com
+Logged in as rong on http://192.168.XX.XX:8080/.
+```
+到这里npm私服搭建就完毕了然后在verdaccion启动页面尝试登录即可，默认登录后有发布包的权限。(这里可以通过修改config.yaml配置文件来对权限进行设置)
+
+备注：服务器中一定要安装Python，版本必须大于2，因为verdaccio有用到python
+
+(原文)[https://www.cnblogs.com/dearxinli/p/11170359.html]

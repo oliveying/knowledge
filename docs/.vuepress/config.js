@@ -123,6 +123,7 @@ module.exports = {
         'gulp',
         'command',
         'ssh',
+        'easywebpack',
         // 'mobile',
         'webstorm'
       ],

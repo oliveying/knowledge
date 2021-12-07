@@ -266,3 +266,56 @@ window.stopScroll = function () {
 
 * 优点： 克服了第一种方法的缺点
 * 缺点：在弹框弹出和隐藏时，由于页面发生了 top 和页面滚动，所以页面会有闪烁的情况。 // 目前我们使用的是这种
+
+
+### 某些机型不支持video标签的poster属性，特别是安卓
+
+用图片元素 `<img />`来代替poster
+播放前显示`<img />`，隐藏 `<video />`
+播放后显示`<video />`，隐藏 `<img />`
+
+### iphonex适配
+```html
+ <!-- 1.viewport meta 标签增加属性viewport-fit=cover -->
+<meta name="viewport" content="width=device-width, viewport-fit=cover, xxxx">
+<!-- 2.body元素增加样式 -->
+<style>
+  body {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+/* 3.如有fixed底部的元素，也增加上面样式 */
+.xxx {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+  background-color: #fff; // 记得添加background-color，不然会出现透明镂空的情况
+}
+</style>
+
+```
+
+### CSS透明度颜色设置问题
+Android部分不支持 hex写法，推荐用rgba的写法
+
+#0000009c --> rgba(0, 0, 0, 0.61)
+
+### flex对低版本的ios和Android的支持问题
+
+使用postcss的autoprefixer插件，自动添加浏览器内核前缀，
+并且增加更低浏览器版本的配置，自动添加flex老版本的属性和写法
+```json
+
+autoprefixer({
+    browsers: [
+        'iOS >= 6',     // 特殊处理支持低版本IOS
+        'Safari >= 6',  // 特殊处理支持低版本Safari
+    ],
+}),
+
+```
+
+### ios 日期转换NAN的问题
+将日期字符串的格式符号替换成'/'。
+栗子：'yyyy-MM-dd'.replace(/-/g, '/')
+
+

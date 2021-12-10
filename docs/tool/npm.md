@@ -1,3 +1,16 @@
+## .npmrc用法
+
+~/.npmrc的配置，npm install安装失败可尝试使用此配置
+
+```js
+home=https://npm.taobao.org
+registry=https://registry.npm.taobao.org/
+// 中国npm镜像
+registry = "https://registry.npmmirror.com"
+// 设置npm私服镜像
+@project-pc:registry = "http://registry.td.com/repository/npm-group/"
+@other:registry = "http://registry.td.com/repository/npm-group/"
+```
 ## 安装淘宝源地址
 ```bash
 npm config set registry=https://registry.npm.taobao.org

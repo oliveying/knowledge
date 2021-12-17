@@ -85,3 +85,9 @@ SSH协议是如何应对的呢？
 
 ## 配置bash_profile文件
 sudo vi ~/.bash_profile
+
+## 安装xcode命令行
+```bash
+xcode-select --install
+
+```

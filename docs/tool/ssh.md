@@ -82,3 +82,6 @@ SSH协议是如何应对的呢？
 每个SSH用户都有自己的known_hosts文件，此外系统也有一个这样的文件，通常是/etc/ssh/ssh_known_hosts，保存一些对所有用户都可信赖的远程主机的公钥。
 
 ## SSH客户端包含ssh连接命令和远程拷贝scp命令等
+
+## 配置bash_profile文件
+sudo vi ~/.bash_profile

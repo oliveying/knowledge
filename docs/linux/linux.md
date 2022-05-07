@@ -415,4 +415,8 @@ linux命令技巧--df -lh：
 ## 全局查找关键词
 ps -ef | grep 关键词
 
+
+统计文件数 ： git ls-files | wc -l
+统计行数：git ls-files|grep -v pdf|egrep -v "png|ftl|gif|xlsx|xls|doc" | xargs cat | wc -l
+
 > https://www.cnblogs.com/jxhd1/p/6700300.html

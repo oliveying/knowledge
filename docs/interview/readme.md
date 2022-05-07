@@ -392,3 +392,13 @@ Promises对象是CommonJS工作组提出的一种规范，目的是为异步编�
 7. 普通函数例子：因为没有返回值，所以为undefined
 8. 构造函数例子：构造函数会马上创建一个新对象，并将该新对象作为返回值返回
 9. 用 `instanceof`可以检查一个对象是否是一个类的实例，是则返回ture；所有对象都是Object对象的后代，所以任何对象和Object做 `instanceof` 都会返回ture
+
+## 匹配html里的id
+```js
+var regexp = /id="[^"]*"/
+undefined
+var b = `<div id="hhh" class="abc"></div>`
+undefined
+b.match(regexp)
+
+```

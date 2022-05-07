@@ -46,6 +46,7 @@ module.exports = {
           {text: 'node', link: '/node/'},
           {text: '浏览器特性', link: '/brower/'},
           {text: 'd3', link: '/d3/'},
+          {text: 'typescript', link: '/typescript/'},
         ]
       },
       {text: '总结', items: [
@@ -87,6 +88,9 @@ module.exports = {
       ],
       'js': [
         '基础字符',
+      ],
+      'js': [
+        'typescript',
       ],
       '/brower/': [
         '检测浏览器方法',

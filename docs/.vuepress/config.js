@@ -129,7 +129,9 @@ module.exports = {
         'ssh',
         'easywebpack',
         // 'mobile',
-        'webstorm'
+        'webstorm',
+        '脚手架流程',
+        'lerna'
       ],
       '/h5/': [
         'h5',
@@ -144,7 +146,8 @@ module.exports = {
         '处理提交的表单域',
         'node-request模块',
         'ali-oss模块',
-        'node遍历文件夹并读取文件内容'
+        'node遍历文件夹并读取文件内容',
+        'nodemodule',
       ],
       '/redis/': [
         'egg-redis常用命令'

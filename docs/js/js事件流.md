@@ -171,6 +171,7 @@ btn.onclick = function(e){
 |:---|:----|:---|:---|
 |currentTarget| Element|只读|事件处理程序当前正在处理事件的那个元素（始终等于this）|
 |preventDefault()|Function|只读 | 取消事件默认行为,比如链接的跳转|
+|stopImmediatePropagation|Function|只读|事件响应优先级,一个按钮绑定两个事件，在其中一个事件回调中调用此方法，另一个事件不会执行。| 
 |stopPropagation()|Function|只读 |取消事件冒泡|
 |target|Element|只读 | 事件的目标|
 

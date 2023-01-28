@@ -64,6 +64,7 @@ function _new(/* 构造函数 */ constructor, /* 构造函数参数 */ params) {
   // 如果返回结果是对象，就直接返回，否则返回 context 对象
   return (typeof result === 'object' && result != null) ? result : context;
 }
+
 ```
 ## 对象的拷贝
 如果要拷贝一个对象，需要做到下面两件事情。
